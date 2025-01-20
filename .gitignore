@@ -1,0 +1,9 @@
+# Ignore compiled Python files
+*.pyc
+
+# Ignore SQLite database files (if applicable)
+*.sqlite3
+*.db
+
+# Ignore files in the media/home directory
+media/home/

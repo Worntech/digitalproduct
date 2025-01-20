@@ -1,0 +1,413 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Worntech Online || About us</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+    
+
+</head>
+
+<body>
+
+    <!-- Preloader -->
+
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+
+    <!-- End Header Area -->
+
+
+    {% comment %} <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay" style="background: url('{% static "web/images/web1.jpg" %}');>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">About Us</h1>
+                        <p>Sell &amp; Buy All digital product for every Purpose</p>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li>About Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs --> {% endcomment %}
+
+    <!-- Start About Us Area -->
+    <section class="about-us section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div class="about-left">
+                        <div class="about-title align-left">
+                            <span class="wow fadeInDown" data-wow-delay=".2s">About Us</span>
+                            <h2 class="wow fadeInUp" data-wow-delay=".4s">Buy and Sell with Us</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".6s">We provide access for everyone to sell &amp; buy all digital product from all country and every region in the world, Every one earn from his/her selling, And every user has access to sell and buy digital producs.</p>
+                            <p class="qote wow fadeInUp" data-wow-delay=".8s">It is simple to get started, create account &amp; Login, Then start selling product by posting your own digital product in our system, Or if you want to buy digital product you can easy check the product you want and pay for it</p>
+                            <div class="button wow fadeInUp" data-wow-delay="1s">
+                                <a href="{% url 'allproduct' %}" class="btn">All Product</a>
+                                <a href="#" class="glightbox video btn"> Play Video<i class="lni lni-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="about-right wow fadeInRight" data-wow-delay=".4s">
+                        <img src="{% static 'web/images/student4.jpg' %}" alt="#">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End About Us Area -->
+
+    {% comment %} <!-- Start Testimonials Area -->
+    <section class="testimonials section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title align-center gray-bg">
+                        <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                            <i class="lni lni-quotation"></i>
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">What Our Students Say</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
+                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row testimonial-slider">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-1.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-2.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-3.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-4.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-3.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-2.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-3.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial --> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonial Area -->
+
+    <!-- Start Teachers -->
+    {% comment %} <section id="teachers" class="teachers section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title align-center gray-bg">
+                        <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                            <i class="lni lni-users"></i>
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Experienced Advisors</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">We have experienced advicer that you can get advice and more about our online platform of selling and buyying digital product.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Single Team -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="single-team wow fadeInUp" data-wow-delay=".2s">
+                        <div class="row">
+                            <div class="col-lg-5 col-12">
+                                <!-- Image -->
+                                <div class="image">
+                                    <img src="{% static 'web/images/piason.jpg' %}" alt="#">
+                                </div>
+                                <!-- End Image -->
+                            </div>
+                            <div class="col-lg-7 col-12">
+                                <div class="info-head">
+                                    <!-- Info Box -->
+                                    <div class="info-box">
+                                        <span class="designation">Developer, Programmer</span>
+                                        <h4 class="name"><a href="">Piason Ngiliule</a></h4>
+                                        <p>Meet with advicer and trainer for the system development and programming technics. Welcome and contact expert.</p>
+                                    </div>
+                                    <!-- End Info Box -->
+                                    <!-- Social -->
+                                    <ul class="social">
+                                        <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-behance-original"></i></a></li>
+                                    </ul>
+                                    <!-- End Social -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Team -->
+
+
+
+                
+                <!-- Single Team -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="single-team wow fadeInUp" data-wow-delay=".4s">
+                        <div class="row">
+                            <div class="col-lg-5 col-12">
+                                <!-- Image -->
+                                <div class="image">
+                                    <img src="{% static 'web/images/emmanuel.jpg' %}" alt="#">
+                                </div>
+                                <!-- End Image -->
+                            </div>
+                            <div class="col-lg-7 col-12">
+                                <div class="info-head">
+                                    <!-- Info Box -->
+                                    <div class="info-box">
+                                        <span class="designation">Graphics, Multmedia</span>
+                                        <h4 class="name"><a href="">Emanuely Josephat</a></h4>
+                                        <p>Your can find the experience and advicer from our experienced teachers and trainer with many technics.</p>
+                                    </div>
+                                    <!-- End Info Box -->
+                                    <!-- Social -->
+                                    <ul class="social">
+                                        <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-behance-original"></i></a></li>
+                                    </ul>
+                                    <!-- End Social -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Team -->
+
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <!--/ End Teachers Area -->
+
+    <!-- Start Footer Area -->
+    
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+    <script type="text/javascript">
+        //========= testimonial 
+        tns({
+            container: '.testimonial-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 2,
+                },
+                1170: {
+                    items: 3,
+                }
+            }
+        });
+        //====== Clients Logo Slider
+        tns({
+            container: '.client-logo-carousel',
+            slideBy: 'page',
+            autoplay: true,
+            autoplayButtonOutput: false,
+            mouseDrag: true,
+            gutter: 15,
+            nav: false,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 3,
+                },
+                768: {
+                    items: 4,
+                },
+                992: {
+                    items: 4,
+                },
+                1170: {
+                    items: 6,
+                }
+            }
+        });
+        //========= glightbox
+        GLightbox({
+            'href': '#',
+            'type': 'video',
+            'source': 'youtube', //vimeo, youtube or local
+            'width': 900,
+            'autoplayVideos': true,
+        });
+    </script>
+
+
+</body>
+</html>
+{% endblock %}

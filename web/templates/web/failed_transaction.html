@@ -1,0 +1,1443 @@
+{% extends 'web/base1.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="author" content="WRAPCODERS">
+    <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
+    <!--! BEGIN: Apps Title-->
+    <title>Worntech Online || Dashboard</title>
+    <!--! END:  Apps Title-->
+    <!--! BEGIN: Favicon-->
+    {% comment %} <link rel="shortcut icon" type="image/x-icon" href="{% static 'dash/favicon.ico' %}"> {% endcomment %}
+    <!--! END: Favicon-->
+    <!--! BEGIN: Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/bootstrap.min.css' %}">
+    <!--! END: Bootstrap CSS-->
+    <!--! BEGIN: Vendors CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/vendors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/daterangepicker.min.css' %}">
+    <!--! END: Vendors CSS-->
+    <!--! BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/theme.min.css' %}">
+    <!--! END: Custom CSS-->
+</head>
+
+<body>
+ 
+    <main class="nxl-container">
+        <div class="nxl-content">
+            <!-- [ page-header ] start -->
+            <div class="page-header">
+                <div class="page-header-left d-flex align-items-center">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Payment</h5>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item">failed Payment</li>
+                    </ul>
+                </div>
+                <div class="page-header-right ms-auto">
+                    <div class="page-header-right-items">
+                        <div class="d-flex d-md-none">
+                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
+                                <i class="feather-arrow-left me-2"></i>
+                                <span>Back</span>
+                            </a>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                            <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                <i class="feather-bar-chart"></i>
+                            </a>
+                            <div class="dropdown">
+                                <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10" data-bs-auto-close="outside">
+                                    <i class="feather-filter"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-eye me-3"></i>
+                                        <span>All</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-send me-3"></i>
+                                        <span>Sent</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-book-open me-3"></i>
+                                        <span>Open</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-archive me-3"></i>
+                                        <span>Draft</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-bell me-3"></i>
+                                        <span>Revised</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-shield-off me-3"></i>
+                                        <span>Declined</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-check me-3"></i>
+                                        <span>Accepted</span>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-briefcase me-3"></i>
+                                        <span>Leads</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-wifi-off me-3"></i>
+                                        <span>Expired</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="feather-users me-3"></i>
+                                        <span>Customers</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10" data-bs-auto-close="outside">
+                                    <i class="feather-paperclip"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="bi bi-filetype-pdf me-3"></i>
+                                        <span>PDF</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="bi bi-filetype-csv me-3"></i>
+                                        <span>CSV</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="bi bi-filetype-xml me-3"></i>
+                                        <span>XML</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="bi bi-filetype-txt me-3"></i>
+                                        <span>Text</span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="bi bi-filetype-exe me-3"></i>
+                                        <span>Excel</span>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="javascript:void(0);" class="dropdown-item">
+                                        <i class="bi bi-printer me-3"></i>
+                                        <span>Print</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                                <div class="dropdown filter-dropdown">
+                                    <a href="{% url 'withdraw' %}" class="btn btn-primary">
+                                        <i class="feather-dollar-sign"></i>
+                                        <span>Cashout</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-md-none d-flex align-items-center">
+                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
+                            <i class="feather-align-right fs-20"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            {% comment %} <div id="collapseOne" class="accordion-collapse collapse page-header-collapse">
+                <div class="accordion-body pb-2">
+                    <div class="row">
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card stretch stretch-full">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a href="javascript:void(0);" class="fw-bold d-block">
+                                            <span class="d-block">failed</span>
+                                            <span class="fs-20 fw-bold d-block">78/100</span>
+                                        </a>
+                                        <div class="badge bg-soft-success text-success">
+                                            <i class="feather-arrow-up fs-10 me-1"></i>
+                                            <span>36.85%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card stretch stretch-full">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a href="javascript:void(0);" class="fw-bold d-block">
+                                            <span class="d-block">Unfailed</span>
+                                            <span class="fs-20 fw-bold d-block">38/50</span>
+                                        </a>
+                                        <div class="badge bg-soft-danger text-danger">
+                                            <i class="feather-arrow-down fs-10 me-1"></i>
+                                            <span>23.45%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card stretch stretch-full">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a href="javascript:void(0);" class="fw-bold d-block">
+                                            <span class="d-block">Overdue</span>
+                                            <span class="fs-20 fw-bold d-block">15/30</span>
+                                        </a>
+                                        <div class="badge bg-soft-success text-success">
+                                            <i class="feather-arrow-up fs-10 me-1"></i>
+                                            <span>25.44%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card stretch stretch-full">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a href="javascript:void(0);" class="fw-bold d-block">
+                                            <span class="d-block">Draft</span>
+                                            <span class="fs-20 fw-bold d-block">3/10</span>
+                                        </a>
+                                        <div class="badge bg-soft-danger text-danger">
+                                            <i class="feather-arrow-down fs-10 me-1"></i>
+                                            <span>12.68%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+
+
+            <!-- [ page-header ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card stretch stretch-full">
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="paymentList">
+                                        <thead>
+                                            <tr>
+                                                <th class="wd-30">
+                                                    <div class="btn-group mb-1">
+                                                        <div class="custom-control custom-checkbox ms-1">
+                                                            <input type="checkbox" class="custom-control-input" id="checkAllPayment">
+                                                            <label class="custom-control-label" for="checkAllPayment"></label>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th>Client</th>
+                                                <th>Product</th>
+                                                <th>Date</th>
+                                                <th>Amount</th>
+                                                <th>Transaction Id</th>
+                                                <th>Status</th>
+                                                {% comment %} <th class="text-end">Actions</th> {% endcomment %}
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {% if payment %}
+                                            {% for i in payment %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.template}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+                                            {% if paymentmobiletemplate %}
+                                            {% for i in paymentmobiletemplate %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.mobiletemplate}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentdesktoptemplate %}
+                                            {% for i in paymentdesktoptemplate %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.desktoptemplate}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+
+                                            {% if paymentmicrosofttemplate %}
+                                            {% for i in paymentmicrosofttemplate %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.microsofttemplate}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentadobetemplate %}
+                                            {% for i in paymentadobetemplate %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.adobetemplate}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentwebsite %}
+                                            {% for i in paymentwebsite %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.website}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentmobile %}
+                                            {% for i in paymentmobile %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.mobile}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentdesktop %}
+                                            {% for i in paymentdesktop %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.desktop}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentembeded %}
+                                            {% for i in paymentembeded %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.embeded}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentgraphics %}
+                                            {% for i in paymentgraphics %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.graphics}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentproject %}
+                                            {% for i in paymentproject %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.project}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentimage %}
+                                            {% for i in paymentimage %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.image}}</td>
+                                                <td>{{i.Withdraw_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "failed" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+
+
+
+
+                                            {% if paymentbook %}
+                                            {% for i in paymentbook %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.book}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "Pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentprintable %}
+                                            {% for i in paymentprintable %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.product}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "Pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentmusic %}
+                                            {% for i in paymentmusic %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.product}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "Pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentmultimedia %}
+                                            {% for i in paymentmultimedia %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.product}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "Pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentdigitalArt %}
+                                            {% for i in paymentdigitalArt %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.product}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "Pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentCAD %}
+                                            {% for i in paymentCAD %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.product}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "Pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentsoftware %}
+                                            {% for i in paymentsoftware %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.product}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "Pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                            {% if paymentbusiness %}
+                                            {% for i in paymentbusiness %}
+                                            {% if i.payment_status == 'failed' %}
+                                            <tr class="single-item">
+                                                <td>
+                                                    <div class="item-checkbox ms-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input checkbox" id="checkBox_1">
+                                                            <label class="custom-control-label" for="checkBox_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:void(0)" class="hstack gap-3">
+                                                        <div class="avatar-image avatar-md">
+                                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="" class="img-fluid">
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{i.user}}</span>
+                                                            {% comment %} <small class="fs-12 fw-normal text-muted">{{i.Email}}</small> {% endcomment %}
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="fw-bold text-dark">{{i.product}}</td>
+                                                <td>{{i.payment_date}}</td>
+                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
+                                                {% if i.payment_status == "pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-success text-success">{{i.payment_status}}</div>
+                                                </td>
+                                                {% elif i.payment_status == "Pending" %}
+                                                <td>
+                                                    <div class="badge bg-soft-warning text-warning">{{i.payment_status}}</div>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="badge bg-soft-danger text-danger">{{i.payment_status}}</div>
+                                                </td>
+                                                {% endif %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                            {% endif %}
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+        <!-- [ Footer ] start -->
+
+        <!-- [ Footer ] end -->
+    </main>
+    <!--! ================================================================ !-->
+    <!--! [End] Main Content !-->
+    <!--! ================================================================ !-->
+    <!--! ================================================================ !-->
+    <!--! [Start] Sent Payment l !-->
+    <!--! ================================================================ !-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="paymentSent">
+        <div class="offcanvas-header ht-80 px-4 border-bottom border-gray-5">
+            <div>
+                <h2 class="fs-16 fw-bold text-truncate-1-line">Sent Payment</h2>
+                <small class="fs-12 text-muted">Sent payment to your client's</small>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="py-3 px-4 d-flex justify-content-between align-items-center border-bottom border-bottom-dashed border-gray-5 bg-gray-100">
+            <div>
+                <span class="fw-bold text-dark">Date:</span>
+                <span class="fs-11 fw-medium text-muted">25 MAY, 2023</span>
+            </div>
+            <div>
+                <span class="fw-bold text-dark">Payment No:</span>
+                <span class="fs-12 fw-bold text-primary c-pointer">#NXL369852</span>
+            </div>
+        </div>
+        <div class="offcanvas-body">
+            <div class="form-group mb-4">
+                <label class="form-label">From: <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" value="wrapcode.info@gmail.com" placeholder="Clients..." readonly="" required="">
+            </div>
+            <div class="form-group mb-4">
+                <label class="form-label">To: <span class="text-danger">*</span></label>
+                <input class="form-control" name="tomailcontent" value="wrapcode.info@gmail.com" placeholder="To..." required="">
+            </div>
+            <div class="form-group mb-4">
+                <label class="form-label">Subject: <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="Subject..." required="">
+            </div>
+            <div class="form-group mb-4">
+                <label class="form-label">URL: </label>
+                <input type="url" class="form-control" placeholder="URL...">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Messages:</label>
+                <div data-editor-target="editor" class="ht-200"></div>
+            </div>
+        </div>
+        <div class="px-4 gap-2 d-flex align-items-center ht-80 border border-end-0 border-gray-2">
+            <a href="javascript:void(0);" class="btn btn-primary w-50" data-alert-target="alertMessage">Sent Payment</a>
+            <a href="javascript:void(0);" class="btn btn-danger w-50" data-bs-dismiss="offcanvas">Cancel</a>
+        </div>
+    </div>
+    <!--! ================================================================ !-->
+    <!--! [End] Sent Payment !-->
+    <!--! ================================================================ !-->
+    <!--! ================================================================ !-->
+    <!--! BEGIN: Theme Customizer !-->
+    <!--! ================================================================ !-->
+    <div class="theme-customizer">
+        <div class="customizer-handle">
+            <a href="javascript:void(0);" class="cutomizer-open-trigger bg-primary">
+                <i class="feather-settings"></i>
+            </a>
+        </div>
+        <div class="customizer-sidebar-wrapper">
+            <div class="customizer-sidebar-header px-4 ht-80 border-bottom d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Theme Settings</h5>
+                <a href="javascript:void(0);" class="cutomizer-close-trigger d-flex">
+                    <i class="feather-x"></i>
+                </a>
+            </div>
+            <div class="customizer-sidebar-body position-relative p-4" data-scrollbar-target="#psScrollbarInit">
+                <!--! BEGIN: [Navigation] !-->
+                <div class="position-relative px-3 pb-3 pt-4 mt-3 mb-5 border border-gray-2 theme-options-set">
+                    <label class="py-1 px-2 fs-8 fw-bold text-uppercase text-muted text-spacing-2 bg-white border border-gray-2 position-absolute rounded-2 options-label" style="top: -12px">Navigation</label>
+                    <div class="row g-2 theme-options-items app-navigation" id="appNavigationList">
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-navigation-light" name="app-navigation" value="1" data-app-navigation="app-navigation-light" checked="">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-navigation-light">Light</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-navigation-dark" name="app-navigation" value="2" data-app-navigation="app-navigation-dark">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-navigation-dark">Dark</label>
+                        </div>
+                    </div>
+                </div>
+                <!--! END: [Navigation] !-->
+                <!--! BEGIN: [Header] !-->
+                <div class="position-relative px-3 pb-3 pt-4 mt-3 mb-5 border border-gray-2 theme-options-set mt-5">
+                    <label class="py-1 px-2 fs-8 fw-bold text-uppercase text-muted text-spacing-2 bg-white border border-gray-2 position-absolute rounded-2 options-label" style="top: -12px">Header</label>
+                    <div class="row g-2 theme-options-items app-header" id="appHeaderList">
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-header-light" name="app-header" value="1" data-app-header="app-header-light" checked="">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-header-light">Light</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-header-dark" name="app-header" value="2" data-app-header="app-header-dark">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-header-dark">Dark</label>
+                        </div>
+                    </div>
+                </div>
+                <!--! END: [Header] !-->
+                <!--! BEGIN: [Skins] !-->
+                <div class="position-relative px-3 pb-3 pt-4 mt-3 mb-5 border border-gray-2 theme-options-set">
+                    <label class="py-1 px-2 fs-8 fw-bold text-uppercase text-muted text-spacing-2 bg-white border border-gray-2 position-absolute rounded-2 options-label" style="top: -12px">Skins</label>
+                    <div class="row g-2 theme-options-items app-skin" id="appSkinList">
+                        <div class="col-6 text-center position-relative single-option light-button active">
+                            <input type="radio" class="btn-check" id="app-skin-light" name="app-skin" value="1" data-app-skin="app-skin-light">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-skin-light">Light</label>
+                        </div>
+                        <div class="col-6 text-center position-relative single-option dark-button">
+                            <input type="radio" class="btn-check" id="app-skin-dark" name="app-skin" value="2" data-app-skin="app-skin-dark">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-skin-dark">Dark</label>
+                        </div>
+                    </div>
+                </div>
+                <!--! END: [Skins] !-->
+                <!--! BEGIN: [Typography] !-->
+                <div class="position-relative px-3 pb-3 pt-4 mt-3 mb-0 border border-gray-2 theme-options-set">
+                    <label class="py-1 px-2 fs-8 fw-bold text-uppercase text-muted text-spacing-2 bg-white border border-gray-2 position-absolute rounded-2 options-label" style="top: -12px">Typography</label>
+                    <div class="row g-2 theme-options-items font-family" id="fontFamilyList">
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-lato" name="font-family" value="1" data-font-family="app-font-family-lato">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-lato">Lato</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-rubik" name="font-family" value="2" data-font-family="app-font-family-rubik">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-rubik">Rubik</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-inter" name="font-family" value="3" data-font-family="app-font-family-inter" checked="">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-inter">Inter</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-cinzel" name="font-family" value="4" data-font-family="app-font-family-cinzel">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-cinzel">Cinzel</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-nunito" name="font-family" value="6" data-font-family="app-font-family-nunito">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-nunito">Nunito</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-roboto" name="font-family" value="7" data-font-family="app-font-family-roboto">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-roboto">Roboto</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-ubuntu" name="font-family" value="8" data-font-family="app-font-family-ubuntu">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-ubuntu">Ubuntu</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-poppins" name="font-family" value="9" data-font-family="app-font-family-poppins">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-poppins">Poppins</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-raleway" name="font-family" value="10" data-font-family="app-font-family-raleway">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-raleway">Raleway</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-system-ui" name="font-family" value="11" data-font-family="app-font-family-system-ui">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-system-ui">System UI</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-noto-sans" name="font-family" value="12" data-font-family="app-font-family-noto-sans">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-noto-sans">Noto Sans</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-fira-sans" name="font-family" value="13" data-font-family="app-font-family-fira-sans">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-fira-sans">Fira Sans</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-work-sans" name="font-family" value="14" data-font-family="app-font-family-work-sans">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-work-sans">Work Sans</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-open-sans" name="font-family" value="15" data-font-family="app-font-family-open-sans">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-open-sans">Open Sans</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-maven-pro" name="font-family" value="16" data-font-family="app-font-family-maven-pro">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-maven-pro">Maven Pro</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-quicksand" name="font-family" value="17" data-font-family="app-font-family-quicksand">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-quicksand">Quicksand</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-montserrat" name="font-family" value="18" data-font-family="app-font-family-montserrat">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-montserrat">Montserrat</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-josefin-sans" name="font-family" value="19" data-font-family="app-font-family-josefin-sans">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-josefin-sans">Josefin Sans</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-ibm-plex-sans" name="font-family" value="20" data-font-family="app-font-family-ibm-plex-sans">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-ibm-plex-sans">IBM Plex Sans</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-source-sans-pro" name="font-family" value="5" data-font-family="app-font-family-source-sans-pro">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-source-sans-pro">Source Sans Pro</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-montserrat-alt" name="font-family" value="21" data-font-family="app-font-family-montserrat-alt">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-montserrat-alt">Montserrat Alt</label>
+                        </div>
+                        <div class="col-6 text-center single-option">
+                            <input type="radio" class="btn-check" id="app-font-family-roboto-slab" name="font-family" value="22" data-font-family="app-font-family-roboto-slab">
+                            <label class="py-2 fs-9 fw-bold text-dark text-uppercase text-spacing-1 border border-gray-2 w-100 h-100 c-pointer position-relative options-label" for="app-font-family-roboto-slab">Roboto Slab</label>
+                        </div>
+                    </div>
+                </div>
+                <!--! END: [Typography] !-->
+            </div>
+            <div class="customizer-sidebar-footer px-4 ht-60 border-top d-flex align-items-center gap-2">
+                <div class="flex-fill w-50">
+                    <a href="javascript:void(0);" class="btn btn-danger" data-style="reset-all-common-style">Reset</a>
+                </div>
+                <div class="flex-fill w-50">
+                    <a href="javascript:void(0);" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--! ================================================================ !-->
+    <!--! [End] Theme Customizer !-->
+    <!--! ================================================================ !-->
+    <!--! ================================================================ !-->
+    <!--! Footer Script !-->
+    <!--! ================================================================ !-->
+    {% comment %} <!--! BEGIN: Vendors JS !-->
+    <script src="js/vendors.min.js"></script>
+    <!-- vendors.min.js {always must need to be top} -->
+    <script src="js/dataTables.min.js"></script>
+    <script src="js/dataTables.bs5.min.js"></script>
+    <!--! END: Vendors JS !-->
+    <!--! BEGIN: Apps Init  !-->
+    <script src="js/common-init.min.js"></script>
+    <script src="js/payment-init.min.js"></script>
+    <!--! END: Apps Init !-->
+    <!--! BEGIN: Theme Customizer  !-->
+    <script src="js/theme-customizer-init.min.js"></script>
+    <!--! END: Theme Customizer !--> {% endcomment %}
+
+
+</body></html>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Add your custom CSS here */
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            /* Set the color for the body's margin */
+            margin: 0;
+            min-height: 100vh;
+            /* Ensure the body covers the full viewport height */
+            min-width: 100vw;
+            /* Ensure the body covers the full viewport width */
+            display: flex;
+            align-items: center;
+            /* Center container vertically */
+            justify-content: center;
+            /* Center container horizontally */
+        }
+        
+        .container-wrapper {
+            background-color: #ffffff;
+            /* Inner container background color */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 14000px;
+            /* Increased the container width */
+            min-height: 800px;
+            /* Set minimum height */
+            background-color: #ffffff;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #0fe139;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .logo {
+            width: 75%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-wrapper">
+        <div class="container">
+            <img src="worntech2.png" alt="Logo" class="logo">
+            {% comment %} <h1>Welcome to WORNTECH ONLINE SERVICES</h1> {% endcomment %}
+            <p>Hellow <strong> {{ name }}></strong> You have withdrawed ${{withdraw_instance.Amount_in_USD}} from Worntech Online Services, wait for the confirmation and you will receive your mone soon.</p>
+        </div>
+    </div>
+</body>
+
+</html>

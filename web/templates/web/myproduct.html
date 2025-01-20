@@ -1,0 +1,789 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Preloader -->
+
+    <!-- /End Preloader -->
+
+    <!-- Start Events Area-->
+    <section class="courses section grid-page">
+        <div class="container">
+            <div class="row">
+                {% if website or  mobile or desktop or embeded or graphics or websitetemplate or desktoptemplate or microsofttemplate or adobetemplate or image or project or book or printable or music or multmedia or digitalArt or cad or software or business %}
+                {% for i in website %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewwebsite' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewwebsite' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">html and css</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+                {% for i in mobile %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewmobile' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewmobile' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Mobile app</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+                {% for i in desktop %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewdesktop' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewdesktop' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Desktop app</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+                {% for i in embeded %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewembeded' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewembeded' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Embeded</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+                {% for i in graphics %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewgraphics' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewgraphics' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Graphics</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+                {% for i in websitetemplate %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewwebsitetemplate' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewwebsitetemplate' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">html and css</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+                {% for i in mobiletemplate %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewmobiletemplate' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewmobiletemplate' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">React native</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+                {% for i in desktoptemplate %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewdesktoptemplate' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewdesktoptemplate' i.id %}">{{i.Title}}</a></h3>
+                            <p>{{i.Explanation}}</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Desk app</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+                {% for i in microsofttemplate %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewmicrosofttemplate' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewmicrosofttemplate' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Word</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+                {% for i in adobetemplate %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewadobetemplate' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewadobetemplate' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Photoshop</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                
+                {% for i in image %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewimage' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewimage' i.id %}">{{i.Title}}</a></h3>
+                            <p>{{i.Explanation}}</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Images</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                
+                {% for i in project %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewproject' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewproject' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Project</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                {% for i in book %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewbook' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewbook' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">book</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                {% for i in printable %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewprintable' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewprintable' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">printable</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                {% for i in music %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewmusic' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewmusic' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                {% for i in multmedia %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewmultmedia' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewmultmedia' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">multmedia</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                {% for i in digitalArt %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewdigitalArt' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewdigitalArt' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">digitalArt</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                {% for i in cad %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewCAD' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewCAD' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">cad</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                {% for i in software %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewsoftware' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewsoftware' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">software</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                {% for i in business %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course-image">
+                            <a href="{% url 'viewbusiness' i.id %}"><img src=" {{i.Image.url}}" alt="#"></a>
+                            {% if i.amount_in_USD == 0 %}
+                            <p class="price">FREE</p>
+                            {% else %}
+                            <p class="price">$ {{i.amount_in_USD}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'viewbusiness' i.id %}">{{i.Title}}</a></h3>
+                            {% comment %} <p>{{i.Explanation}}</p> {% endcomment %}
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">business</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                {% endfor %}
+                {% else %}
+                <marquee><h6 style="color: rgb(3, 76, 50);">YOU HAVE NO PUBLISHED PRODUCT, YOUR PRODUCT WILL BE HERE.</h6></marquee>
+                {% endif %}
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Pagination -->
+                    <div class="pagination center">
+                        <ul class="pagination-list">
+                            <li><a href="javascript:void(0)">Prev</a></li>
+                            <li class="active"><a href="javascript:void(0)">1</a></li>
+                            <li><a href="javascript:void(0)">2</a></li>
+                            <li><a href="javascript:void(0)">3</a></li>
+                            <li><a href="javascript:void(0)">4</a></li>
+                            <li><a href="javascript:void(0)">Next</a></li>
+                        </ul>
+                    </div>
+                    <!--/ End Pagination -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Events Area-->
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+   
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+
+</body></html>
+
+{% endblock %}

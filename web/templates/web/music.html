@@ -1,0 +1,655 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Music & Audio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+
+</head>
+
+<body>
+
+
+<!-- Start Courses Area -->
+<section class="courses section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                        
+                    </div>
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">Music & Audio</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">Buy and download music from worntech online for personal isue, businness or organization isue.</p>
+                </div>
+            </div>
+        </div>
+        <div class="single-head">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'single_tracks' %}"><img src="{% static 'web/images/Single tracks.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'single_tracks' %}">Single tracks</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'full_albums' %}"><img src="{% static 'web/images/Full albums.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'full_albums' %}">Full albums</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'extended_plays' %}"><img src="{% static 'web/images/EPs (Extended Plays).jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'extended_plays' %}">EPs (Extended Plays)</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'instrumental_versions' %}"><img src="{% static 'web/images/Instrumental versions.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'instrumental_versions' %}">Instrumental versions</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'beats_for_rappers_and_singers' %}"><img src="{% static 'web/images/Beats for rappers and singers.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'beats_for_rappers_and_singers' %}">Beats for rappers and singers</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'lo_fi_beats' %}"><img src="{% static 'web/images/Lo-fi beats.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'lo_fi_beats' %}">Lo-fi beats</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'background_instrumentals_for_videos' %}"><img src="{% static 'web/images/Background instrumentals for videos.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'background_instrumentals_for_videos' %}">Background instrumentals for videos</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'royalty_free_music' %}"><img src="{% static 'web/images/Royalty-free music.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'royalty_free_music' %}">Royalty-free music</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'environmental_sounds' %}"><img src="{% static 'web/images/Environmental sounds.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'environmental_sounds' %}">Environmental sounds</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'foley_sounds' %}"><img src="{% static 'web/images/Foley sounds.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'foley_sounds' %}">Foley sounds</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'sci_fi_and_futuristic_sounds' %}"><img src="{% static 'web/images/Sci-fi and futuristic sounds.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'sci_fi_and_futuristic_sounds' %}">Sci-fi and futuristic sounds</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'horror_and_thriller_effects' %}"><img src="{% static 'web/images/Horror and thriller effects.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'horror_and_thriller_effects' %}">Horror and thriller effects</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'drum_loops' %}"><img src="{% static 'web/images/Drum loops.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'drum_loops' %}">Drum loops</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'melodic_loops' %}"><img src="{% static 'web/images/Melodic loops.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'melodic_loops' %}">Melodic loops</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'vocal_samples' %}"><img src="{% static 'web/images/Vocal samples.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'vocal_samples' %}">Vocal samples</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'synth_and_bass_loops' %}"><img src="{% static 'web/images/Synth and bass loops.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'synth_and_bass_loops' %}">Synth and bass loops</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'background_music_for_videos' %}"><img src="{% static 'web/images/Background music for videos.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'background_music_for_videos' %}">Background music for videos</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'music_for_podcasts' %}"><img src="{% static 'web/images/Music for podcasts.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'music_for_podcasts' %}">Music for podcasts</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'royalty_free_soundtracks_for_commercials' %}"><img src="{% static 'web/images/Royalty-free soundtracks for commercials.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'royalty_free_soundtracks_for_commercials' %}">Royalty-free soundtracks for commercials</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'ambient_music_for_relaxation_and_meditation' %}"><img src="{% static 'web/images/Ambient music for relaxation and meditation.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'ambient_music_for_relaxation_and_meditation' %}">Ambient music for relaxation and meditation</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'talk_shows' %}"><img src="{% static 'web/images/Talk shows.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'talk_shows' %}">Talk shows</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'interview_series' %}"><img src="{% static 'web/images/Interview series.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'interview_series' %}">Interview series</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'educational_podcasts' %}"><img src="{% static 'web/images/Educational podcasts.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'educational_podcasts' %}">Educational podcasts</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'storytelling_and_fictional_audio_series' %}"><img src="{% static 'web/images/Storytelling and fictional audio series.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'storytelling_and_fictional_audio_series' %}">Storytelling and fictional audio series</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'nature_inspired_soundscapes' %}"><img src="{% static 'web/images/Nature-inspired soundscapes.jpg' %}" alt="#"></a>
+                            <p class="price">Music</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'nature_inspired_soundscapes' %}">Nature-inspired soundscapes</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Music</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Courses Area -->
+
+
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+   
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+
+</body></html>
+
+{% endblock %}

@@ -1,0 +1,213 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+
+</head>
+
+<body>
+
+<!-- Start Courses Area -->
+<section class="courses section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                        <i class="lni lni-graduation"></i>
+                    </div>
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">Featured Courses</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">We provide the following course for all needs, From our sourse you will learn various courses as listed bellow for your own benefit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="single-head">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'website' %}"><img src="{% static 'web/images/website.jpg' %}" alt="#"></a>
+                            <p class="price">Website</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'website' %}">Website development</a></h3>
+                            <p>This is the course that include the frontend development, backend development and fullstack website development. Welcome and enjoy the course.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Website</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'mobileapp' %}"><img src="{% static 'web/images/mobile3.jpg' %}" alt="#"></a>
+                            <p class="price">Mobile</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'mobileapp' %}">Mobile application development</a></h3>
+                            <p>This course include the development of the mobile application frontend, backend and fullstack mobile application development.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>10 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Mobile</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'desktopapp' %}"><img src="{% static 'web/images/desk.jpg' %}" alt="#"></a>
+                            <p class="price">Desktop</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'desktopapp' %}">Desktop application development.</a></h3>
+                            <p>In this course you will learn hot to develop desktop application to  control various activities like internet of things and embeded system.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>55 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Desktop</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'embeded' %}"><img src="{% static 'web/images/embeded1.jpg' %}" alt="#"></a>
+                            <p class="price">Embeded</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'embeded' %}">Embeded system development course</a></h3>
+                            <p>In this course you will learn developing embeded system through various technics and you will leran plactically.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>60 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Embeded</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'graphics' %}"><img src="{% static 'web/images/graphics.jpg' %}" alt="#"></a>
+                            <p class="price">Graphics</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'graphics' %}">Graphics design</a></h3>
+                            <p>In this course you will learn the designing posters, web layout, logos and other in experienced way. Welcome and enjoy the course.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>60 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Graphics</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Courses Area -->
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+
+</body></html>
+
+{% endblock %}

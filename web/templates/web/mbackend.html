@@ -1,0 +1,161 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Start Events Area-->
+    <section class="courses section grid-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'mdjango' %}"><img src="{% static 'web/images/courses-1.jpg' %}" alt="#"></a>
+                            <p class="price">mobile</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'mdjango' %}">Django for mobile application</a></h3>
+                            <p>In this course yo will learn developing mobile application using django as backend, welcome and enjoy the service.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>22 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Django</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'mflask' %}"><img src="{% static 'web/images/courses-2.jpg' %}" alt="#"></a>
+                            <p class="price">mobile</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'mflask' %}">Flask for mobile application</a></h3>
+                            <p>In this course yo will learn developing mobile application using flask as backend, welcome and enjoy the service.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>10 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Flask</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+
+                {% comment %} <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'mfirebase' %}"><img src="{% static 'web/images/courses-3.jpg' %}" alt="#"></a>
+                            <p class="price">mobile</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'mfirebase' %}">React js full course</a></h3>
+                            <p>Learn the react js for full course, in this course you will learn every thing about react native as the frontend framework.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li>55 Reviews</li>
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Firebase</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div> {% endcomment %}
+                
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Pagination -->
+                    <div class="pagination center">
+                        <ul class="pagination-list">
+                            <li><a href="javascript:void(0)">Prev</a></li>
+                            <li class="active"><a href="javascript:void(0)">1</a></li>
+                            <li><a href="javascript:void(0)">2</a></li>
+                            <li><a href="javascript:void(0)">3</a></li>
+                            <li><a href="javascript:void(0)">4</a></li>
+                            <li><a href="javascript:void(0)">Next</a></li>
+                        </ul>
+                    </div>
+                    <!--/ End Pagination -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Events Area-->
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+   
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+
+</body></html>
+
+{% endblock %}

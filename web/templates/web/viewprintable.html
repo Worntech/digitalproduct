@@ -1,0 +1,589 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+    
+
+</head>
+
+<body>
+
+    {% if user.is_authenticated %}
+
+    <!-- Start Blog Singel Area -->
+    <section class="section blog-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <div class="single-inner">
+                        <div class="post-thumbnils">
+                            {% if object.Preview_Video %}
+                            <video width="100%" controls>
+                                <source src="{{ object.Preview_Video.url }}" type="video/mp4">
+                            </video>
+                            {% else %}
+                            <img src="{{object.Image.url}}" alt="#">
+                            {% endif %}
+                        </div>
+                        <div class="post-details">
+                            <div class="detail-inner">
+                                <!-- post meta -->
+                                <ul class="custom-flex post-meta">
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <i class="lni lni-calendar"></i>
+                                            {{object.date_created}}
+                                        </a>
+                                    </li>
+                                    {% comment %} <li>
+                                        <a href="javascript:void(0)">
+                                            <i class="lni lni-comments"></i>
+                                            35 Comments
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <i class="lni lni-eye"></i>
+                                            55 View
+                                        </a>
+                                    </li> {% endcomment %}
+                                    {% if user.is_authenticated %}
+                                    {% if product.user == user %}
+                                    <li>
+                                        <a class="" href="{% url 'updateprintable' object.id %}">Update</a>
+                                    </li>
+                                    <li>
+                                        <a class="" href="{% url 'deleteprintable' object.id %}">Delete</a>
+                                    </li>
+                                    {% elif user.is_staff %}
+                                    <li>
+                                        <a class="" href="{% url 'updateprintable' object.id %}">Update</a>
+                                    </li>
+                                    <li>
+                                        <a class="" href="{% url 'deleteprintable' object.id %}">Delete</a>
+                                    </li>
+                                    {% else %}
+                                    {% endif %}
+                                    {% endif %}
+                                </ul>
+
+                                <div class="ratings-section">
+                                    <h4>Ratings and Reviews</h4>
+                                    <!-- Star Display -->
+                                    <div class="star-rating-display">
+                                        <!-- Full stars -->
+                                        {% for _ in ""|center:full_stars %}
+                                            <span class="star full">★</span>
+                                        {% endfor %}
+                                        
+                                        <!-- Empty stars -->
+                                        {% for _ in ""|center:empty_stars %}
+                                            <span class="star empty">★</span>
+                                        {% endfor %}
+                                        <span class="star empty">{{ avg_rating }}</span>
+                                        <span class="total-reviews">({{ total_reviews }} reviews)</span>
+                                    </div>
+                                </div>
+                                
+                                {% if object.amount_in_USD == 0 %}
+                                <h2 class="post-title">
+                                    <a href="javascript:void(0)">{{object.Title}} (Free)</a>
+                                    </h2>
+                                <h2 class="post-title">
+                                
+                                <a style="background-color: #1bbd36;color: white;font-weight: bold;margin-top: 1cm;width: 6cm;padding: 10px;border-radius: 8px;font-size: 20px;" href="{{object.Product.url}}" download>Download Free.</a>
+                                </h2>
+                                {% elif payment_status == 'paid' %}
+                                <h2 class="post-title">
+                                <a href="javascript:void(0)">{{object.Title}} (payed)</a>
+                                </h2>
+                                <h2 class="post-title">
+                                    <a style="background-color: #1bbd36;color: white;font-weight: bold;margin-top: 1cm;width: 6cm;padding: 10px;border-radius: 8px;font-size: 20px;" href="{{object.Product.url}}" download>Download</a>
+                                </h2>
+                                {% else %}
+                                <h2 class="post-title">
+                                    <a href="javascript:void(0)">{{object.Title}}</a>
+                                </h2>
+                                
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    {{ payment_form.as_p }} <br>
+                                    <button type="submit" class="btn alt-btn" name="payment_submit" style="background-color: #1bbd36;color: white;font-weight: bold;margin-top: 1cm;width: 6cm;padding: 10px;border-radius: 8px;font-size: 20px;">Pay Now || ${{object.amount_in_USD}}</button>
+                                </form>
+                                {% endif %}
+                                
+                                <p>{{object.Explanation}}</p>
+
+                                <h5>Rate this Product:</h5>
+                                <form method="POST" id="review-form">
+                                    {% csrf_token %}
+                                    <div class="star-rating">
+                                        <input type="radio" id="star5" name="rating" value="5" />
+                                        <label for="star5" title="5 stars">★</label>
+                                        <input type="radio" id="star4" name="rating" value="4" />
+                                        <label for="star4" title="4 stars">★</label>
+                                        <input type="radio" id="star3" name="rating" value="3" />
+                                        <label for="star3" title="3 stars">★</label>
+                                        <input type="radio" id="star2" name="rating" value="2" />
+                                        <label for="star2" title="2 stars">★</label>
+                                        <input type="radio" id="star1" name="rating" value="1" />
+                                        <label for="star1" title="1 star">★</label>
+                                    </div>
+                                    <button type="submit" class="submit-button">
+                                        <i class="fas fa-paper-plane"></i> Submit Review
+                                    </button>
+                                </form>
+
+                                <br>
+                                
+                                <div class="post-tags-media">
+                                    <div class="post-tags popular-tag-widget mb-xl-40">
+                                        <h5 class="tag-title">Related Tags</h5>
+                                        <div class="tags">
+                                            <a href="{% url 'template' %}">Templates</a>
+                                            <a href="{% url 'music' %}">Music & Audio</a>
+                                            <a href="{% url 'video' %}">Videos & Multimedia</a>
+                                            <a href="{% url 'image' %}">Images</a>
+                                            
+                                            
+                                        </div>
+                                        <div class="tags">
+                                            <a href="{% url 'software' %}">Software & Tools</a>
+                                            <a href="{% url 'art' %}">Digital Art & Design</a>
+                                            <a href="{% url 'ebooks' %}">Books</a>
+                                            <a href="{% url 'cad' %}">3D & CAD Designs</a>
+                                        </div>
+                                        <div class="tags">
+                                            <a href="{% url 'project' %}">Project</a>
+                                            <a href="{% url 'printable' %}">Printable & Customizable</a>
+                                            <a href="{% url 'business' %}">Business & Marketing</a>
+                                        </div>
+                                        <div class="">
+                                            <div class="post-social-media">
+                                                <h5 class="share-title">Social Share</h5>
+                                                <ul class="custom-flex">
+                                                    <li>
+                                                        <a href="#" onclick="shareOnFacebook()" class="facebook">
+                                                            <i class="lni lni-facebook-original"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" onclick="shareOnTwitter()" class="twitter">
+                                                            <i class="lni lni-twitter-original"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" onclick="shareOnLinkedIn()" class="google">
+                                                            <i class="lni lni-linkedin-original"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" onclick="shareOnPinterest()" class="pinterest">
+                                                            <i class="lni lni-pinterest"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" onclick="shareOnVimeo()" class="vimeo">
+                                                            <i class="lni lni-vimeo"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Comments -->
+                            <div class="comment-form">
+                                <h3 class="comment-reply-title">Leave a comment</h3>
+                                <form method="POST" action="{% url 'viewprintable' object.pk %}">
+                                    {% csrf_token %}
+                                    {{comment_form.as_p}}
+                                    <br>
+                                    <button type="Submit" name="comment_submit" style="background-color: #1bbd36;color: white;font-weight: bold;margin-top: 1cm;width: 6cm;padding: 10px;border-radius: 8px;font-size: 20px;">Post comment</button>
+                                    
+                                </form>
+
+
+                            </div>
+
+                            <!-- Comments -->
+                            <div class="post-comments">
+                                <h3 class="comment-title">Comments</h3>
+                                <ul class="comments-list">
+
+                                    {% for comment in post_comments %}
+                                    <li>
+                                        <div class="comment-img">
+                                            <img src="{% static 'web/images/profile1.jpg' %}" alt="img">
+                                        </div>
+
+                                        
+                                        <div class="comment-desc">
+                                            <div class="desc-top">
+                                                <h6>{{comment.user.first_name}} {{comment.user.last_name}}</h6>
+                                                <span class="date">{{comment.date_created}}</span>
+                                                <a href="javascript:void(0)" class="reply-link"><i class="lni lni-reply"></i>Reply</a>
+                                            </div>
+                                            <p>{{comment.content}}</p>
+                                        </div>
+
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <aside class="col-lg-4 col-md-12 col-12">
+                    <div class="sidebar">
+                        <!-- Single Widget -->
+                        <div class="widget search-widget">
+                            <h5 class="widget-title">Search Here</h5>
+                            <form method="get" action="{% url 'search_all_product' %}">
+                                <input type="text" placeholder="Search Here..." name="q">
+                                <button type="submit"><i class="lni lni-search-alt"></i></button>
+                            </form>
+                        </div>
+                        <!--/ End Single Widget -->
+                        <!-- Single Widget -->
+                        <div class="widget popular-feeds">
+                            <h5 class="widget-title">Recent Printable</h5>
+                            <div class="popular-feed-loop">
+                                {% for i in random_product %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewprintable' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewprintable' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <!--/ End Single Widget -->
+
+                        <!-- Single Widget -->
+                        <div class="widget popular-feeds">
+                            <h5 class="widget-title">More From Author</h5>
+                            <div class="popular-feed-loop">
+                                {% for i in more_from_author %}
+                                {% if i.get_model_name == 'Websitetemplate' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewwebsitetemplate' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewwebsitetemplate' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Project' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewproject' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewproject' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Image' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewimage' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewimage' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Mobiletemplate' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewmobiletemplate' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewmobiletemplate' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Desktoptemplate' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewdesktoptemplate' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewdesktoptemplate' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Microsofttemplate' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewmicrosofttemplate' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewmicrosofttemplate' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Adobetemplate' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewadobetemplate' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewadobetemplate' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Book' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewbook' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewbook' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Printable' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewprintable' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewprintable' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Music' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewmusic' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewmusic' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Multimedia' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewmultimedia' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewmultimedia' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'DigitalArt' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewdigitalArt' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewdigitalArt' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'CAD' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewCAD' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewCAD' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Software' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewsoftware' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewsoftware' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% elif i.get_model_name == 'Business' %}
+                                <div class="single-popular-feed">
+                                    <div class="feed-img">
+                                        <a href="{% url 'viewbusiness' i.id %}"><img src="{{i.Image.url}}" alt="#"></a>
+                                    </div>
+                                    <div class="feed-desc">
+                                        <h6 class="post-title"><a href="{% url 'viewbusiness' i.id %}">{{i.Title}}</a>
+                                        </h6>
+                                        <span class="time"><i class="lni lni-calendar"></i>{{i.date_created}}</span>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <!--/ End Single Widget -->
+
+                        
+                        {% comment %} <!-- Single Widget -->
+                        <div class="widget categories-widget">
+                            <h5 class="widget-title">Categories</h5>
+                            <ul class="custom">
+                                <li>
+                                    <a href="javascript:void(0)">College <span>05</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Online Education <span>10</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Programming <span>25</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Online Course <span>15</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">University <span>35</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/ End Single Widget --> {% endcomment %}
+
+                         <!-- Single Widget -->
+                       <div class="widget popular-tag-widget">
+                        <h5 class="widget-title">Popular Tags</h5>
+                        <div class="tags">
+                            <a href="{% url 'template' %}">Templates</a>
+                            <a href="{% url 'music' %}">Music & Audio</a>
+                            <a href="{% url 'video' %}">Videos & Multimedia</a>
+                            <a href="{% url 'image' %}">Images</a>
+                            <a href="{% url 'software' %}">Software & Tools</a>
+                            <a href="{% url 'art' %}">Digital Art & Design</a>
+                            <a href="{% url 'ebooks' %}">Books</a>
+                            <a href="{% url 'cad' %}">3D & CAD Designs</a>
+                            <a href="{% url 'project' %}">Project</a>
+                            <a href="{% url 'printable' %}">Printable & Customizable</a>
+                            <a href="{% url 'business' %}">Business & Marketing</a>
+                        </div>
+                    </div>
+                    <!--/ End Single Widget -->
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+    <!-- End Blog Singel Area -->
+
+    {% else %}
+    <!-- Start Mail Success Area -->
+    <div class="mail-success">
+        <div class="verticle-lines">
+            <div class="vlines one"></div>
+            <div class="vlines two"></div>
+            <div class="vlines three"></div>
+            <div class="vlines four"></div>
+        </div>
+        <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+            <div class="mail-content">
+                <h1>Welcome!</h1>
+                <h2>Your not Loged in or Registered</h2>
+                <p>Click Log In to login, Register to Register and click Home to home page</p>
+                <div class="button">
+                <a href="{% url 'signin' %}" class="btn">Log In</a>
+                <a href="{% url 'signup' %}" class="btn">Register</a>
+                <a href="{% url 'home' %}" class="btn">Home</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- End Mail Success Area -->
+    {% endif %}
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script>
+        const currentUrl = encodeURIComponent(window.location.href);
+        const shareTitle = encodeURIComponent(document.title);
+    
+        function shareOnFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`, '_blank');
+        }
+    
+        function shareOnTwitter() {
+            window.open(`https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareTitle}`, '_blank');
+        }
+    
+        function shareOnLinkedIn() {
+            window.open(`https://www.linkedin.com/shareArticle?url=${currentUrl}&title=${shareTitle}`, '_blank');
+        }
+    
+        function shareOnPinterest() {
+            window.open(`https://pinterest.com/pin/create/button/?url=${currentUrl}&description=${shareTitle}`, '_blank');
+        }
+    
+        function shareOnVimeo() {
+            window.open(`https://vimeo.com/share?url=${currentUrl}`, '_blank');
+        }
+    </script>
+    
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+
+</body></html>
+
+{% endblock %}

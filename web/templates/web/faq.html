@@ -1,0 +1,519 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Preloader -->
+
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+
+    <!-- End Header Area -->
+
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">FAQ</h1>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text</p>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <!-- Start Faq Area -->
+    <div class="faq section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-general" type="button" role="tab" aria-controls="nav-general" aria-selected="true">General</button>
+                            <button class="nav-link" id="nav-admission-tab" data-bs-toggle="tab" data-bs-target="#nav-admission" type="button" role="tab" aria-controls="nav-admission" aria-selected="false">Admission</button>
+                            <button class="nav-link" id="nav-courses-tab" data-bs-toggle="tab" data-bs-target="#nav-courses" type="button" role="tab" aria-controls="nav-courses" aria-selected="false">Courses</button>
+                            <button class="nav-link" id="nav-career-tab" data-bs-toggle="tab" data-bs-target="#nav-career" type="button" role="tab" aria-controls="nav-career" aria-selected="false">Career</button>
+                            <button class="nav-link" id="nav-notice-tab" data-bs-toggle="tab" data-bs-target="#nav-notice" type="button" role="tab" aria-controls="nav-notice" aria-selected="false">Notice</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-general" role="tabpanel">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne1">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+                                            <span>We have a team of experienced teachers</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne1" class="accordion-collapse collapse show" aria-labelledby="headingOne1" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+                                            <span>Diversity training programs, curriculum understandable</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree3">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+                                            <span>Learn everywhere, everytime on devices</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree3" class="accordion-collapse collapse" aria-labelledby="headingThree3" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour4">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour4" aria-expanded="false" aria-controls="collapseFour4">
+                                            <span>Brightcation promotion programs for outstanding students</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour4" class="accordion-collapse collapse" aria-labelledby="headingFour4" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-admission" role="tabpanel" aria-labelledby="nav-admission-tab">
+                            <div class="accordion" id="accordionExample2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne11">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne11" aria-expanded="true" aria-controls="collapseOne11">
+                                            <span>We have a team of experienced teachers</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne11" class="accordion-collapse collapse show" aria-labelledby="headingOne11" data-bs-parent="#accordionExample2">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo22">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo22" aria-expanded="false" aria-controls="collapseTwo22">
+                                            <span>Diversity training programs, curriculum understandable</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo22" class="accordion-collapse collapse" aria-labelledby="headingTwo22" data-bs-parent="#accordionExample2">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree33">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree33" aria-expanded="false" aria-controls="collapseThree33">
+                                            <span>Learn everywhere, everytime on devices</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree33" class="accordion-collapse collapse" aria-labelledby="headingThree33" data-bs-parent="#accordionExample2">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour44">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour44" aria-expanded="false" aria-controls="collapseFour44">
+                                            <span>Brightcation promotion programs for outstanding students</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour44" class="accordion-collapse collapse" aria-labelledby="headingFour44" data-bs-parent="#accordionExample2">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-courses" role="tabpanel" aria-labelledby="nav-courses-tab">
+                            <div class="accordion" id="accordionExample3">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne111">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne111" aria-expanded="true" aria-controls="collapseOne111">
+                                            <span>We have a team of experienced teachers</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne111" class="accordion-collapse collapse show" aria-labelledby="headingOne111" data-bs-parent="#accordionExample3">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo222">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo222" aria-expanded="false" aria-controls="collapseTwo222">
+                                            <span>Diversity training programs, curriculum understandable</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo222" class="accordion-collapse collapse" aria-labelledby="headingTwo222" data-bs-parent="#accordionExample3">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree333">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree333" aria-expanded="false" aria-controls="collapseThree333">
+                                            <span>Learn everywhere, everytime on devices</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree333" class="accordion-collapse collapse" aria-labelledby="headingThree333" data-bs-parent="#accordionExample3">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour444">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour444" aria-expanded="false" aria-controls="collapseFour444">
+                                            <span>Brightcation promotion programs for outstanding students</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour444" class="accordion-collapse collapse" aria-labelledby="headingFour444" data-bs-parent="#accordionExample3">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-career" role="tabpanel" aria-labelledby="nav-career-tab">
+                            <div class="accordion" id="accordionExample4">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne1111">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1111" aria-expanded="true" aria-controls="collapseOne1111">
+                                            <span>We have a team of experienced teachers</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne1111" class="accordion-collapse collapse show" aria-labelledby="headingOne1111" data-bs-parent="#accordionExample4">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo2222">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2222" aria-expanded="false" aria-controls="collapseTwo2222">
+                                            <span>Diversity training programs, curriculum understandable</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo2222" class="accordion-collapse collapse" aria-labelledby="headingTwo2222" data-bs-parent="#accordionExample4">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree3333">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3333" aria-expanded="false" aria-controls="collapseThree3333">
+                                            <span>Learn everywhere, everytime on devices</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree3333" class="accordion-collapse collapse" aria-labelledby="headingThree3333" data-bs-parent="#accordionExample4">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour4444">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour4444" aria-expanded="false" aria-controls="collapseFour4444">
+                                            <span>Brightcation promotion programs for outstanding students</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour4444" class="accordion-collapse collapse" aria-labelledby="headingFour4444" data-bs-parent="#accordionExample4">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-notice" role="tabpanel" aria-labelledby="nav-notice-tab">
+                            <div class="accordion" id="accordionExample5">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne11111">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne11111" aria-expanded="true" aria-controls="collapseOne11111">
+                                            <span>We have a team of experienced teachers</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne11111" class="accordion-collapse collapse show" aria-labelledby="headingOne11111" data-bs-parent="#accordionExample5">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo22222">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo22222" aria-expanded="false" aria-controls="collapseTwo22222">
+                                            <span>Diversity training programs, curriculum understandable</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo22222" class="accordion-collapse collapse" aria-labelledby="headingTwo22222" data-bs-parent="#accordionExample5">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree33333">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree33333" aria-expanded="false" aria-controls="collapseThree33333">
+                                            <span>Learn everywhere, everytime on devices</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree33333" class="accordion-collapse collapse" aria-labelledby="headingThree33333" data-bs-parent="#accordionExample5">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour44444">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour44444" aria-expanded="false" aria-controls="collapseFour44444">
+                                            <span>Brightcation promotion programs for outstanding students</span><i class="lni lni-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour44444" class="accordion-collapse collapse" aria-labelledby="headingFour44444" data-bs-parent="#accordionExample5">
+                                        <div class="accordion-body">
+                                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                Brunch 3 wolf moon tempor.</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                                                repellat autem dolor expedita minima quidem vero ipsa ea tempore dolorem
+                                                nobis eius, modi molestiae dignissimos assumenda aliquid molestias
+                                                adipisci veritatis!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Faq Area -->
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+
+</body></html>
+
+{% endblock %}

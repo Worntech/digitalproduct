@@ -1,0 +1,400 @@
+
+{% extends 'web/base1.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="author" content="WRAPCODERS">
+    <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
+    <!--! BEGIN: Apps Title-->
+    <title>Terms and Conditions</title>
+    <!--! END:  Apps Title-->
+    <!--! BEGIN: Favicon-->
+    {% comment %} <link rel="shortcut icon" type="image/x-icon" href="{% static 'dash/favicon.ico' %}"> {% endcomment %}
+    <!--! END: Favicon-->
+    <!--! BEGIN: Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/bootstrap.min.css' %}">
+    <!--! END: Bootstrap CSS-->
+    <!--! BEGIN: Vendors CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/vendors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/daterangepicker.min.css' %}">
+    <!--! END: Vendors CSS-->
+    <!--! BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/theme.min.css' %}">
+    <!--! END: Custom CSS-->
+</head>
+
+<body>
+
+    <main class="nxl-container">
+        <div class="nxl-content">
+            <!-- [ page-header ] start -->
+            <div class="page-header">
+                <div class="page-header-left d-flex align-items-center">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Dashboard</h5>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item">Terms and Conditions</li>
+                    </ul>
+                </div>
+
+
+                <div class="page-header-right ms-auto">
+                    <div class="page-header-right-items">
+                        <div class="d-flex d-md-none">
+                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
+                                <i class="feather-arrow-left me-2"></i>
+                                <span>Back</span>
+                            </a>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                            <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                                <div class="dropdown filter-dropdown">
+                                    <a href="{% url 'home' %}" class="btn btn-primary">
+                                        <span>Home</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-md-none d-flex align-items-center">
+                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
+                            <i class="feather-align-right fs-20"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- [ page-header ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="main-content">
+                <div class="row">
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Terms and Conditions</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>This Terms of Service is a legal agreement between you and Worntech online services that governs your access to and use of the Worntech online service as a seller or buyer of product, goods, or services. Please review this entire Terms of Service before you decide whether to accept it and continue with the registration process.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Definitions</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        <li>"You", “you” or "Buyer": A Customer that applies to, or registers to use, or uses, the Service to sell or buy online product as described.</li>
+                                        <li>Customer: A person that registers with the Service as a Buyer or a Seller for the product and earn the advantage.</li>
+                                        <li>Seller: A Customer that uses the Service to sell the product as described and earn the money.</li>
+                                        <li>Payment Transaction: The processing of a payment through the Service that results in the debiting or charging of the Purchase Amount to a Buyer’s Payment Instrument and the crediting of funds to a Seller.</li>
+                                        <li>Product: Any goods or service that is listed for sale that a Buyer may pay for using the Service.</li>
+                                        <li>Purchase Amount: The amount of a Payment Transaction to pay for a Product, and any related fees, taxes or shipping charges, as applicable.</li>
+                                        <li>Service: The Worntech online service, described in this Terms of Service, that facilitates the processing of Payment Transactions on behalf of a Seller.</li>
+                                        <li>“We”, or “us”: Worntech online service.</li>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Requirements for Registration</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        In order to use the Service, you here by consent to provide and agree to complete all required information elements on the Service registration web pages. You must register a valid mobile payment option as a Payment Instrument or use a Credit Card to make Payment Transactions and pay fees and other obligations arising from your use of the Service. You undertake and agree to provide current, complete and accurate information and maintain it as current and accurate. We may require you to provide additional information as a condition of continued use of the Service, or to assist in determining whether to permit you to continue to use the Service. <br>
+                                        We, in our sole and absolute discretion, may refuse to approve or may terminate existing registrations with or without cause or notice, other than any notice required by any applicable law, and not waived herein.
+
+                                        By agreeing to this Terms of Service for Buyers or Seller, you represent that you are:
+
+                                        18 years old or older; and
+                                        capable of entering into a legally binding agreement.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Payment Transaction Processing</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                      <li>The Service facilitates the processing of Payment Transactions to complete a payment for a purchase between a Buyer and a Seller. The Service will store information from Buyers, such as their Payment Instruments, and will process Payment Transactions on behalf of Sellers. We may delay payment processing of suspicious transactions or transactions which may involve fraud, misconduct, or violate applicable law, this Terms of Service for Buyers, or other applicable Worntech Online Services policies, as determined in Worntech’s sole and absolute discretion. Buyer authorizes the charge or debit to Buyer’s Payment Instrument as necessary to complete processing of a Payment Transaction. Buyer also authorizes the crediting to Buyer’s Worntech is Connected to Payment Gateway in connection with reversals, refunds, or adjustments through the Service.</li>
+                                      <li>You acknowledge and agree that your purchases of Products are transactions between you and the Seller, and not with Worntech, Although worntech make sure each transaction and product is safe. But we make sure that buyer is satisfied with the good or product.</li>
+                                      <li>Money transacted is stored in the worntech accounts until the buyer is satisfied with the goods, and after that the money is transfied to the seller account.</li>
+                                      <li>Then seller will be able and have the ability to withdraw money from his or her account and after withdraw the process will be confirmed by Worntech supporter and this process will take from five hours up to one day for security isues. </li>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Limitations on the Use of Service</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                      <li>We reserve the right to change, suspend or discontinue any aspect of the Service at any time, including hours of operation or availability of the Service or any Service feature, without notice and without liability. We also reserve the right to impose limits on certain Service features or restrict access to parts or all of the Service without notice and without liability. <br> 
+                                        We do not warrant that the functions contained in the Service will be uninterrupted or error free, and we shall not be responsible for any service interruptions (including, but not limited to, power outages, system failures or other interruptions that may affect the receipt, processing, acceptance, completion or settlement of Payment Transactions or the Service).</li>
+                                      <li>We may limit or suspend your use of the Service at any time, in our sole and absolute discretion. If we suspend your use of the Service, we will attempt to notify you by electronic mail and/or SMS.</li>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Username and Password Information</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        You are responsible for: 1) maintaining the confidentiality of your username and password, 2) any and all transactions by persons that you give access to or that otherwise use such username or password, and 3) any and all consequences of use or misuse of your username and password. You agree to notify us immediately of any unauthorized use of your username or password or any other breach of security regarding the Service of which you have knowledge.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Privacy</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        You understand and agree that personal information provided to us in connection with the Service is subject to the Service’s Privacy Policy.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Service Fees</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        We do not charge a fee to use the Service to purchase and buy products or services as a Buyer or seller. Service fee is applicable to the seller when sell goods or product and this include 3.5% of your selling for gateway fee, 5% of your selling for transaction fee and 11.5% of your selling for the system fee, Making 20% of your selling for the total fee. And you will receive 80% of your selling.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Minimum Money to Payout or Withdraw</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        The Minimum Money to Payout or Withdraw is $20, According to Our Terms and Condition, The Minimum Money You Can Payout or Withdraw is $20 and Above.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Disputes</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        Worntech will provide various tools to assist Customers in communicating with each other to resolve a dispute that may arise between Buyers and Sellers with respect to their transaction. If Customers are unable to resolve a dispute, we can mediate disputes between buyers and sellers if either party requests assistance through our support contacts or visiting one of our local offices
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Termination of Service</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        We may, in our sole and absolute discretion without liability to you or any third party, terminate your use of the Service for any reason, including without limitation inactivity or violation of this Terms of Service or other policies we may establish from time to time. <br> 
+                                        Upon termination of your use of the Service, you remain liable for all Payment Transactions and any other obligations you have incurred. Upon termination, we have the right to prohibit your access to the Service, including without limitation by deactivating your username and password, and to refuse future access to the Service by you.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Endorsement of Products</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        Worntech represent or endorse, and shall be responsible for: (a) the safety, quality, accuracy, reliability, integrity or legality of any Product, the truth or accuracy of the description of Products, or of any advice, opinion, offer, proposal, statement, data or other information (collectively, “Content”) displayed or distributed, purchased or paid through the Service; or (b) the ability of Buyers to buy Products or Sellers to deliver Products.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Sellers and Buyers</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                       All sellers and buyers are responsible to obey the terms and condition and provide good and quality product, any other isue conserning product not meeting the condition, the money will be reducted from the seller and returned to the buyer incluading the fee of gateway and the system fee.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Product and Quality</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                       All product to sell must have good quality and all the description of product including installation, how to use, password, plugin, library and any other materials must be included in the product so as to provide the complete product.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Working and Support Time</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                       We are working only from Sunday to Friday for 24 hours, but on Saturday we only work from 19:00 pm and not other wise, so for this day you will not receive customer support but the service will be provided as normal, only the customer support will not be provided from 17:00 pm friday to 19:00 pm saturday keep it.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Jurisdiction; Governing Law</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        This Terms of Service shall be governed in all aspects in accordance with the Laws of any country and a court of complete jurisdiction in nationality country shall determine every claim or dispute arising out of or in connection with this Terms of Service.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Modification of Terms of Service for Buyers</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <p>
+                                        We have the right, in our sole and absolute discretion, to change, modify, or amend any portion of this Terms of Service at any time by posting notification on Worntech Web Site or otherwise communicating the notification to you. The changes will become effective, and shall be deemed accepted by you, after the initial posting and shall apply on a going-forward basis with respect to Payment Transactions initiated after the posting date. In the event that you do not agree with any such modification, your sole and exclusive remedy is to terminate your use of the Service.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+        <!-- [ Footer ] start -->
+        
+        <!-- [ Footer ] end -->
+    </main>
+
+	
+    {% comment %} <script src="{% static 'dash/js/vendors.min.js' %}"></script>
+    <!-- vendors.min.js {always must need to be top} -->
+    <script src="{% static 'dash/js/daterangepicker.min.js' %}"></script>
+    <script src="{% static 'dash/js/apexcharts.min.js' %}"></script>
+    <script src="{% static 'dash/js/circle-progress.min.js' %}"></script>
+    <!--! END: Vendors JS !-->
+    <!--! BEGIN: Apps Init  !-->
+    <script src="{% static 'dash/js/common-init.min.js' %}"></script>
+    <script src="{% static 'dash/js/dashboard-init.min.js' %}"></script>
+    <!--! END: Apps Init !-->
+    <!--! BEGIN: Theme Customizer  !-->
+    <script src="{% static 'dash/js/theme-customizer-init.min.js' %}"></script>
+    <!--! END: Theme Customizer !--> {% endcomment %}
+
+
+</body>
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,896 @@
+
+{% extends 'web/base1.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="author" content="WRAPCODERS">
+    <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
+    <!--! BEGIN: Apps Title-->
+    <title>Worntech Online || Dashboard</title>
+    <!--! END:  Apps Title-->
+    <!--! BEGIN: Favicon-->
+    {% comment %} <link rel="shortcut icon" type="image/x-icon" href="{% static 'dash/favicon.ico' %}"> {% endcomment %}
+    <!--! END: Favicon-->
+    <!--! BEGIN: Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/bootstrap.min.css' %}">
+    <!--! END: Bootstrap CSS-->
+    <!--! BEGIN: Vendors CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/vendors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/daterangepicker.min.css' %}">
+    <!--! END: Vendors CSS-->
+    <!--! BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/theme.min.css' %}">
+    <!--! END: Custom CSS-->
+</head>
+
+<body>
+
+    <main class="nxl-container">
+        <div class="nxl-content">
+            <!-- [ page-header ] start -->
+            <div class="page-header">
+                <div class="page-header-left d-flex align-items-center">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Dashboard</h5>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item">Dashboard</li>
+                    </ul>
+                </div>
+                <div class="page-header-right ms-auto">
+                    <div class="page-header-right-items">
+                        <div class="d-flex d-md-none">
+                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
+                                <i class="feather-arrow-left me-2"></i>
+                                <span>Back</span>
+                            </a>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                            <div id="reportrange" class="reportrange-picker d-flex align-items-center">
+                                <span class="reportrange-picker-field"></span>
+                            </div>
+                            <div class="dropdown filter-dropdown">
+                                <a href="{% url 'withdraw' %}" class="btn btn-primary">
+                                    <i class="feather-dollar-sign"></i>
+                                    <span>Cashout</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-md-none d-flex align-items-center">
+                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
+                            <i class="feather-align-right fs-20"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- [ page-header ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="main-content">
+                <div class="row">
+                    <!-- [Invoices Awaiting Payment] start -->
+                    <div class="col-xxl-3 col-md-6">
+                        <div class="card stretch stretch-full">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start justify-content-between mb-4">
+                                    <div class="d-flex gap-4 align-items-center">
+                                        <div class="avatar-text avatar-lg bg-gray-200">
+                                            <i class="feather-dollar-sign"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ my_amount_record.Total_amount }}</span><span class="counter"></span></div>
+                                            <h3 class="fs-13 fw-semibold text-truncate-1-line">Total Selling</h3>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0);" class="">
+                                        <i class="feather-more-vertical"></i>
+                                    </a>
+                                </div>
+                                <div class="pt-4">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a href="javascript:void(0);" class="fs-12 fw-medium text-muted text-truncate-1-line">Amount before reduction of system fee</a>
+                                        <div class="w-100 text-end">
+                                            <span class="fs-12 text-dark">Trusted</span>
+                                            <span class="fs-11 text-muted">(100%)</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress mt-2 ht-3">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Invoices Awaiting Payment] end -->
+                    <!-- [Converted Leads] start -->
+                    <div class="col-xxl-3 col-md-6">
+                        <div class="card stretch stretch-full">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start justify-content-between mb-4">
+                                    <div class="d-flex gap-4 align-items-center">
+                                        <div class="avatar-text avatar-lg bg-gray-200">
+                                            <i class="feather-cast"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ my_amount_record.My_amount }}</span><span class="counter"></span></div>
+                                            <h3 class="fs-13 fw-semibold text-truncate-1-line">Amount to withdraw</h3>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0);" class="">
+                                        <i class="feather-more-vertical"></i>
+                                    </a>
+                                </div>
+                                <div class="pt-4">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a href="javascript:void(0);" class="fs-12 fw-medium text-muted text-truncate-1-line">Amount After reduction</a>
+                                        <div class="w-100 text-end">
+                                            <span class="fs-12 text-dark">Trusted</span>
+                                            <span class="fs-11 text-muted">(100%)</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress mt-2 ht-3">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Converted Leads] end -->
+                    <!-- [Projects In Progress] start -->
+                    <div class="col-xxl-3 col-md-6">
+                        <div class="card stretch stretch-full">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start justify-content-between mb-4">
+                                    <div class="d-flex gap-4 align-items-center">
+                                        <div class="avatar-text avatar-lg bg-gray-200">
+                                            <i class="feather-briefcase"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ my_amount_record.Reducted_amount }}</span><span class="counter"></span></div>
+                                            <h3 class="fs-13 fw-semibold text-truncate-1-line">Transaction and System Fee</h3>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0);" class="">
+                                        <i class="feather-more-vertical"></i>
+                                    </a>
+                                </div>
+                                <div class="pt-4">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a href="javascript:void(0);" class="fs-12 fw-medium text-muted text-truncate-1-line">Total Amount Reducted</a>
+                                        <div class="w-100 text-end">
+                                            <span class="fs-12 text-dark">Trusted</span>
+                                            <span class="fs-11 text-muted">(100%)</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress mt-2 ht-3">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Projects In Progress] end -->
+
+
+                    <!-- [Conversion Rate] start -->
+                    <div class="col-xxl-3 col-md-6">
+                        <div class="card stretch stretch-full">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start justify-content-between mb-4">
+                                    <div class="d-flex gap-4 align-items-center">
+                                        <div class="avatar-text avatar-lg bg-gray-200">
+                                            <i class="feather-activity"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ my_amount_record.Withdrawed_amount }}</span></div>
+                                            <h3 class="fs-13 fw-semibold text-truncate-1-line">Total Amount Withdrawed</h3>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0);" class="">
+                                        <i class="feather-more-vertical"></i>
+                                    </a>
+                                </div>
+                                <div class="pt-4">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a href="javascript:void(0);" class="fs-12 fw-medium text-muted text-truncate-1-line"> Total Amount Withdrawed</a>
+                                        <div class="w-100 text-end">
+                                            <span class="fs-12 text-dark">Trusted</span>
+                                            <span class="fs-11 text-muted">(100%)</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress mt-2 ht-3">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Conversion Rate] end -->
+
+
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">My Product Record</h5>
+                            </div>
+
+
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Courses</div>
+                                            <h6 class="fw-bold text-dark">{{ course_count }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Templates</div>
+                                            <h6 class="fw-bold text-dark">{{ template_count }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Projects</div>
+                                            <h6 class="fw-bold text-dark">{{ project_count }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Images</div>
+                                            <h6 class="fw-bold text-dark">{{ image_count }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-dark" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+
+
+
+
+
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            {% comment %} <div class="card-header">
+                                <h5 class="card-title">My Product Record</h5>
+                            </div> {% endcomment %}
+
+
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">E-books & Written Content</div>
+                                            <h6 class="fw-bold text-dark">{{ bookcount }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Music & Audio</div>
+                                            <h6 class="fw-bold text-dark">{{ musiccount }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Videos & Multimedia</div>
+                                            <h6 class="fw-bold text-dark">{{ multmediacount }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Digital Art & Design</div>
+                                            <h6 class="fw-bold text-dark">{{ digitalArtcount }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-dark" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+
+
+
+                    <!-- [Payment Records] start -->
+                    <div class="col-xxl-8">
+                        <div class="card stretch stretch-full">
+                            {% comment %} <div class="card-header">
+                                <h5 class="card-title">My Product Record</h5>
+                            </div> {% endcomment %}
+
+
+                            <div class="card-footer">
+                                <div class="row g-4">
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">3D & CAD Designs</div>
+                                            <h6 class="fw-bold text-dark">{{ cadcount }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Printable & Customizable Content</div>
+                                            <h6 class="fw-bold text-dark">{{ printablecount }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Software & Tools</div>
+                                            <h6 class="fw-bold text-dark">{{ softwarecount }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="p-3 border border-dashed rounded">
+                                            <div class="fs-12 text-muted mb-1">Business & Marketing Tools</div>
+                                            <h6 class="fw-bold text-dark">{{ businesscount }}</h6>
+                                            <div class="progress mt-2 ht-3">
+                                                <div class="progress-bar bg-dark" role="progressbar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Payment Records] end -->
+
+
+                    <!-- [Total Sales] start -->
+
+                    <!-- [Total Sales] end !-->
+
+                    <!-- [Mini] start -->
+                    {% comment %} <div class="col-lg-4">
+                        <div class="card mb-4 stretch stretch-full">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="avatar-text">
+                                        <i class="feather feather-star"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold text-dark">Tasks Completed</div>
+                                        <div class="fs-12 text-muted">22/35 completed</div>
+                                    </div>
+                                </div>
+                                <div class="fs-4 fw-bold text-dark">22/35</div>
+                            </div>
+                            <div class="card-body d-flex align-items-center justify-content-between gap-4">
+                                <div id="task-completed-area-chart"></div>
+                                <div class="fs-12 text-muted text-nowrap">
+                                    <span class="fw-semibold text-primary">28% more</span><br>
+                                    <span>from last week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card mb-4 stretch stretch-full">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="avatar-text">
+                                        <i class="feather feather-file-text"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold text-dark">New Tasks</div>
+                                        <div class="fs-12 text-muted">0/20 tasks</div>
+                                    </div>
+                                </div>
+                                <div class="fs-4 fw-bold text-dark">5/20</div>
+                            </div>
+                            <div class="card-body d-flex align-items-center justify-content-between gap-4">
+                                <div id="new-tasks-area-chart"></div>
+                                <div class="fs-12 text-muted text-nowrap">
+                                    <span class="fw-semibold text-success">34% more</span><br>
+                                    <span>from last week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card mb-4 stretch stretch-full">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="avatar-text">
+                                        <i class="feather feather-airplay"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold text-dark">Project Done</div>
+                                        <div class="fs-12 text-muted">20/30 project</div>
+                                    </div>
+                                </div>
+                                <div class="fs-4 fw-bold text-dark">20/30</div>
+                            </div>
+                            <div class="card-body d-flex align-items-center justify-content-between gap-4">
+                                <div id="project-done-area-chart"></div>
+                                <div class="fs-12 text-muted text-nowrap">
+                                    <span class="fw-semibold text-danger">42% more</span><br>
+                                    <span>from last week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                    <!-- [Mini] end !-->
+                    <!-- [Leads Overview] start -->
+
+                    <!-- [Leads Overview] end -->
+
+                    <!-- [Latest Leads] start -->
+
+                    <!-- [Latest Leads] end -->
+                    <!--! BEGIN: [Upcoming Schedule] !-->
+
+
+                    {% comment %} <div class="col-xxl-4">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Upcoming Schedule</h5>
+                                <div class="card-header-action">
+                                    <div class="card-header-btn">
+                                        <div data-bs-toggle="tooltip" title="Delete">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-danger" data-bs-toggle="remove"> </a>
+                                        </div>
+                                        <div data-bs-toggle="tooltip" title="Refresh">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning" data-bs-toggle="refresh"> </a>
+                                        </div>
+                                        <div data-bs-toggle="tooltip" title="Maximize/Minimize">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success" data-bs-toggle="expand"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a href="javascript:void(0);" class="avatar-text avatar-sm" data-bs-toggle="dropdown" data-bs-offset="25, 25">
+                                            <div data-bs-toggle="tooltip" title="Options">
+                                                <i class="feather-more-vertical"></i>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-at-sign"></i>New</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-calendar"></i>Event</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-bell"></i>Snoozed</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-trash-2"></i>Deleted</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-settings"></i>Settings</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-life-buoy"></i>Tips &amp; Tricks</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!--! BEGIN: [Events] !-->
+                                <div class="p-3 border border-dashed rounded-3 mb-3">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="wd-50 ht-50 bg-soft-primary text-primary lh-1 d-flex align-items-center justify-content-center flex-column rounded-2 schedule-date">
+                                                <span class="fs-18 fw-bold mb-1 d-block">20</span>
+                                                <span class="fs-10 fw-semibold text-uppercase d-block">Dec</span>
+                                            </div>
+                                            <div class="text-dark">
+                                                <a href="javascript:void(0);" class="fw-bold mb-2 text-truncate-1-line">React Dashboard Design</a>
+                                                <span class="fs-11 fw-normal text-muted text-truncate-1-line">11:30am - 12:30pm</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-group lh-0 ms-3 justify-content-start d-none d-sm-flex">
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Janette Dalton">
+                                                <img src="images/2.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Michael Ksen">
+                                                <img src="images/3.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Socrates Itumay">
+                                                <img src="images/4.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Marianne Audrey">
+                                                <img src="images/6.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Explorer More">
+                                                <i class="feather-more-horizontal"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+
+                                <!--! BEGIN: [Events] !-->
+                                {% comment %} <div class="p-3 border border-dashed rounded-3 mb-3">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="wd-50 ht-50 bg-soft-warning text-warning lh-1 d-flex align-items-center justify-content-center flex-column rounded-2 schedule-date">
+                                                <span class="fs-18 fw-bold mb-1 d-block">30</span>
+                                                <span class="fs-10 fw-semibold text-uppercase d-block">Dec</span>
+                                            </div>
+                                            <div class="text-dark">
+                                                <a href="javascript:void(0);" class="fw-bold mb-2 text-truncate-1-line">Admin Design Concept</a>
+                                                <span class="fs-11 fw-normal text-muted text-truncate-1-line">10:00am - 12:00pm</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-group lh-0 ms-3 justify-content-start d-none d-sm-flex">
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Janette Dalton">
+                                                <img src="images/2.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Michael Ksen">
+                                                <img src="images/3.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Marianne Audrey">
+                                                <img src="images/5.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Marianne Audrey">
+                                                <img src="images/6.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Explorer More">
+                                                <i class="feather-more-horizontal"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--! BEGIN: [Events] !-->
+                                <div class="p-3 border border-dashed rounded-3 mb-3">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="wd-50 ht-50 bg-soft-success text-success lh-1 d-flex align-items-center justify-content-center flex-column rounded-2 schedule-date">
+                                                <span class="fs-18 fw-bold mb-1 d-block">17</span>
+                                                <span class="fs-10 fw-semibold text-uppercase d-block">Dec</span>
+                                            </div>
+                                            <div class="text-dark">
+                                                <a href="javascript:void(0);" class="fw-bold mb-2 text-truncate-1-line">Standup Team Meeting</a>
+                                                <span class="fs-11 fw-normal text-muted text-truncate-1-line">8:00am - 9:00am</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-group lh-0 ms-3 justify-content-start d-none d-sm-flex">
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Janette Dalton">
+                                                <img src="images/2.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Michael Ksen">
+                                                <img src="images/3.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Socrates Itumay">
+                                                <img src="images/4.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Marianne Audrey">
+                                                <img src="images/5.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Explorer More">
+                                                <i class="feather-more-horizontal"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--! BEGIN: [Events] !-->
+                                <div class="p-3 border border-dashed rounded-3 mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="wd-50 ht-50 bg-soft-danger text-danger lh-1 d-flex align-items-center justify-content-center flex-column rounded-2 schedule-date">
+                                                <span class="fs-18 fw-bold mb-1 d-block">25</span>
+                                                <span class="fs-10 fw-semibold text-uppercase d-block">Dec</span>
+                                            </div>
+                                            <div class="text-dark">
+                                                <a href="javascript:void(0);" class="fw-bold mb-2 text-truncate-1-line">Zoom Team Meeting</a>
+                                                <span class="fs-11 fw-normal text-muted text-truncate-1-line">03:30pm - 05:30pm</span>
+                                            </div>
+                                        </div>
+                                        <div class="img-group lh-0 ms-3 justify-content-start d-none d-sm-flex">
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Janette Dalton">
+                                                <img src="images/2.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Socrates Itumay">
+                                                <img src="images/4.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Marianne Audrey">
+                                                <img src="images/5.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-image avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Marianne Audrey">
+                                                <img src="images/6.png" class="img-fluid" alt="image">
+                                            </a>
+                                            <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Explorer More">
+                                                <i class="feather-more-horizontal"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0);" class="card-footer fs-11 fw-bold text-uppercase text-center py-4">Upcomming Schedule</a>
+                        </div>
+                    </div> {% endcomment %}
+
+
+                    <!--! END: [Upcoming Schedule] !-->
+                    <!--! BEGIN: [Project Status] !-->
+                    {% comment %} <div class="col-xxl-4">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Project Status</h5>
+                                <div class="card-header-action">
+                                    <div class="card-header-btn">
+                                        <div data-bs-toggle="tooltip" title="Delete">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-danger" data-bs-toggle="remove"> </a>
+                                        </div>
+                                        <div data-bs-toggle="tooltip" title="Refresh">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning" data-bs-toggle="refresh"> </a>
+                                        </div>
+                                        <div data-bs-toggle="tooltip" title="Maximize/Minimize">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success" data-bs-toggle="expand"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a href="javascript:void(0);" class="avatar-text avatar-sm" data-bs-toggle="dropdown" data-bs-offset="25, 25">
+                                            <div data-bs-toggle="tooltip" title="Options">
+                                                <i class="feather-more-vertical"></i>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-at-sign"></i>New</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-calendar"></i>Event</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-bell"></i>Snoozed</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-trash-2"></i>Deleted</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-settings"></i>Settings</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-life-buoy"></i>Tips &amp; Tricks</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body custom-card-action">
+                                <div class="mb-3">
+                                    <div class="mb-4 pb-1 d-flex">
+                                        <div class="d-flex w-50 align-items-center me-3">
+                                            <img src="images/app-store.png" alt="laravel-logo" class="me-3" width="35">
+                                            <div>
+                                                <a href="javascript:void(0);" class="text-truncate-1-line">Apps Development</a>
+                                                <div class="fs-11 text-muted">Applications</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-grow-1 align-items-center">
+                                            <div class="progress w-100 me-3 ht-5">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 54%" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span class="text-muted">54%</span>
+                                        </div>
+                                    </div>
+                                    <hr class="border-dashed my-3">
+                                    <div class="mb-4 pb-1 d-flex">
+                                        <div class="d-flex w-50 align-items-center me-3">
+                                            <img src="images/figma.png" alt="figma-logo" class="me-3" width="35">
+                                            <div>
+                                                <a href="javascript:void(0);" class="text-truncate-1-line">Dashboard Design</a>
+                                                <div class="fs-11 text-muted">App UI Kit</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-grow-1 align-items-center">
+                                            <div class="progress w-100 me-3 ht-5">
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 86%" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span class="text-muted">86%</span>
+                                        </div>
+                                    </div>
+                                    <hr class="border-dashed my-3">
+                                    <div class="mb-4 pb-1 d-flex">
+                                        <div class="d-flex w-50 align-items-center me-3">
+                                            <img src="images/facebook.png" alt="vue-logo" class="me-3" width="35">
+                                            <div>
+                                                <a href="javascript:void(0);" class="text-truncate-1-line">Facebook Marketing</a>
+                                                <div class="fs-11 text-muted">Marketing</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-grow-1 align-items-center">
+                                            <div class="progress w-100 me-3 ht-5">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span class="text-muted">90%</span>
+                                        </div>
+                                    </div>
+                                    <hr class="border-dashed my-3">
+                                    <div class="mb-4 pb-1 d-flex">
+                                        <div class="d-flex w-50 align-items-center me-3">
+                                            <img src="images/github.png" alt="react-logo" class="me-3" width="35">
+                                            <div>
+                                                <a href="javascript:void(0);" class="text-truncate-1-line">React Dashboard Github</a>
+                                                <div class="fs-11 text-muted">Dashboard</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-grow-1 align-items-center">
+                                            <div class="progress w-100 me-3 ht-5">
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: 37%" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span class="text-muted">37%</span>
+                                        </div>
+                                    </div>
+                                    <hr class="border-dashed my-3">
+                                    <div class="d-flex">
+                                        <div class="d-flex w-50 align-items-center me-3">
+                                            <img src="images/paypal.png" alt="sketch-logo" class="me-3" width="35">
+                                            <div>
+                                                <a href="javascript:void(0);" class="text-truncate-1-line">Paypal Payment Gateway</a>
+                                                <div class="fs-11 text-muted">Payment</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-grow-1 align-items-center">
+                                            <div class="progress w-100 me-3 ht-5">
+                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 29%" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <span class="text-muted">29%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0);" class="card-footer fs-11 fw-bold text-uppercase text-center">Upcomming Projects</a>
+                        </div>
+                    </div> {% endcomment %}
+                    <!--! END: [Project Status] !-->
+
+
+                    <!--! BEGIN: [Team Progress] !-->
+                    {% comment %} <div class="col-xxl-4">
+                        <div class="card stretch stretch-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Team Progress</h5>
+                                <div class="card-header-action">
+                                    <div class="card-header-btn">
+                                        <div data-bs-toggle="tooltip" title="Delete">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-danger" data-bs-toggle="remove"> </a>
+                                        </div>
+                                        <div data-bs-toggle="tooltip" title="Refresh">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning" data-bs-toggle="refresh"> </a>
+                                        </div>
+                                        <div data-bs-toggle="tooltip" title="Maximize/Minimize">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success" data-bs-toggle="expand"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a href="javascript:void(0);" class="avatar-text avatar-sm" data-bs-toggle="dropdown" data-bs-offset="25, 25">
+                                            <div data-bs-toggle="tooltip" title="Options">
+                                                <i class="feather-more-vertical"></i>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-at-sign"></i>New</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-calendar"></i>Event</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-bell"></i>Snoozed</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-trash-2"></i>Deleted</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-settings"></i>Settings</a>
+                                            <a href="javascript:void(0);" class="dropdown-item"><i class="feather-life-buoy"></i>Tips &amp; Tricks</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body custom-card-action">
+                                <div class="hstack justify-content-between border border-dashed rounded-3 p-3 mb-3">
+                                    <div class="hstack gap-3">
+                                        <div class="avatar-image">
+                                            <img src="images/1.png" alt="" class="img-fluid">
+                                        </div>
+                                        <div>
+                                            <a href="javascript:void(0);">Alexandra Della</a>
+                                            <div class="fs-11 text-muted">Frontend Developer</div>
+                                        </div>
+                                    </div>
+                                    <div class="team-progress-1"></div>
+                                </div>
+                                <div class="hstack justify-content-between border border-dashed rounded-3 p-3 mb-3">
+                                    <div class="hstack gap-3">
+                                        <div class="avatar-image">
+                                            <img src="images/2.png" alt="" class="img-fluid">
+                                        </div>
+                                        <div>
+                                            <a href="javascript:void(0);">Archie Cantones</a>
+                                            <div class="fs-11 text-muted">UI/UX Designer</div>
+                                        </div>
+                                    </div>
+                                    <div class="team-progress-2"></div>
+                                </div>
+                                <div class="hstack justify-content-between border border-dashed rounded-3 p-3 mb-3">
+                                    <div class="hstack gap-3">
+                                        <div class="avatar-image">
+                                            <img src="images/3.png" alt="" class="img-fluid">
+                                        </div>
+                                        <div>
+                                            <a href="javascript:void(0);">Malanie Hanvey</a>
+                                            <div class="fs-11 text-muted">Backend Developer</div>
+                                        </div>
+                                    </div>
+                                    <div class="team-progress-3"></div>
+                                </div>
+                                <div class="hstack justify-content-between border border-dashed rounded-3 p-3 mb-2">
+                                    <div class="hstack gap-3">
+                                        <div class="avatar-image">
+                                            <img src="images/4.png" alt="" class="img-fluid">
+                                        </div>
+                                        <div>
+                                            <a href="javascript:void(0);">Kenneth Hune</a>
+                                            <div class="fs-11 text-muted">Digital Marketer</div>
+                                        </div>
+                                    </div>
+                                    <div class="team-progress-4"></div>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0);" class="card-footer fs-11 fw-bold text-uppercase text-center">Update 30 Min Ago</a>
+                        </div>
+                    </div> {% endcomment %}
+                    <!--! END: [Team Progress] !-->
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+        <!-- [ Footer ] start -->
+        
+        <!-- [ Footer ] end -->
+    </main>
+
+    <!--! ================================================================ !-->
+    <!--! [End] Main Content !-->
+    <!--! ================================================================ !-->
+    <!--! ================================================================ !-->
+    <!--! BEGIN: Theme Customizer !-->
+    <!--! ================================================================ !-->
+
+
+	<!--! ================================================================ !-->
+    <!--! [End] Theme Customizer !-->
+    <!--! ================================================================ !-->
+    <!--! ================================================================ !-->
+    <!--! Footer Script !-->
+    <!--! ================================================================ !-->
+    <!--! BEGIN: Vendors JS !-->
+	
+    {% comment %} <script src="{% static 'dash/js/vendors.min.js' %}"></script>
+    <!-- vendors.min.js {always must need to be top} -->
+    <script src="{% static 'dash/js/daterangepicker.min.js' %}"></script>
+    <script src="{% static 'dash/js/apexcharts.min.js' %}"></script>
+    <script src="{% static 'dash/js/circle-progress.min.js' %}"></script>
+    <!--! END: Vendors JS !-->
+    <!--! BEGIN: Apps Init  !-->
+    <script src="{% static 'dash/js/common-init.min.js' %}"></script>
+    <script src="{% static 'dash/js/dashboard-init.min.js' %}"></script>
+    <!--! END: Apps Init !-->
+    <!--! BEGIN: Theme Customizer  !-->
+    <script src="{% static 'dash/js/theme-customizer-init.min.js' %}"></script>
+    <!--! END: Theme Customizer !--> {% endcomment %}
+
+
+</body>
+
+</html>
+
+{% endblock %}

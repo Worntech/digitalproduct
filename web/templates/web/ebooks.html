@@ -1,0 +1,1362 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>E-books & Written Content</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+
+</head>
+
+<body>
+
+<!-- Start E-books & Written Content -->
+<section class="courses section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                        
+                    </div>
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">E-books & Written Content</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s"></p>
+                </div>
+            </div>
+        </div>
+        <div class="single-head">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'novels' %}"><img src="{% static 'web/images/novel.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'novels' %}">Novels</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Novels</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'short_stories' %}"><img src="{% static 'web/images/short stories.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'short_stories' %}">Short stories</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Short stories</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'poetry' %}"><img src="{% static 'web/images/poetry.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'poetry' %}">Poetry</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Poetry</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'flash_fiction' %}"><img src="{% static 'web/images/flash fiction.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'flash_fiction' %}">Flash fiction</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Flash fiction</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'self_help_book' %}"><img src="{% static 'web/images/self help book.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'self_help_book' %}">Self help book</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Self help</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'biographies' %}"><img src="{% static 'web/images/biographies and memories.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'biographies' %}">Biographies & Memoirs</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Biographies</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'personal_development_books' %}"><img src="{% static 'web/images/personal development book.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'personal_development_books' %}">Personal development books</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">development</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'history_books' %}"><img src="{% static 'web/images/history book.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'history_books' %}">History Books</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">History</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'true_crime' %}"><img src="{% static 'web/images/True crime.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'true_crime' %}">True crime</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">True crime</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'textbooks' %}"><img src="{% static 'web/images/Entrepreneurship guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'textbooks' %}">Textbooks</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Textbooks</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'research_papers' %}"><img src="{% static 'web/images/Research papers & white papers.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'research_papers' %}">Research papers & white papers</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Research</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'study_guides' %}"><img src="{% static 'web/images/Study guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'study_guides' %}">Study guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Study</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'how_to_guides_tutorials' %}"><img src="{% static 'web/images/How-to guides & tutorials.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'how_to_guides_tutorials' %}">How-to guides & tutorials</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">guides</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'business_strategy_guides' %}"><img src="{% static 'web/images/Business strategy guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'business_strategy_guides' %}">Business strategy guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Business</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'marketing_and_sales_e_books' %}"><img src="{% static 'web/images/Marketing and sales e-books.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'marketing_and_sales_e_books' %}">Marketing and sales e-books</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Marketing</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'entrepreneurship_guides' %}"><img src="{% static 'web/images/Entrepreneurship guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'entrepreneurship_guides' %}">Entrepreneurship guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Entrepreneurship</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'financial_planning' %}"><img src="{% static 'web/images/Financial planning.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'financial_planning' %}">Financial planning</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Financial</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'nutrition_guides' %}"><img src="{% static 'web/images/Nutrition guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'nutrition_guides' %}">Nutrition guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Nutrition</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'workout_and_fitness_plans' %}"><img src="{% static 'web/images/Workout and fitness plans.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'workout_and_fitness_plans' %}">Workout and fitness plans</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Workout</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'mental_health_wellness' %}"><img src="{% static 'web/images/Investment strategies.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'mental_health_wellness' %}">Mental health & wellness</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Mental</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'meditation_and_mindfulness_e_books' %}"><img src="{% static 'web/images/Meditation and mindfulness e-books.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'meditation_and_mindfulness_e_books' %}">Meditation and mindfulness e-books</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Meditation</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'coding_and_programming_tutorials' %}"><img src="{% static 'web/images/Coding and programming tutorials.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'coding_and_programming_tutorials' %}">Coding and programming tutorials</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Coding</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'software_manuals' %}"><img src="{% static 'web/images/Software manuals.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'software_manuals' %}">Software manuals</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Software</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'IT_and_networking_guides' %}"><img src="{% static 'web/images/IT and networking guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'IT_and_networking_guides' %}">IT and networking guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">IT</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'artificial_intelligence_machine_learning' %}"><img src="{% static 'web/images/Artificial intelligence & machine learning.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'artificial_intelligence_machine_learning' %}">Artificial intelligence & machine learning</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">AI</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'photography_tutorials' %}"><img src="{% static 'web/images/Photography tutorials.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'photography_tutorials' %}">Photography tutorials</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Photography</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'painting_and_drawing_guides' %}"><img src="{% static 'web/images/Painting and drawing guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'painting_and_drawing_guides' %}">Painting and drawing guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Painting</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'writing_and_storytelling_techniques' %}"><img src="{% static 'web/images/Writing and storytelling techniques.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'writing_and_storytelling_techniques' %}">Writing and storytelling techniques</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Writing</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'crafting_DIY_projects' %}"><img src="{% static 'web/images/Crafting & DIY (Do It Yourself) projects.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'crafting_DIY_projects' %}">Crafting & DIY (Do It Yourself) projects</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Crafting</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'recipe_collections' %}"><img src="{% static 'web/images/Recipe collections.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'recipe_collections' %}">Recipe collections</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Recipe</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'specialized_diet_guides' %}"><img src="{% static 'web/images/Specialized diet guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'specialized_diet_guides' %}">Specialized diet guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">diet</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'meal_planning_and_prep' %}"><img src="{% static 'web/images/Meal planning and prep.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'meal_planning_and_prep' %}">Meal planning and prep</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Meal</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'parenting_advice' %}"><img src="{% static 'web/images/Parenting advice.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'parenting_advice' %}">Parenting advice</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Parenting</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'marriage_and_relationship_counseling' %}"><img src="{% static 'web/images/Marriage and relationship counseling.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'marriage_and_relationship_counseling' %}">Marriage and relationship counseling</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Marriage</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'family_planning_guides' %}"><img src="{% static 'web/images/Family planning guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'family_planning_guides' %}">Family planning guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Family</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'childcare_and_development' %}"><img src="{% static 'web/images/Childcare and development.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'childcare_and_development' %}">Childcare and development</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Childcare</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'travel_guides' %}"><img src="{% static 'web/images/Travel guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'travel_guides' %}">Travel guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Travel</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'destination_reviews' %}"><img src="{% static 'web/images/Destination reviews.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'destination_reviews' %}">Destination reviews</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Destination</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'adventure_stories' %}"><img src="{% static 'web/images/Adventure stories.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'adventure_stories' %}">Adventure stories</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Adventure</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'travel_planning_and_budgeting' %}"><img src="{% static 'web/images/Travel planning and budgeting.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'travel_planning_and_budgeting' %}">Travel planning and budgeting</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Travel</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'personal_finance_e_books' %}"><img src="{% static 'web/images/Personal finance e-books.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'personal_finance_e_books' %}">Personal finance e-books</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">finance</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'investment_strategies' %}"><img src="{% static 'web/images/Business strategy guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'investment_strategies' %}">Investment strategies</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Investment</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'retirement_planning' %}"><img src="{% static 'web/images/Workout and fitness plans.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'retirement_planning' %}">Retirement planning</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Retirement</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'budgeting_tips' %}"><img src="{% static 'web/images/Financial planning.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'budgeting_tips' %}">Budgeting tips</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Budgeting</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'meditation_and_mindfulness_books' %}"><img src="{% static 'web/images/Meditation and mindfulness e-books.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'meditation_and_mindfulness_books' %}">Meditation and mindfulness books</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Meditation</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'philosophy_and_life_purpose_e_books' %}"><img src="{% static 'web/images/How-to guides & tutorials.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'philosophy_and_life_purpose_e_books' %}">Philosophy and life purpose e-books</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Philosophy</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'time_management_and_productivity' %}"><img src="{% static 'web/images/Coding and programming tutorials.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'time_management_and_productivity' %}">Time management and productivity</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">management</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'self_improvement_and_motivation' %}"><img src="{% static 'web/images/Adventure stories.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'self_improvement_and_motivation' %}">Self-improvement and motivation</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">improvement</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'life_coaching_guides' %}"><img src="{% static 'web/images/Marriage and relationship counseling.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'life_coaching_guides' %}">Life coaching guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">coaching</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'work_life_balance' %}"><img src="{% static 'web/images/Software manuals.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'work_life_balance' %}">Work-life balance</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Work-life</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'legal_guides_and_contracts' %}"><img src="{% static 'web/images/Childcare and development.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'legal_guides_and_contracts' %}">Legal guides and contracts</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Legal</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'HR_and_employment_handbooks' %}"><img src="{% static 'web/images/Financial planning.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'HR_and_employment_handbooks' %}">HR and employment handbooks</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">employment</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'professional_development' %}"><img src="{% static 'web/images/Family planning guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'professional_development' %}">Professional development</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Professional</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'real_estate_investment_guides' %}"><img src="{% static 'web/images/Business strategy guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'real_estate_investment_guides' %}">Real estate investment guides</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">estate</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'property_management_manuals' %}"><img src="{% static 'web/images/Entrepreneurship guides.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'property_management_manuals' %}">Property management manuals</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">management</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start E-books & Written Content -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'buying_and_selling_homes' %}"><img src="{% static 'web/images/Writing and storytelling techniques.jpg' %}" alt="#"></a>
+                            <p class="price">Books</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'buying_and_selling_homes' %}">Buying and selling homes</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Buying</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End E-books & Written Content -->
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End E-books & Written Content -->
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+  
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+
+</body></html>
+
+{% endblock %}

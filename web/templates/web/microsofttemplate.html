@@ -1,0 +1,168 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Microsoft Templates</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Start Events Area-->
+    <section class="courses section grid-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'wordtemplate' %}"><img src="{% static 'web/images/Microsoft word template.jpg' %}" alt="#"></a>
+                            <p class="price">Microsoft</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'wordtemplate' %}">Microsoft word template</a></h3>
+                            <p>Get microsoft word template for free and pro, welcome and enjoy the best microsoft template.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Template</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'powerpointtemplate' %}"><img src="{% static 'web/images/Microsoft powerpoint template.jpg' %}" alt="#"></a>
+                            <p class="price">Microsoft</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'powerpointtemplate' %}">Microsoft powerpoint template</a></h3>
+                            <p>Get microsoft powerpoint template for free and pro, welcome and enjoy the best microsoft template.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Backend</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'excelltemplate' %}"><img src="{% static 'web/images/Microsoft excell template.jpg' %}" alt="#"></a>
+                            <p class="price">Microsoft</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'excelltemplate' %}">Microsoft excell template</a></h3>
+                            <p>Get microsoft excell template for free and pro, welcome and enjoy the best microsoft template.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Fullstack</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'publishertemplate' %}"><img src="{% static 'web/images/Publisher template.jpg' %}" alt="#"></a>
+                            <p class="price">Microsoft</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'publishertemplate' %}">Publisher template</a></h3>
+                            <p>Get microsoft publisher template for free and pro, welcome and enjoy the best microsoft template.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Template</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Pagination -->
+                    <div class="pagination center">
+                        <ul class="pagination-list">
+                            <li><a href="javascript:void(0)">Prev</a></li>
+                            <li class="active"><a href="javascript:void(0)">1</a></li>
+                            <li><a href="javascript:void(0)">2</a></li>
+                            <li><a href="javascript:void(0)">3</a></li>
+                            <li><a href="javascript:void(0)">4</a></li>
+                            <li><a href="javascript:void(0)">Next</a></li>
+                        </ul>
+                    </div>
+                    <!--/ End Pagination -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Events Area-->
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+  
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+
+</body></html>
+
+{% endblock %}

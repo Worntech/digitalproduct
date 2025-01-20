@@ -1,0 +1,746 @@
+{% load static %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <link rel="canonical" href="https://worntechonline.shop{{ request.path }}" />
+    <meta name="description" content="Buy and sell digital products, templates, images, projects, online courses, and more with Worntech Online.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'web/images/worntech2.png' %}">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/starability/2.4.1/starability-all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/scroll-container.css' %}">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4161665800672649"
+     crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <!-- Toolbar Start -->
+        <div class="toolbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6 col-12">
+                        <div class="toolbar-social">
+                            <ul>
+                                <li><span class="title">Follow Us On : </span></li>
+                                <li><a href="https://web.facebook.com/profile.php?id=100092684250186"><i class="lni lni-facebook-original"></i></a></li>
+                                {% comment %} <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li> {% endcomment %}
+                                <li><a href="https://www.instagram.com/worntechtz/"><i class="lni lni-instagram"></i></a></li>
+                                {% comment %} <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li> {% endcomment %}
+                                <li><a href="javascript:void(0)"><i class="lni lni-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="toolbar-login">
+                            <div class="button">
+                                {% if user.is_authenticated %}
+                                <a href="javascript:void(0)">Welcome {{user.first_name}} {{user.last_name}}</a>
+                                <a href="{% url 'logout' %}" class="btn">Logout</a>
+                                {% else %}
+                                <a href="{% url 'signup' %}">Create an Account</a>
+                                <a href="{% url 'signin' %}" class="btn">Log In</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Toolbar End -->
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                <div class="nav-inner">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="{% url 'home' %}">
+                            <img src="{% static 'web/images/worntech2.png' %}" alt="Logo">
+                        </a>
+                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <ul id="nav" class="navbar-nav ms-auto">
+
+                                {% if user.is_authenticated %}
+                                {% if user.is_staff  or user.is_admin %}
+                                <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="nav-item"><a href="{% url 'aboutus' %}">About</a></li>
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#course" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Courses</a>
+                                    <ul class="sub-menu collapse" id="course">
+                                        <li class="nav-item"><a href="{% url 'website' %}">Website development</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobileapp' %}">Mobile application</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktopapp' %}">Desktop application</a></li>
+                                        <li class="nav-item"><a href="{% url 'embeded' %}">Embeded system</a></li>
+                                        <li class="nav-item"><a href="{% url 'graphics' %}">Graphics</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'artificial' %}">Artificial inteligent</a></li>
+                                        <li class="nav-item"><a href="{% url 'nertworking' %}">Networking</a></li>
+                                        <li class="nav-item"><a href="{% url 'multmedia' %}">Multmedia</a></li>
+                                        <li class="nav-item"><a href="{% url 'iot' %}">Internet of things</a></li>
+                                        <li class="nav-item"><a href="{% url 'virtualreality' %}">Virtual reality</a></li>
+                                        <li class="nav-item"><a href="{% url 'security' %}">Cyber security</a></li>
+
+                                    </ul>
+                                </li> {% endcomment %}
+                                <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#project" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Digital Product</a>
+                                    <ul class="sub-menu collapse scroll-container" id="project">
+                                        <li class="nav-item"><a href="{% url 'template' %}">Templates</a></li>
+                                        <li class="nav-item"><a href="{% url 'project' %}">Project</a></li>
+                                        <li class="nav-item"><a href="{% url 'image' %}">Images</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'course' %}">Courses</a></li> {% endcomment %}
+                                        <li class="nav-item"><a href="{% url 'ebooks' %}">E-books & Written Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'music' %}">Music & Audio</a></li>
+                                        <li class="nav-item"><a href="{% url 'video' %}">Videos & Multimedia</a></li>
+                                        <li class="nav-item"><a href="{% url 'art' %}">Digital Art & Design</a></li>
+                                        <li class="nav-item"><a href="{% url 'cad' %}">3D & CAD Designs</a></li>
+                                        <li class="nav-item"><a href="{% url 'printable' %}">Printable & Customizable Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'software' %}">Software & Tools</a></li>
+                                        <li class="nav-item"><a href="{% url 'business' %}">Business & Marketing Tools</a></li>
+                                    </ul>
+                                </li>
+
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#template" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Template/Image</a>
+                                    <ul class="sub-menu collapse" id="template">
+                                        <li class="nav-item"><a href="{% url 'image' %}">Images</a></li>
+                                        <li class="nav-item"><a href="{% url 'webtemplate' %}">Website template</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobiletemplate' %}">Mobile application template</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktoptemplate' %}">Desktop application template</a></li>
+                                        <li class="nav-item"><a href="{% url 'microsofttemplate' %}">Microsoft template</a></li>
+                                        <li class="nav-item"><a href="{% url 'adobetemplate' %}">Adobe template</a></li>
+                                        
+                                        <li class="nav-item"><a href="#">Multmedia template</a></li>
+                                    </ul>
+                                </li> {% endcomment %}
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Projects</a>
+                                    <ul class="sub-menu collapse" id="submenu-1-2">
+                                        {% if user.is_superuser  or user.is_admin %}
+                                        <li class="nav-item"><a href="{% url 'projectpost' %}">Post Project</a></li>
+                                        {% endif %}
+                                        <li class="nav-item"><a href="{% url 'websiteproject' %}">Website project</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobileproject' %}">Mobile application project</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktopproject' %}">Desktop application project</a></li>
+                                        <li class="nav-item"><a href="{% url 'artificialproject' %}">Artificial inteligent project</a></li>
+                                        <li class="nav-item"><a href="{% url 'embededproject' %}">Embeded system project</a></li>
+                                        <li class="nav-item"><a href="{% url 'iotproject' %}">Internet of things project</a></li>
+                                        <li class="nav-item"><a href="{% url 'virtualrealityproject' %}">Virtual reality project</a></li>
+                                        <li class="nav-item"><a href="{% url 'cyberproject' %}">Cyber security project</a></li>
+
+                                    </ul>
+                                </li> {% endcomment %}
+
+                                <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#post" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Post Product</a>
+                                    <ul class="sub-menu collapse scroll-container" id="post">
+                                        <li class="nav-item"><a href="{% url 'imagepost' %}">Images</a></li>
+                                        <li class="nav-item"><a href="{% url 'projectpost' %}">Post Project</a></li>
+                                        <li class="nav-item"><a href="{% url 'bookpost' %}">E-books & Written Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'musicpost' %}">Music & Audio</a></li>
+                                        <li class="nav-item"><a href="{% url 'multimediapost' %}">Videos & Multimedia</a></li>
+                                        <li class="nav-item"><a href="{% url 'digitalArtpost' %}">Digital Art & Design</a></li>
+                                        <li class="nav-item"><a href="{% url 'CADpost' %}">3D & CAD Designs</a></li>
+                                        <li class="nav-item"><a href="{% url 'printablepost' %}">Printable & Customizable Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'softwarepost' %}">Software & Tools</a></li>
+                                        <li class="nav-item"><a href="{% url 'businesspost' %}">Business & Marketing Tools</a></li>
+
+                                        <li class="nav-item"><a href="{% url 'websitetemplatepost' %}">Website Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">Mobile application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktoptemplatepost' %}">Desktop application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'microsofttemplatepost' %}">Microsoft Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'adobeposttemplate' %}">Adobe Template</a></li>
+                                    </ul>
+                                </li>
+
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#post2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Product Post2</a>
+                                    <ul class="sub-menu collapse" id="post2">
+                                        {% comment %} <li class="nav-item"><a href="{% url 'websitepost' %}">Website Course</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobilepost' %}">Mobile application course</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktoppost' %}">Desktop application course</a></li>
+                                        <li class="nav-item"><a href="{% url 'embededpost' %}">Embeded system course</a></li>
+                                        <li class="nav-item"><a href="{% url 'graphicspost' %}">Graphics course</a></li> {% endcomment %}
+
+                                        {% comment %} <li class="nav-item"><a href="{% url 'websitetemplatepost' %}">Website Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">Mobile application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktoptemplatepost' %}">Desktop application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'microsofttemplatepost' %}">Microsoft Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'adobeposttemplate' %}">Adobe Template</a></li> {% endcomment %}
+                                        
+
+                                        {% comment %} <li class="nav-item"><a href="">Artificial inteligent</a></li>
+                                        <li class="nav-item"><a href="">Networking course</a></li>
+                                        <li class="nav-item"><a href="">Multmedia course</a></li>
+                                        <li class="nav-item"><a href="">Internet of things course</a></li>
+                                        <li class="nav-item"><a href="">Virtual reality course</a></li>
+                                        <li class="nav-item"><a href="">Cyber security</a></li>
+
+                                    </ul>
+                                </li> {% endcomment %}
+
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#templatep" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Post Template</a>
+                                    <ul class="sub-menu collapse" id="templatep">
+                                        <li class="nav-item"><a href="{% url 'websitetemplatepost' %}">Website Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">Mobile application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktoptemplatepost' %}">Desktop application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'microsofttemplatepost' %}">Microsoft Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'adobeposttemplate' %}">Adobe Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'imagepost' %}">Image</a></li>
+                                        <li class="nav-item"><a href="">Multmedia Template</a></li>
+
+                                    </ul>
+                                </li> {% endcomment %}
+
+                                <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#account" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Account</a>
+                                    <ul class="sub-menu collapse" id="account">
+                                        <li class="nav-item"><a href="{% url 'mybought' %}">Bought Product</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">My Selling/Dashboard</a></li> {% endcomment %}
+                                        <li class="nav-item"><a href="{% url 'myproduct' %}">My Product</a></li>
+                                        <li class="nav-item"><a href="{% url 'dashboard' %}">My Dashboard</a></li>
+                                        <li class="nav-item"><a href="{% url 'change_password' %}">Change Password</a></li>
+
+                                    </ul>
+                                </li>
+                                
+                                <li class="nav-item"><a href="{% url 'contactpost' %}">Contact</a></li>
+                            </ul>
+
+                            
+                            <form class="d-flex search-form" method="get" action="{% url 'search_all_product' %}">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                            <button class="btn btn-outline-success" type="submit"><i class="lni lni-search-alt"></i></button>
+                            </form>
+                            {% else%}
+
+                            <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="nav-item"><a href="{% url 'aboutus' %}">About</a></li>
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#course" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Courses</a>
+                                    <ul class="sub-menu collapse" id="course">
+                                        <li class="nav-item"><a href="{% url 'website' %}">Website development</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobileapp' %}">Mobile application</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktopapp' %}">Desktop application</a></li>
+                                        <li class="nav-item"><a href="{% url 'embeded' %}">Embeded system</a></li>
+                                        <li class="nav-item"><a href="{% url 'graphics' %}">Graphics</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'artificial' %}">Artificial inteligent</a></li> {% endcomment %}
+                                        {% comment %} <li class="nav-item"><a href="{% url 'nertworking' %}">Networking</a></li> {% endcomment %}
+                                        {% comment %} <li class="nav-item"><a href="{% url 'multmedia' %}">Multmedia</a></li>
+                                        <li class="nav-item"><a href="{% url 'iot' %}">Internet of things</a></li>
+                                        <li class="nav-item"><a href="{% url 'virtualreality' %}">Virtual reality</a></li>
+                                        <li class="nav-item"><a href="{% url 'security' %}">Cyber security</a></li>
+
+                                    </ul>
+                                </li> {% endcomment %}
+                                <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#project" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Digital Product</a>
+                                    <ul class="sub-menu collapse scroll-container" id="project">
+                                        <li class="nav-item"><a href="{% url 'template' %}">Templates</a></li>
+                                        <li class="nav-item"><a href="{% url 'project' %}">Project</a></li>
+                                        <li class="nav-item"><a href="{% url 'image' %}">Images</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'course' %}">Courses</a></li> {% endcomment %}
+                                        <li class="nav-item"><a href="{% url 'ebooks' %}">E-books & Written Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'music' %}">Music & Audio</a></li>
+                                        <li class="nav-item"><a href="{% url 'video' %}">Videos & Multimedia</a></li>
+                                        <li class="nav-item"><a href="{% url 'art' %}">Digital Art & Design</a></li>
+                                        <li class="nav-item"><a href="{% url 'cad' %}">3D & CAD Designs</a></li>
+                                        <li class="nav-item"><a href="{% url 'printable' %}">Printable & Customizable Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'software' %}">Software & Tools</a></li>
+                                        <li class="nav-item"><a href="{% url 'business' %}">Business & Marketing Tools</a></li>
+                                    </ul>
+                                </li>
+
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#template" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Template/Image</a>
+                                    <ul class="sub-menu collapse" id="template">
+                                        <li class="nav-item"><a href="{% url 'image' %}">Images</a></li>
+                                        <li class="nav-item"><a href="{% url 'webtemplate' %}">Website template</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobiletemplate' %}">Mobile application template</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktoptemplate' %}">Desktop application template</a></li>
+                                        <li class="nav-item"><a href="{% url 'microsofttemplate' %}">Microsoft template</a></li>
+                                        <li class="nav-item"><a href="{% url 'adobetemplate' %}">Adobe template</a></li>
+
+                                    </ul>
+                                </li> {% endcomment %}
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Projects</a>
+                                    <ul class="sub-menu collapse" id="submenu-1-2">
+                                        {% if user.is_superuser  or user.is_admin %}
+                                        <li class="nav-item"><a href="{% url 'projectpost' %}">Post Project</a></li>
+                                        {% endif %}
+                                        <li class="nav-item"><a href="{% url 'websiteproject' %}">Website project</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobileproject' %}">Mobile application project</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktopproject' %}">Desktop application project</a></li>
+                                        <li class="nav-item"><a href="{% url 'artificialproject' %}">Artificial inteligent project</a></li>
+                                        <li class="nav-item"><a href="{% url 'embededproject' %}">Embeded system project</a></li>
+                                        <li class="nav-item"><a href="{% url 'iotproject' %}">Internet of things project</a></li>
+                                        <li class="nav-item"><a href="{% url 'virtualrealityproject' %}">Virtual reality project</a></li>
+                                        <li class="nav-item"><a href="{% url 'cyberproject' %}">Cyber security project</a></li>
+
+                                    </ul> 
+                                </li> {% endcomment %}
+                                <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#post" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Post Product</a>
+                                    <ul class="sub-menu collapse scroll-container" id="post">
+                                        <li class="nav-item"><a href="{% url 'imagepost' %}">Images</a></li>
+                                        <li class="nav-item"><a href="{% url 'projectpost' %}">Post Project</a></li>
+                                        <li class="nav-item"><a href="{% url 'bookpost' %}">E-books & Written Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'musicpost' %}">Music & Audio</a></li>
+                                        <li class="nav-item"><a href="{% url 'multimediapost' %}">Videos & Multimedia</a></li>
+                                        <li class="nav-item"><a href="{% url 'digitalArtpost' %}">Digital Art & Design</a></li>
+                                        <li class="nav-item"><a href="{% url 'CADpost' %}">3D & CAD Designs</a></li>
+                                        <li class="nav-item"><a href="{% url 'printablepost' %}">Printable & Customizable Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'softwarepost' %}">Software & Tools</a></li>
+                                        <li class="nav-item"><a href="{% url 'businesspost' %}">Business & Marketing Tools</a></li>
+
+                                        <li class="nav-item"><a href="{% url 'websitetemplatepost' %}">Website Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">Mobile application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktoptemplatepost' %}">Desktop application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'microsofttemplatepost' %}">Microsoft Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'adobeposttemplate' %}">Adobe Template</a></li>
+                                    </ul>
+                                </li>
+                                
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#post2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Product Post2</a>
+                                    <ul class="sub-menu collapse" id="post2">
+                                        <li class="nav-item"><a href="{% url 'websitetemplatepost' %}">Website Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">Mobile application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktoptemplatepost' %}">Desktop application Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'microsofttemplatepost' %}">Microsoft Template</a></li>
+                                        <li class="nav-item"><a href="{% url 'adobeposttemplate' %}">Adobe Template</a></li>
+                                        
+
+                                    </ul>
+                                </li> {% endcomment %}
+
+                                <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#account" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Account</a>
+                                    <ul class="sub-menu collapse" id="account">
+                                        <li class="nav-item"><a href="{% url 'mybought' %}">Bought Product</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">My Selling/Dashboard</a></li> {% endcomment %}
+                                        <li class="nav-item"><a href="{% url 'myproduct' %}">My Product</a></li>
+                                        <li class="nav-item"><a href="{% url 'dashboard' %}">My Dashboard</a></li>
+                                        <li class="nav-item"><a href="{% url 'change_password' %}">Change Password</a></li>
+
+                                    </ul>
+                                </li>
+                                
+                                <li class="nav-item"><a href="{% url 'contactpost' %}">Contact</a></li>
+                            </ul>
+
+                            
+                            <form class="d-flex search-form" method="get" action="{% url 'search_all_product' %}">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                            <button class="btn btn-outline-success" type="submit"><i class="lni lni-search-alt"></i></button>
+                            </form>
+                            {% endif %}
+                            {% else %}
+                            <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="nav-item"><a href="{% url 'aboutus' %}">About</a></li>
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#course" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Courses</a>
+                                    <ul class="sub-menu collapse" id="course">
+                                        <li class="nav-item"><a href="{% url 'website' %}">Website development</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobileapp' %}">Mobile application</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktopapp' %}">Desktop application</a></li>
+                                        <li class="nav-item"><a href="{% url 'embeded' %}">Embeded system</a></li>
+                                        <li class="nav-item"><a href="{% url 'graphics' %}">Graphics</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'artificial' %}">Artificial inteligent</a></li> {% endcomment %}
+                                        {% comment %} <li class="nav-item"><a href="{% url 'nertworking' %}">Networking</a></li> {% endcomment %}
+                                        {% comment %} <li class="nav-item"><a href="{% url 'multmedia' %}">Multmedia</a></li>
+                                        <li class="nav-item"><a href="{% url 'iot' %}">Internet of things</a></li>
+                                        <li class="nav-item"><a href="{% url 'virtualreality' %}">Virtual reality</a></li>
+                                        <li class="nav-item"><a href="{% url 'security' %}">Cyber security</a></li> 
+
+                                    </ul>
+                                </li> {% endcomment %}
+                                <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#project" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Digital Product</a>
+                                    <ul class="sub-menu collapse scroll-container" id="project">
+                                        <li class="nav-item"><a href="{% url 'template' %}">Templates</a></li>
+                                        <li class="nav-item"><a href="{% url 'project' %}">Project</a></li>
+                                        <li class="nav-item"><a href="{% url 'image' %}">Images</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'course' %}">Courses</a></li> {% endcomment %}
+                                        <li class="nav-item"><a href="{% url 'ebooks' %}">E-books & Written Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'music' %}">Music & Audio</a></li>
+                                        <li class="nav-item"><a href="{% url 'video' %}">Videos & Multimedia</a></li>
+                                        <li class="nav-item"><a href="{% url 'art' %}">Digital Art & Design</a></li>
+                                        <li class="nav-item"><a href="{% url 'cad' %}">3D & CAD Designs</a></li>
+                                        <li class="nav-item"><a href="{% url 'printable' %}">Printable & Customizable Content</a></li>
+                                        <li class="nav-item"><a href="{% url 'software' %}">Software & Tools</a></li>
+                                        <li class="nav-item"><a href="{% url 'business' %}">Business & Marketing Tools</a></li>
+                                    </ul>
+                                </li>
+
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#template" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Template/Image</a>
+                                    <ul class="sub-menu collapse" id="template">
+                                        <li class="nav-item"><a href="{% url 'image' %}">Images</a></li>
+                                        <li class="nav-item"><a href="{% url 'webtemplate' %}">Website template</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobiletemplate' %}">Mobile application template</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktoptemplate' %}">Desktop application template</a></li>
+                                        <li class="nav-item"><a href="{% url 'microsofttemplate' %}">Microsoft template</a></li>
+                                        <li class="nav-item"><a href="{% url 'adobetemplate' %}">Adobe template</a></li>
+                                    </ul>
+                                </li> {% endcomment %}
+                                {% comment %} <li class="nav-item">
+                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Projects</a>
+                                    <ul class="sub-menu collapse" id="submenu-1-2">
+                                        {% if user.is_superuser  or user.is_admin %}
+                                        <li class="nav-item"><a href="{% url 'projectpost' %}">Post Project</a></li>
+                                        {% endif %}
+                                        <li class="nav-item"><a href="{% url 'websiteproject' %}">Website project</a></li>
+                                        <li class="nav-item"><a href="{% url 'mobileproject' %}">Mobile application project</a></li>
+                                        <li class="nav-item"><a href="{% url 'desktopproject' %}">Desktop application project</a></li>
+                                        <li class="nav-item"><a href="{% url 'artificialproject' %}">Artificial inteligent project</a></li>
+                                        <li class="nav-item"><a href="{% url 'embededproject' %}">Embeded system project</a></li>
+                                        <li class="nav-item"><a href="{% url 'iotproject' %}">Internet of things project</a></li>
+                                        <li class="nav-item"><a href="{% url 'virtualrealityproject' %}">Virtual reality project</a></li>
+                                        <li class="nav-item"><a href="{% url 'cyberproject' %}">Cyber security project</a></li>
+
+                                    </ul> 
+                                </li> {% endcomment %}
+                                
+                                <li class="nav-item"><a href="{% url 'contactpost' %}">Contact</a></li>
+                            </ul>
+
+                            
+                            <form class="d-flex search-form" method="get" action="{% url 'search_all_product' %}">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                            <button class="btn btn-outline-success" type="submit"><i class="lni lni-search-alt"></i></button>
+                            </form>
+                            {% endif %}
+
+
+
+                        </div> <!-- navbar collapse -->
+                    </nav> <!-- navbar -->
+                </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+{% block content %}
+{% endblock %}
+
+<!-- Start Clients Area -->
+<div class="client-logo-section">
+    <div class="container">
+        <div class="client-logo-wrapper">
+            <div class="client-logo-carousel d-flex align-items-center justify-content-between">
+                <div class="client-logo">
+                    <img src="{% static 'web/images/worntech1.png' %}" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'web/images/adtech.png' %}" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'web/images/distech.png' %}" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'web/images/worntech1.png' %}" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'web/images/adtech.png' %}" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'web/images/tays2.png' %}" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'web/images/ayepro.png' %}" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'web/images/worntech1.png' %}" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'web/images/tays2.png' %}" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'web/images/distech.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Clients Area -->
+
+    <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Middle Top -->
+        <div class="footer-middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="f-about single-footer">
+                            <div class="logo">
+                                <a href="{% url 'home' %}"><img src="{% static 'web/images/worntech2.png' %}" alt="Logo"></a>
+                            </div>
+                            <p>Sell &amp; Buy All digital product for every Purpose with us and earn money as you sell your product or buy product from seller.</p>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href="https://web.facebook.com/profile.php?id=100092684250186"><i class="lni lni-facebook-original"></i></a></li>
+                                    {% comment %} <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li> {% endcomment %}
+                                    <li><a href="//www.instagram.com/worntechtz/"><i class="lni lni-instagram-original"></i></a></li>
+                                    {% comment %} <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li> {% endcomment %}
+                                    <li><a href="javascript:void(0)"><i class="lni lni-google"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer sm-custom-border recent-blog">
+                            <h3>Latest News</h3>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="{% static 'web/images/footer-news1.jpg' %}" alt="#">
+                                        World worntech innovation 2025.
+                                    </a>
+                                    <span class="date"><i class="lni lni-calendar"></i>Desember 15, 2025</span>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="{% static 'web/images/footer-news2.jpg' %}" alt="#">
+                                        How to start selling and buying product.
+                                    </a>
+                                    <span class="date"><i class="lni lni-calendar"></i>July 1, 2025</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer sm-custom-border f-link">
+                            <h3>Links </h3>
+                            <ul>
+                                <li><a href="{% url 'aboutus' %}">About Us</a></li>
+                                <li><a href="{% url 'contactpost' %}">Contact Us</a></li>
+                                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                <li><a href="{% url 'terms_conditions' %}">Terms and Conditions</a></li>
+                                <li><a href="{% url 'help' %}">Help and Support</a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        {% comment %} <div class="single-footer footer-newsletter">
+                            <h3>Newsletter</h3>
+                            <p>Subscribe to us to always stay in touch with us and get the latest news.</p>
+                            <form action="javascript:void(0)" method="" target="_blank" class="newsletter-form">
+                                <input name="EMAIL" placeholder="Your email address" class="common-input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'" required="" type="email">
+                                <div class="button">
+                                    <button class="btn">Subscribe Now!</button>
+                                </div>
+                            </form>
+                        </div> {% endcomment %}
+
+                        <div class="single-footer footer-newsletter">
+                            <h3>Newsletter</h3>
+                            <p>Subscribe to stay in touch and get the latest news.</p>
+                            <form action="{% url 'subscribe' %}" method="POST" class="newsletter-form">
+                                {% csrf_token %}
+                                <input 
+                                    name="EMAIL" 
+                                    placeholder="Your email address" 
+                                    class="common-input" 
+                                    onfocus="this.placeholder = ''" 
+                                    onblur="this.placeholder = 'Your email address'" 
+                                    required 
+                                    type="email">
+                                <div class="button">
+                                    <button class="btn" type="submit">Subscribe Now!</button>
+                                </div>
+                            </form>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <p class="{{ message.tags }}">{{ message }}</p>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <!-- End Single Widget -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Footer Middle -->
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="left">
+                                <p>Designed and Developed by<a href="javascript:void(0)" rel="nofollow" target="_blank">Worntech || The Technology Center</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+    <script type="text/javascript">
+        //========= Hero Slider 
+        tns({
+            container: '.hero-slider',
+            items: 1,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        });
+        //========= testimonial 
+        tns({
+            container: '.testimonial-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 2,
+                },
+                1170: {
+                    items: 3,
+                }
+            }
+        });
+
+
+        //====== Clients Logo Slider
+        tns({
+            container: '.client-logo-carousel',
+            slideBy: 'page',
+            autoplay: true,
+            autoplayButtonOutput: false,
+            mouseDrag: true,
+            gutter: 15,
+            nav: false,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 3,
+                },
+                768: {
+                    items: 4,
+                },
+                992: {
+                    items: 4,
+                },
+                1170: {
+                    items: 6,
+                }
+            }
+        });
+        //========= glightbox
+        GLightbox({
+            'href': '',
+            'type': 'video',
+            'source': 'youtube', //vimeo, youtube or local
+            'width': 900,
+            'autoplayVideos': true,
+        });
+    </script>
+
+    <script type="text/javascript">
+        //====== Clients Logo Slider
+        tns({
+            container: '.client-logo-carousel',
+            slideBy: 'page',
+            autoplay: true,
+            autoplayButtonOutput: false,
+            mouseDrag: true,
+            gutter: 15,
+            nav: false,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 3,
+                },
+                768: {
+                    items: 4,
+                },
+                992: {
+                    items: 4,
+                },
+                1170: {
+                    items: 6,
+                }
+            }
+        });
+        //========= glightbox
+        GLightbox({
+            'href': '',
+            'type': 'video',
+            'source': 'youtube', //vimeo, youtube or local
+            'width': 900,
+            'autoplayVideos': true,
+        });
+    </script>
+
+
+</body></html>

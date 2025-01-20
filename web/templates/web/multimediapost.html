@@ -1,0 +1,54 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post video and multmedia</title>
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/forms.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div style="text-align:center">
+            
+        </div>
+        <div class="row">
+          <div class="column">
+            {% for m in messages %}
+            <p style="color:rgb(10, 159, 79)">{{m}}</p>
+            {% endfor %}
+            <h4>Videos & Multimedia</h4>
+            <form action="" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{productpost.as_p}}
+              
+              <button class="buttons"><b>Upload<b></button>
+            </form>
+            <br>
+          </div>
+        </div>
+      </div>
+
+
+  
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+</body>
+
+</html>
+
+{% endblock %}

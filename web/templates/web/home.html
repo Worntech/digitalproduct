@@ -1,0 +1,1591 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Worntech Online || Sell and Buy Digital Product, Template, Image, Projects, Online course and All Digital Product.</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Start Hero Area -->
+    <section class="hero-area">
+        <div class="hero-slider">
+            {% comment %} <!-- Single Slider -->
+            <div class="hero-inner overlay" style="background: url('{% static "web/general1.jpg" %}');">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-lg-8 offset-lg-2 col-md-12 co-12">
+                            <div class="home-slider">
+                                <div class="hero-text">
+                                    <h5 class="wow fadeInUp" data-wow-delay=".3s">Start to Learning Today</h5>
+                                    <h1 class="wow fadeInUp" data-wow-delay=".5s">Excellent And Friendly <br> Faculty Members</h1>
+                                    <p class="wow fadeInUp" data-wow-delay=".7s">Lorem Ipsum is simply dummy text of the
+                                        printing and typesetting <br> industry. Lorem Ipsum has been the industry's
+                                        standard
+                                        <br>dummy text ever since an to impression.</p>
+                                    <div class="button wow fadeInUp" data-wow-delay=".9s">
+                                        <a href="" class="btn">Learn More</a>
+                                        <a href="" class="btn alt-btn">Our Courses</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+            <!--/ End Single Slider -->
+            {% comment %} <!-- Single Slider -->
+            <div class="hero-inner overlay" style="background: url('{% static "web/images/general4.jpg" %}');">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-lg-8 offset-lg-2 col-md-12 co-12">
+                            <div class="home-slider">
+                                <div class="hero-text">
+                                    <h5 class="wow fadeInUp" data-wow-delay=".3s">Start to learning Today</h5>
+                                    <h1 class="wow fadeInUp" data-wow-delay=".5s">Innovation Paradise<br> For Students </h1>
+                                    <p class="wow fadeInUp" data-wow-delay=".7s">Lorem Ipsum is simply dummy text of the
+                                        printing and typesetting <br> industry. Lorem Ipsum has been the industry's
+                                        standard
+                                        <br>dummy text ever since an to impression.</p>
+                                    <div class="button wow fadeInUp" data-wow-delay=".9s">
+                                        <a href="about-us.html" class="btn">Learn More</a>
+                                        <a href="events-grid.html" class="btn alt-btn">Our Events</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+            <!--/ End Single Slider -->
+            <!-- Single Slider -->
+            <div class="hero-inner overlay" style="background-image: url('{% static "web/images/general1.jpg" %}');">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-lg-8 offset-lg-2 col-md-12 co-12">
+                            <div class="home-slider">
+                                <div class="hero-text">
+                                    <h5 class="wow fadeInUp" data-wow-delay=".3s">All Digital Product</h5>
+                                    <h1 class="wow fadeInUp" data-wow-delay=".5s">Sell &amp; Buy All digital product for every Purpose</h1>
+                                    <p class="wow fadeInUp" data-wow-delay=".7s">Sell &amp; buy all digital product, Templates, books, artectual, mechanical &amp; electrical product, course, music, video, digital arts &amp; design, 3D &amp; CAD designing,software &amp; Tools, Business &amp; Marketing tools, Printable &amp; Customizable Content, Images &amp; Projects. 
+                                        <br></p>
+                                    <div class="button wow fadeInUp" data-wow-delay=".9s">
+                                        <a href="{% url 'aboutus' %}" class="btn">Explore More</a>
+                                        <a href="{% url 'allproduct' %}" class="btn alt-btn">Digital Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Single Slider -->
+        </div>
+    </section>
+    <!--/ End Hero Area -->
+
+    <!-- Start Features Area -->
+    <section class="features">
+        <div class="container-fluid">
+            <div class="single-head">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 padding-zero">
+                        <!-- Start Single Feature -->
+                        <div class="single-feature">
+                            <h3><a href="javascript:void(0)">Trending Courses</a></h3>
+                            <p>Become a teacher and upload course in our system or learn from our published course abd increase your knololedge and experience.</p>
+                            <div class="button">
+                                <a href="{% url 'allproduct' %}" class="btn">Explore All Product <i class="lni lni-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Single Feature -->
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 padding-zero">
+                        <!-- Start Single Feature -->
+                        <div class="single-feature">
+                            <h3><a href="javascript:void(0)">Digital product</a></h3>
+                            <p>Sell and buy digital product with worntech online services. Trusted payment and safey, Develop, sell &amp; buy all digital product with us.</p>
+
+                            <div class="button">
+                                <a href="{% url 'allproduct' %}" class="btn">Explore All Product <i class="lni lni-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Single Feature -->
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 padding-zero">
+                        <!-- Start Single Feature -->
+                        <div class="single-feature last">
+                            <h3><a href="javascript:void(0)">Project &amp; Books</a></h3>
+                            <p>Get better project and books and sell project and books with us, publish your project and books and earn money or buy project and books from us.</p>
+
+                            <div class="button">
+                                <a href="{% url 'allproduct' %}" class="btn">Explore All Product <i class="lni lni-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Single Feature -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Features Area -->
+
+    <!-- Start About Us Area -->
+    <section class="about-us section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div class="about-left">
+                        <div class="about-title align-left">
+                            <span class="wow fadeInDown" data-wow-delay=".2s">About Us</span>
+                            <h2 class="wow fadeInUp" data-wow-delay=".4s">Buy and sell with us</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".6s">We provide access for everyone to sell &amp; buy all digital product from all country and every region in the world, Every one earn from his/her selling, And every user has access to sell and buy digital producs.</p>
+                            <p class="qote wow fadeInUp" data-wow-delay=".8s">It is simple to get started, create account &amp; Login, Then start selling product by posting your own digital product in our system, Or if you want to buy digital product you can easy check the product you want and pay for it</p>
+                            <div class="button wow fadeInUp" data-wow-delay="1s">
+                                <a href="{% url 'allproduct' %}" class="btn">All Product</a>
+                                <a href="#" class="glightbox video btn"> Play Video<i class="lni lni-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="about-right wow fadeInRight" data-wow-delay=".4s">
+                        <img src="{% static 'web/images/Home decor and functional objects.jpg' %}" alt="#">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End About Us Area -->
+
+
+
+
+    {% comment %} <!-- Start Courses Area -->
+    <section class="courses section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                            <i class="lni lni-graduation"></i>
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Featured Courses</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">We provide the following course for all needs, From our sourse you will learn various courses as listed bellow for your own benefit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="single-head">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'website' %}"><img src="{% static 'web/images/website.jpg' %}" alt="#"></a>
+                                <p class="price">Website</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'website' %}">Website development</a></h3>
+                                <p>This is the course that include the frontend development, backend development and fullstack website development. Welcome and enjoy the course.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Website</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                            <div class="course1-image">
+                                <a href="{% url 'mobileapp' %}"><img src="{% static 'web/images/mobile3.jpg' %}" alt="#"></a>
+                                <p class="price">Mobile</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'mobileapp' %}">Mobile application development</a></h3>
+                                <p>This course include the development of the mobile application frontend, backend and fullstack mobile application development.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Mobile</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                            <div class="course1-image">
+                                <a href="{% url 'desktopapp' %}"><img src="{% static 'web/images/desk.jpg' %}" alt="#"></a>
+                                <p class="price">Desktop</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'desktopapp' %}">Desktop application development.</a></h3>
+                                <p>In this course you will learn hot to develop desktop application to  control various activities like internet of things and embeded system.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Desktop</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'embeded' %}"><img src="{% static 'web/images/embeded1.jpg' %}" alt="#"></a>
+                                <p class="price">Embeded</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'artificial' %}">Embeded system development course</a></h3>
+                                <p>In this course you will learn developing embeded system through various technics and you will leran plactically.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Embeded</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'graphics' %}"><img src="{% static 'web/images/graphics.jpg' %}" alt="#"></a>
+                                <p class="price">Graphics</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'graphics' %}">Graphics design</a></h3>
+                                <p>In this course you will learn the designing posters, web layout, logos and other in experienced way. Welcome and enjoy the course.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Graphics</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Courses Area --> {% endcomment %}
+
+
+
+        <!-- Start Template and image Area -->
+        <section class="courses section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                                {% comment %} <i class="lni lni-graduation"></i> {% endcomment %}
+                            </div>
+                            <h2 class="wow fadeInUp" data-wow-delay=".4s">Templates and Images</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".6s">Templates and images for free and premier.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-head">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single Course -->
+                            <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                                <div class="course1-image">
+                                    <a href="{% url 'image' %}"><img src="{% static 'web/images/image.jpg' %}" alt="#"></a>
+                                    <p class="price">Images</p>
+                                </div>
+                                <div class="content">
+                                    <h3><a href="{% url 'image' %}">Images</a></h3>
+                                    <p>Get more website template for developing website for various aspects, welcome and enjoy the template.</p>
+                                </div>
+                                <div class="bottom-content">
+                                    <ul class="review">
+                                        
+                                    </ul>
+                                    <span class="tag">
+                                        <i class="lni lni-tag"></i>
+                                        <a href="javascript:void(0)">Images</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- End Single Course -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single Course -->
+                            <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                                <div class="course1-image">
+                                    <a href="{% url 'webtemplate' %}"><img src="{% static 'web/images/websitethemes.jpg' %}" alt="#"></a>
+                                    <p class="price">Website</p>
+                                </div>
+                                <div class="content">
+                                    <h3><a href="{% url 'webtemplate' %}">Website Template</a></h3>
+                                    <p>Get more images for various various purpose like school and hospital, welcome and enjoy the template.</p>
+                                </div>
+                                <div class="bottom-content">
+                                    <ul class="review">
+                                        
+                                    </ul>
+                                    <span class="tag">
+                                        <i class="lni lni-tag"></i>
+                                        <a href="javascript:void(0)">Website</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- End Single Course -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single Course -->
+                            <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                                <div class="course1-image">
+                                    <a href="{% url 'mobiletemplate' %}"><img src="{% static 'web/images/Jetpack Compose mobile application template.jpg' %}" alt="#"></a>
+                                    <p class="price">Mobile</p>
+                                </div>
+                                <div class="content">
+                                    <h3><a href="{% url 'mobiletemplate' %}">Mobile application templates</a></h3>
+                                    <p>Get more mobile template for developing mobile for various aspects, welcome and enjoy the template.</p>
+                                </div>
+                                <div class="bottom-content">
+                                    <ul class="review">
+                                        
+                                    </ul>
+                                    <span class="tag">
+                                        <i class="lni lni-tag"></i>
+                                        <a href="javascript:void(0)">Mobile</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- End Single Course -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single Course -->
+                            <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                                <div class="course1-image">
+                                    <a href="{% url 'desktoptemplate' %}"><img src="{% static 'web/images/Java desktop application template.jpg' %}" alt="#"></a>
+                                    <p class="price">Desktop</p>
+                                </div>
+                                <div class="content">
+                                    <h3><a href="{% url 'desktoptemplate' %}">Desktop application template.</a></h3>
+                                    <p>Get more desktop application template for developing desktop app for various aspects, welcome and enjoy the template.</p>
+                                </div>
+                                <div class="bottom-content">
+                                    <ul class="review">
+                                        
+                                    </ul>
+                                    <span class="tag">
+                                        <i class="lni lni-tag"></i>
+                                        <a href="javascript:void(0)">Desktop</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- End Single Course -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single Course -->
+                            <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                                <div class="course1-image">
+                                    <a href="{% url 'microsofttemplate' %}"><img src="{% static 'web/images/Publisher template.jpg' %}" alt="#"></a>
+                                    <p class="price">Microsoft</p>
+                                </div>
+                                <div class="content">
+                                    <h3><a href="{% url 'microsofttemplate' %}">Microsoft Template</a></h3>
+                                    <p>Get more microsoft template for various activities for various aspects, welcome and enjoy the template.</p>
+                                </div>
+                                <div class="bottom-content">
+                                    <ul class="review">
+                                        
+                                    </ul>
+                                    <span class="tag">
+                                        <i class="lni lni-tag"></i>
+                                        <a href="javascript:void(0)">Microsoft</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- End Single Course -->
+                        </div>
+    
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Start Single Course -->
+                            <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                                <div class="course1-image">
+                                    <a href="{% url 'adobetemplate' %}"><img src="{% static 'web/images/Adobe photoshop template.jpg' %}" alt="#"></a>
+                                    <p class="price">Adobe</p>
+                                </div>
+                                <div class="content">
+                                    <h3><a href="{% url 'adobetemplate' %}">Adobe Template</a></h3>
+                                    <p>Get more adobe template for various activitie in various aspect, welcome and enjoy the template.</p>
+                                </div>
+                                <div class="bottom-content">
+                                    <ul class="review">
+                                        
+                                    </ul>
+                                    <span class="tag">
+                                        <i class="lni lni-tag"></i>
+                                        <a href="javascript:void(0)">Adobe</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- End Single Course -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- End Template Area -->
+
+
+
+
+    <!-- Start Project Area -->
+    <section class="courses section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                            {% comment %} <i class="lni lni-graduation"></i> {% endcomment %}
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Projects</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">We provide project various project as follows.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="single-head">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'websiteproject' %}"><img src="{% static 'web/images/Bootstrap Website template.jpg' %}" alt="#"></a>
+                                <p class="price">Website</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'websiteproject' %}">Website Project</a></h3>
+                                <p>Get developed website project and website for various uses like hospital, school and others.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Website</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                            <div class="course1-image">
+                                <a href="{% url 'mobileproject' %}"><img src="{% static 'web/images/mobtemp.jpg' %}" alt="#"></a>
+                                <p class="price">Mobile</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'mobileproject' %}">Mobile application project</a></h3>
+                                <p>Get developed mobile app project and mobile app for various uses like hospital, school and others.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Mobile</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                            <div class="course1-image">
+                                <a href="{% url 'desktopproject' %}"><img src="{% static 'web/images/Python (tkinter) desktop template.jpg' %}" alt="#"></a>
+                                <p class="price">Desktop</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'desktopproject' %}">Desktop Application Project</a></h3>
+                                <p>Get developed desktop app project and desktop app for various uses like hospital, school and others.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Desktop</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'artificialproject' %}"><img src="{% static 'web/images/ai.jpg' %}" alt="#"></a>
+                                <p class="price">AI</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'artificialproject' %}">Artificial Inteligent Project</a></h3>
+                                <p>Get developed AI project and AI for various uses like hospital, school and others.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">AI</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'embededproject' %}"><img src="{% static 'web/images/embeded1.jpg' %}" alt="#"></a>
+                                <p class="price">Embeded</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'embededproject' %}">Embeded Project</a></h3>
+                                <p>Get developed embeded project and embeded for various uses like hospital, school and others.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Embeded</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'iotproject' %}"><img src="{% static 'web/images/Wearable technology prototypes.jpg' %}" alt="#"></a>
+                                <p class="price">IOT</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'iotproject' %}">Internet of Things Project.</a></h3>
+                                <p>Get developed iot project and iot for various uses like hospital, school and others.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">IOT</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'virtualrealityproject' %}"><img src="{% static 'web/images/embeded1.jpg' %}" alt="#"></a>
+                                <p class="price">virtual</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'virtualrealityproject' %}">Virtual Reality Project</a></h3>
+                                <p>Get developed virtual reality project and virtual reality for various uses like hospital, school and others.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">virtual</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'cyberproject' %}"><img src="{% static 'web/images/mobile3.jpg' %}" alt="#"></a>
+                                <p class="price">cyber</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'cyberproject' %}">Cyber Security Project.</a></h3>
+                                <p>Get developed cyber security project and cyber security for various uses like hospital, school and others.</p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">cyber</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End project Area -->
+
+
+
+    <!-- Start other digital product Area -->
+    <section class="courses section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                            {% comment %} <i class="lni lni-graduation"></i> {% endcomment %}
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Digital Product</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Explore other digital product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="single-head">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'ebooks' %}"><img src="{% static 'web/images/Personal finance e-books.jpg' %}" alt="#"></a>
+                                <p class="price">Books</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'ebooks' %}">E-books & Written Content</a></h3>
+                                <p></p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Books</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                            <div class="course1-image">
+                                <a href="{% url 'music' %}"><img src="{% static 'web/images/3D models of props for film sets.jpg' %}" alt="#"></a>
+                                <p class="price">Music</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'music' %}">Music & Audio</a></h3>
+                                <p></p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Music</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                            <div class="course1-image">
+                                <a href="{% url 'video' %}"><img src="{% static 'web/images/Aerial drone videos.jpg' %}" alt="#"></a>
+                                <p class="price">Multimedia</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'video' %}">Videos & Multimedia</a></h3>
+                                <p></p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Multimedia</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'art' %}"><img src="{% static 'web/images/A3D clothing and accessory models.jpg' %}" alt="#"></a>
+                                <p class="price">Design</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'art' %}">Digital Art & Design</a></h3>
+                                <p></p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Design</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'cad' %}"><img src="{% static 'web/images/house and building desgns.jpg' %}" alt="#"></a>
+                                <p class="price">CAD</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'cad' %}">3D & CAD Designs</a></h3>
+                                <p></p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">CAD</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'printable' %}"><img src="{% static 'web/images/Adobe Acrobat Pro DC template.jpg' %}" alt="#"></a>
+                                <p class="price">Printable</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'printable' %}">Printable & Customizable Content</a></h3>
+                                <p></p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Printable</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'software' %}"><img src="{% static 'web/images/Software applications.jpg' %}" alt="#"></a>
+                                <p class="price">Software</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'software' %}">Software & Tools</a></h3>
+                                <p></p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Software</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Course -->
+                        <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                            <div class="course1-image">
+                                <a href="{% url 'business' %}"><img src="{% static 'web/images/Marketing materials.jpg' %}" alt="#"></a>
+                                <p class="price">Marketing</p>
+                            </div>
+                            <div class="content">
+                                <h3><a href="{% url 'business' %}">Business & Marketing Tools</a></h3>
+                                <p></p>
+                            </div>
+                            <div class="bottom-content">
+                                <ul class="review">
+                                    
+                                </ul>
+                                <span class="tag">
+                                    <i class="lni lni-tag"></i>
+                                    <a href="javascript:void(0)">Marketing</a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- End Single Course -->
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End other digital product Area -->
+
+
+
+    <!-- Start Achivement Area -->
+    <section class="our-achievement section overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-12">
+                    <div class="single-achievement wow fadeInUp" data-wow-delay=".2s">
+                        <h3 class="counter"><span id="secondo1" class="countup" cup-end="{{template_count}}">{{template_count}}</span>+</h3>
+                        <h4>Templates</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-12">
+                    <div class="single-achievement wow fadeInUp" data-wow-delay=".4s">
+                        <h3 class="counter"><span id="secondo2" class="countup" cup-end="{{project_count}}">{{project_count}}</span>+</h3>
+                        <h4>Projects</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-12">
+                    <div class="single-achievement wow fadeInUp" data-wow-delay=".6s">
+                        <h3 class="counter"><span id="secondo3" class="countup" cup-end="{{image_count}}">{{image_count}}</span>+</h3>
+                        <h4>Images</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-12">
+                    <div class="single-achievement wow fadeInUp" data-wow-delay=".6s">
+                        <h3 class="counter"><span id="secondo3" class="countup" cup-end="{{digital_product_count}}">{{digital_product_count}}</span>+</h3>
+                        <h4>Other Digital Products</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Achivement Area -->
+
+    {% comment %} <!-- Start Events Area-->
+    <section class="events section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                            <i class="lni lni-bookmark"></i>
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Upcoming Events</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">There is various events that you can attend or be aware, The events in sometimes include the innovation days</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Event -->
+                    <div class="single-event wow fadeInUp" data-wow-delay=".2s">
+                        <div class="event-image">
+                            <a href="javascript:void(0)"><img src="{% static 'web/images/student2.jpg' %}" alt="#"></a>
+                            <p class="date">30<span>OCT 2025</span></p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="javascript:void(0)">Innovation competetion.</a></h3>
+                            <p>Innovation will include various project that will be conducated by various students in our course, your welcome.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <a class="speaker" href="javascript:void(0)">
+                                <img src="{% static 'web/images/speaker-1.jpg' %}" alt="#">
+                                <span>Devid Josh</span>
+                            </a>
+                            Conduction Time
+                            <span class="time">
+                                <i class="lni lni-timer"></i>
+                                <a href="javascript:void(0)">10.00am - 12.00pm</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Event -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Event -->
+                    <div class="single-event wow fadeInUp" data-wow-delay=".4s">
+                        <div class="event-image">
+                            <a href="javascript:void(0)"><img src="{% static 'web/images/student3.jpg' %}" alt="#"></a>
+                            <p class="date">28<span>July 2025</span></p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="javascript:void(0)">Craft Online Workshops</a></h3>
+                            <p>Online Workshops will be conducted, the live event will be done through our website, facebook and youtube live.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <a class="speaker" href="javascript:void(0)">
+                                <img src="{%  static 'web/images/speaker-2.jpg' %}" alt="#">
+                                <span>Alex Milan</span>
+                            </a>
+                            Conduction Time
+                            <span class="time">
+                                <i class="lni lni-timer"></i>
+                                <a href="javascript:void(0)">09.00am - 11.00pm</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Event -->
+                </div>
+                <div class="col-lg-4 col-md-12 col-12">
+                    <!-- Start Single Event -->
+                    <div class="single-event short wow fadeInUp" data-wow-delay=".6s">
+                        <div class="content">
+                            <p class="date">25<span>SEP 2025</span></p>
+                            <h3><a href="javascript:void(0)">AI Presentation</a></h3>
+                            <p>This will include the presentation of artificial inteligent and explore more technology.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <a class="speaker" href="javascript:void(0)">
+                               <img src="{% static 'web/images/speaker-3.jpg' %}" alt="#">
+                                <span>Jhon Deco</span>
+                            </a>
+                            Conduction Time
+                            <span class="time">
+                                <i class="lni lni-timer"></i>
+                                <a href="javascript:void(0)">08.00am - 10.00pm</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Event -->
+                    <!-- Start Single Event -->
+                    <div class="single-event short wow fadeInUp" data-wow-delay=".2s">
+                        <div class="content">
+                            <p class="date">10<span>DEC 2025</span></p>
+                            <h3><a href="javascript:void(0)">Mentorship Program</a></h3>
+                            <p>Mentorship program will be presented by Smart people and live performance.</p>
+                        </div>
+                        <div class="bottom-content">
+                            <a class="speaker" href="javascript:void(0)">
+                                <img src="{% static 'web/images/speaker-4.jpg' %}" alt="#">
+                                <span>Julia zink</span>
+                            </a>
+                            Conduction Time
+                            <span class="time">
+                                <i class="lni lni-timer"></i>
+                                <a href="javascript:void(0)">07.00am - 10.00pm</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Event -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Events Area--> {% endcomment %}
+
+    <!-- Start Teachers -->
+    {% comment %} <section id="teachers" class="teachers section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title align-center gray-bg">
+                        <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                            <i class="lni lni-users"></i>
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Experienced Advisors</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">We have experienced advicer that you can get advice and more about our online services.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Single Team -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="single-team wow fadeInUp" data-wow-delay=".2s">
+                        <div class="row">
+                            <div class="col-lg-5 col-12">
+                                <!-- Image -->
+                                <div class="image">
+                                    <img src="{% static 'web/images/piason.jpg' %}" alt="#">
+                                </div>
+                                <!-- End Image -->
+                            </div>
+                            <div class="col-lg-7 col-12">
+                                <div class="info-head">
+                                    <!-- Info Box -->
+                                    <div class="info-box">
+                                        <span class="designation">Developer, Programmer</span>
+                                        <h4 class="name"><a href="teacher-details.html">Piason Ngiliule</a></h4>
+                                        <p>Meet with advicer and trainer for the system development and programming technics. Welcome and contact expert.</p>
+                                    </div>
+                                    <!-- End Info Box -->
+                                    <!-- Social -->
+                                    <ul class="social">
+                                        <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-behance-original"></i></a></li>
+                                    </ul>
+                                    <!-- End Social -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Team -->
+
+
+
+                
+                <!-- Single Team -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="single-team wow fadeInUp" data-wow-delay=".4s">
+                        <div class="row">
+                            <div class="col-lg-5 col-12">
+                                <!-- Image -->
+                                <div class="image">
+                                    <img src="{% static 'web/images/emmanuel.jpg' %}" alt="#">
+                                </div>
+                                <!-- End Image -->
+                            </div>
+                            <div class="col-lg-7 col-12">
+                                <div class="info-head">
+                                    <!-- Info Box -->
+                                    <div class="info-box">
+                                        <span class="designation">Graphics, Multmedia</span>
+                                        <h4 class="name"><a href="teacher-details.html">Emanuely Josephat</a></h4>
+                                        <p>Your can find the experience and advicer from our experienced teachers and trainer with many technics.</p>
+                                    </div>
+                                    <!-- End Info Box -->
+                                    <!-- Social -->
+                                    <ul class="social">
+                                        <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                                        <li><a href="javascript:void(0)"><i class="lni lni-behance-original"></i></a></li>
+                                    </ul>
+                                    <!-- End Social -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Team -->
+
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <!--/ End Teachers Area -->
+
+
+
+
+
+    {% comment %} <!-- Start Testimonials Area -->
+    <section class="testimonials section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title align-center gray-bg">
+                        <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                            <i class="lni lni-quotation"></i>
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">What Our Students Say</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Also our students have various testimonials for you to understand how experienced we are.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row testimonial-slider">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people that teach in simple way and easy to understand, Also you can learn free course as the pro course."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-1.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Students</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-2.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-3.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-4.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-3.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-2.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="text">
+                            <p>"It’s amazing how much easier it has been to meet new people and create instant
+                                connections. I have the exact same personality, the only thing that has changed is my
+                                mindset and a few behaviors."</p>
+                        </div>
+                        <div class="author">
+                            <img src="{% static 'web/images/testi-3.jpg' %}" alt="#">
+                            <h4 class="name">
+                                Jane Anderson
+                                <span class="deg">Founder &amp; CEO</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonial Area --> {% endcomment %}
+
+    <!-- Start Newsletter Area -->
+    <section class="newsletter-area section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
+                    <div class="newsletter-title">
+                        <span>Sign Up for</span>
+                        <h2>The Newsletter</h2>
+                        <p>Subscribe to us to always stay in touch with us and get the latest news<br>
+                            about our company and all of our activities!</p>
+                    </div>
+                    <!-- Start Newsletter Form -->
+                    <div class="subscribe-text wow fadeInUp" data-wow-delay=".2s">
+                        {% comment %} <form action="" method="get" target="_blank" class="newsletter-inner">
+                            <input name="EMAIL" placeholder="Your email address" class="common-input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'" required="" type="email">
+                            <div class="button">
+                                <button class="btn">Subscribe Now!</button>
+                            </div>
+                        </form> {% endcomment %}
+                        <form action="{% url 'subscribe' %}" method="POST" class="newsletter-form">
+                            {% csrf_token %}
+                            <input 
+                                name="EMAIL" 
+                                placeholder="Your email address" 
+                                class="common-input" 
+                                onfocus="this.placeholder = ''" 
+                                onblur="this.placeholder = 'Your email address'" 
+                                required 
+                                type="email">
+                            <div class="button">
+                                <button class="btn" type="submit">Subscribe Now!</button>
+                            </div>
+                        </form>
+                        <ul class="newsletter-social">
+                            <li><a href="https://web.facebook.com/profile.php?id=100092684250186"><i class="lni lni-facebook-original"></i></a></li>
+                            {% comment %} <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li> {% endcomment %}
+                            <li><a href="//www.instagram.com/worntechtz/"><i class="lni lni-instagram"></i></a></li>
+                            {% comment %} <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li> {% endcomment %}
+                            <li><a href="javascript:void(0)"><i class="lni lni-google"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- End Newsletter Form -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Newsletter Area -->
+
+    <!-- Start Call To Action Area -->
+    <section class="call-action section overlay">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="call-content">
+                        <span>INSTANT ACCESS TO OUR ONLINE COURSE</span>
+                        <h2>Self Development Course</h2>
+                        <p>Learn education for better knowledge and increase your performance of doing project and becoming mentor.</p>
+                        <div class="button">
+                            <a href="javascript:void(0)" class="btn">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Call To Action Area -->
+
+
+
+
+
+
+
+
+
+
+
+    {% comment %} <!-- Start Latest News Area -->
+    <div class="latest-news-area section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                            <i class="lni lni-quotation"></i>
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Latest News</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Welcome to our latest news</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Single News -->
+                    <div class="single-news custom-shadow-hover wow fadeInUp" data-wow-delay=".2s">
+                        <div class="image">
+                            <a href="javascript:void(0)"><img class="thumb" src="{% static 'web/images/student.jpg' %}" alt="#"></a>
+                        </div>
+                        <div class="content-body">
+                            <div class="meta-data">
+                                <ul>
+                                    <li>
+                                        <i class="lni lni-tag"></i>
+                                        <a href="javascript:void(0)">Online Courses</a>
+                                    </li>
+                                    <li>
+                                        <i class="lni lni-calendar"></i>
+                                        <a href="javascript:void(0)">January 25, 2023</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h4 class="title"><a href="javascript:void(0)">How to Study Online Courses
+                                    Effectively</a></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's.</p>
+                            <div class="button">
+                                <a href="javascript:void(0)" class="btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single News -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Single News -->
+                    <div class="single-news custom-shadow-hover wow fadeInUp" data-wow-delay=".4s">
+                        <div class="image">
+                            <a href="javascript:void(0)"><img class="thumb" src="{% static 'web/images/student3.jpg' %}" alt="#"></a>
+                        </div>
+                        <div class="content-body">
+                            <div class="meta-data">
+                                <ul>
+                                    <li>
+                                        <i class="lni lni-tag"></i>
+                                        <a href="javascript:void(0)">Language</a>
+                                    </li>
+                                    <li>
+                                        <i class="lni lni-calendar"></i>
+                                        <a href="javascript:void(0)">January 10, 2023</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h4 class="title"><a href="javascript:void(0)">How to Learn a Foreign Language in 3
+                                    Steps</a></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's.</p>
+                            <div class="button">
+                                <a href="javascript:void(0)" class="btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single News -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Single News -->
+                    <div class="single-news custom-shadow-hover wow fadeInUp" data-wow-delay=".6s">
+                        <div class="image">
+                            <a href="javascript:void(0)"><img class="thumb" src="{% static 'web/images/student4.jpg' %}" alt="#"></a>
+                        </div>
+                        <div class="content-body">
+                            <div class="meta-data">
+                                <ul>
+                                    <li>
+                                        <i class="lni lni-tag"></i>
+                                        <a href="javascript:void(0)">Education</a>
+                                    </li>
+                                    <li>
+                                        <i class="lni lni-calendar"></i>
+                                        <a href="javascript:void(0)">January 05, 2023</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h4 class="title"><a href="javascript:void(0)">15 days satisfaction seminar
+                                    education</a></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's.</p>
+                            <div class="button">
+                                <a href="javascript:void(0)" class="btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single News -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Latest News Area --> {% endcomment %}
+
+    <!-- Start Footer Area -->
+
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+    <script type="text/javascript">
+        //========= Hero Slider 
+        tns({
+            container: '.hero-slider',
+            items: 1,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        });
+        //========= testimonial 
+        tns({
+            container: '.testimonial-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 2,
+                },
+                1170: {
+                    items: 3,
+                }
+            }
+        });
+        //====== Clients Logo Slider
+        tns({
+            container: '.client-logo-carousel',
+            slideBy: 'page',
+            autoplay: true,
+            autoplayButtonOutput: false,
+            mouseDrag: true,
+            gutter: 15,
+            nav: false,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 3,
+                },
+                768: {
+                    items: 4,
+                },
+                992: {
+                    items: 4,
+                },
+                1170: {
+                    items: 6,
+                }
+            }
+        });
+        //========= glightbox
+        GLightbox({
+            'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
+            'type': 'video',
+            'source': 'youtube', //vimeo, youtube or local
+            'width': 900,
+            'autoplayVideos': true,
+        });
+    </script>
+
+
+</body></html>
+
+{% endblock %}

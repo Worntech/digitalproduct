@@ -1,0 +1,9 @@
+{% extends 'web/base.html' %}
+{% load i18n %}
+{% block content %}
+    <div>
+        {% comment %} <h3 class="align-center">{% trans "Pesapal Payment details" %}</h3> {% endcomment %}
+            <iframe width="100%" height="500px" src="{{ pesapal_url }}"></iframe>
+    </div>
+
+{% endblock %}

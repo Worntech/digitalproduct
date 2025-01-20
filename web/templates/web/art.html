@@ -1,0 +1,1768 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Digital Art & Design</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+    
+
+</head>
+
+<body>
+
+
+<!-- Start Courses Area -->
+<section class="courses section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    {% comment %} <div class="section-icon wow zoomIn" data-wow-delay=".4s">
+                        <i class="lni lni-graduation"></i>
+                    </div> {% endcomment %}
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">Digital Art & Design</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s"></p>
+                </div>
+            </div>
+        </div>
+        <div class="single-head">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'hand_drawn_digital_illustrations' %}"><img src="{% static 'web/images/Engineering diagrams.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'hand_drawn_digital_illustrations' %}">Hand-drawn digital illustrations</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Hand-drawn</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'character_design' %}"><img src="{% static 'web/images/character models.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'character_design' %}">Character design</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">design</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'website_design_templates' %}"><img src="{% static 'web/images/emailmarketing.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'website_design_templates' %}">Website design templates</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">design</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'mobile_app_design_templates' %}"><img src="{% static 'web/images/mobtemp1.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'mobile_app_design_templates' %}">Mobile app design templates</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">design</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'editorial_illustrations' %}"><img src="{% static 'web/images/Editorial illustrations.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'editorial_illustrations' %}">Editorial illustrations</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">illustrations</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'children_book_illustrations' %}"><img src="{% static 'web/images/Personal finance e-books.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'children_book_illustrations' %}">Children’s book illustrations</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">illustrations</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'posters' %}"><img src="{% static 'web/images/Posters.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'posters' %}">Posters</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Posters</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'flyers' %}"><img src="{% static 'web/images/Flyers.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'flyers' %}">Flyers</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Flyers</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'brochures' %}"><img src="{% static 'web/images/Brochures.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'brochures' %}">Brochures</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Brochures</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'infographics' %}"><img src="{% static 'web/images/Infographics.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'infographics' %}">Infographics</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Infographics</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'digital_advertisements' %}"><img src="{% static 'web/images/Digital advertisements.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'digital_advertisements' %}">Digital advertisements</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">advertisements</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'brand_logos' %}"><img src="{% static 'web/images/Brand logos.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'brand_logos' %}">Brand logos</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Brand logos</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'icon_sets' %}"><img src="{% static 'web/images/Icon sets.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'icon_sets' %}">Icon sets</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Icon</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'custom_logos_for_businesses' %}"><img src="{% static 'web/images/Custom logos for businesses.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'custom_logos_for_businesses' %}">Custom logos for businesses</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">logos</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'monograms' %}"><img src="{% static 'web/images/Monograms.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'monograms' %}">Monograms</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Monograms</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'scalable_vector_illustrations' %}"><img src="{% static 'web/images/Scalable vector illustrations.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'scalable_vector_illustrations' %}">Scalable vector illustrations</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">illustrations</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'flat_design_elements' %}"><img src="{% static 'web/images/Flat design elements.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'flat_design_elements' %}">Flat design elements</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Flat</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'icons_and_symbols' %}"><img src="{% static 'web/images/Icons and symbols.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'icons_and_symbols' %}">Icons and symbols</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Icons</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'geometric_patterns' %}"><img src="{% static 'web/images/Geometric patterns.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'geometric_patterns' %}">Geometric patterns</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Geometric</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'three_models' %}"><img src="{% static 'web/images/3D models.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'three_models' %}">3D models</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">models</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'three_character_design' %}"><img src="{% static 'web/images/house and building desgns.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'three_character_design' %}">Architectural renderings</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">renderings</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'graphics' %}"><img src="{% static 'web/images/3D character design.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'graphics' %}">3D character design</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">design</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'product_visualizations' %}"><img src="{% static 'web/images/Product visualizations.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'product_visualizations' %}">Product visualizations</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">visualizations</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'custom_fonts' %}"><img src="{% static 'web/images/Custom fonts.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'custom_fonts' %}">Custom fonts</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">fonts</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".4s">
+                        <div class="course1-image">
+                            <a href="{% url 'hand_lettering_designs' %}"><img src="{% static 'web/images/Hand-lettering designs.jpg' %}" alt="#"></a>
+                            <p class="price">Design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'hand_lettering_designs' %}">Hand-lettering designs</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">design</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".6s">
+                        <div class="course1-image">
+                            <a href="{% url 'calligraphy_artwork' %}"><img src="{% static 'web/images/Calligraphy artwork.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'calligraphy_artwork' %}">Calligraphy artwork</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">artwork</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'display_typefaces' %}"><img src="{% static 'web/images/Display typefaces.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'display_typefaces' %}">Display typefaces</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">typefaces</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'wireframe_kits' %}"><img src="{% static 'web/images/Wireframe kits.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'wireframe_kits' %}">Wireframe kits</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Wireframe</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'prototype_designs' %}"><img src="{% static 'web/images/Prototype designs.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'prototype_designs' %}">Prototype designs</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Prototype</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'interactive_mockups' %}"><img src="{% static 'web/images/Interactive mockups.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'interactive_mockups' %}">Interactive mockups</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">mockups</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'business_cards' %}"><img src="{% static 'web/images/Business cards.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'business_cards' %}">Business cards</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">cards</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'wedding_invitations' %}"><img src="{% static 'web/images/Wedding invitations.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'wedding_invitations' %}">Wedding invitations</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">invitations</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'greeting_cards' %}"><img src="{% static 'web/images/Greeting cards.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'greeting_cards' %}">Greeting cards</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">cards</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'calendars' %}"><img src="{% static 'web/images/Calendars.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'calendars' %}">Calendars</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Calendars</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'planners' %}"><img src="{% static 'web/images/Planners.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'planners' %}">Planners</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Planners</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'seamless_patterns' %}"><img src="{% static 'web/images/Seamless patterns.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'seamless_patterns' %}">Seamless patterns</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">patterns</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'textile_and_fabric_patterns' %}"><img src="{% static 'web/images/Textile and fabric patterns.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'textile_and_fabric_patterns' %}">Textile and fabric patterns</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">patterns</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'wallpaper_designs' %}"><img src="{% static 'web/images/Wallpaper designs.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'wallpaper_designs' %}">Wallpaper designs</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Wallpaper</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'packaging_patterns' %}"><img src="{% static 'web/images/Packaging patterns.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'packaging_patterns' %}">Packaging patterns</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">patterns</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'UI_UX_icons' %}"><img src="{% static 'web/images/UIUX icons.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'UI_UX_icons' %}">UI/UX icons</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">icons</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'app_icons' %}"><img src="{% static 'web/images/App icons.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'app_icons' %}">App icons</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">icons</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'social_media_icons' %}"><img src="{% static 'web/images/Social media icons.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'social_media_icons' %}">Social media icons</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">icons</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'custom_icon_sets_for_websites' %}"><img src="{% static 'web/images/Custom icon sets for websites.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'custom_icon_sets_for_websites' %}">Custom icon sets for websites</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">icon</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'realistic_portrait_paintings' %}"><img src="{% static 'web/images/Realistic portrait paintings.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'realistic_portrait_paintings' %}">Realistic portrait paintings</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">paintings</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'fantasy_landscape_paintings' %}"><img src="{% static 'web/images/Fantasy landscape paintings.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'fantasy_landscape_paintings' %}">Fantasy landscape paintings</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">paintings</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'Concept_art_for_games_or_films' %}"><img src="{% static 'web/images/Concept art for games or films.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'Concept_art_for_games_or_films' %}">Concept art for games or films</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">games</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'abstract_digital_artwork' %}"><img src="{% static 'web/images/Abstract digital artwork.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'abstract_digital_artwork' %}">Abstract digital artwork</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">artwork</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'composite_photo_art' %}"><img src="{% static 'web/images/Composite photo art.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'composite_photo_art' %}">Composite photo art</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">photo</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'surreal_photo_manipulations' %}"><img src="{% static 'web/images/Surreal photo manipulations.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'surreal_photo_manipulations' %}">Surreal photo manipulations</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">photo</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'product_photo_retouching' %}"><img src="{% static 'web/images/Product photo retouching.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'product_photo_retouching' %}">Product photo retouching</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">photo</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'fashion_and_beauty_retouching' %}"><img src="{% static 'web/images/Fashion and beauty retouching.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'fashion_and_beauty_retouching' %}">Fashion and beauty retouching</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">retouching</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'digital_collages' %}"><img src="{% static 'web/images/Digital collages.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'digital_collages' %}">Digital collages</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">collages</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'mixed_media_art' %}"><img src="{% static 'web/images/Mixed media art.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'mixed_media_art' %}">Mixed media art</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">art</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'scrapbook_designs' %}"><img src="{% static 'web/images/Scrapbook designs.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'scrapbook_designs' %}">Scrapbook designs</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">designs</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'character_concept_art' %}"><img src="{% static 'web/images/Character concept art.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'character_concept_art' %}">Character concept art</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">art</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'creature_and_monster_designs' %}"><img src="{% static 'web/images/Creature and monster designs.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'creature_and_monster_designs' %}">Creature and monster designs</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">designs</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'storyboard_art' %}"><img src="{% static 'web/images/Storyboard art.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'storyboard_art' %}">Storyboard art</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">art</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'comic_book_illustrations' %}"><img src="{% static 'web/images/Comic book illustrations.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'comic_book_illustrations' %}">Comic book illustrations</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">illustrations</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'manga_style_characters_and_story_panels' %}"><img src="{% static 'web/images/Manga-style characters and story panels.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'manga_style_characters_and_story_panels' %}">Manga-style characters and story panels</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">panels</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'digital_comic_strips' %}"><img src="{% static 'web/images/Digital comic strips.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'digital_comic_strips' %}">Digital comic strips</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">strips</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 't_shirt_graphics_and_mockups' %}"><img src="{% static 'web/images/T-shirt graphics and mockups.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 't_shirt_graphics_and_mockups' %}">T-shirt graphics and mockups</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">T-shirt</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'custom_merchandise_designs' %}"><img src="{% static 'web/images/Custom merchandise designs.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'custom_merchandise_designs' %}">Custom merchandise designs</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">designs</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'apparel_patterns_and_prints' %}"><img src="{% static 'web/images/Apparel patterns and prints.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'apparel_patterns_and_prints' %}">Apparel patterns and prints</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">prints</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'themed_photo_collections' %}"><img src="{% static 'web/images/Themed photo collections.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'themed_photo_collections' %}">Themed photo collections</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">photo</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'high_resolution_stock_images' %}"><img src="{% static 'web/images/High-resolution stock images.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'high_resolution_stock_images' %}">High-resolution stock images</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">images</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'conceptual_photography' %}"><img src="{% static 'web/images/Conceptual photography.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'conceptual_photography' %}">Conceptual photography</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">photography</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'art_prints_for_home_decor' %}"><img src="{% static 'web/images/Art prints for home decor.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'art_prints_for_home_decor' %}">Art prints for home decor</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">decor</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'motivational_posters' %}"><img src="{% static 'web/images/Motivational posters.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'motivational_posters' %}">Motivational posters</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">posters</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'abstract_and_minimalist_art' %}"><img src="{% static 'web/images/Abstract and minimalist art.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'abstract_and_minimalist_art' %}">Abstract and minimalist art</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">art</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'instagram_post_templates' %}"><img src="{% static 'web/images/Instagram post templates.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'instagram_post_templates' %}">Instagram post templates</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Instagram</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'facebook_banner_designs' %}"><img src="{% static 'web/images/Facebook banner designs.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'facebook_banner_designs' %}">Facebook banner designs</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">banner</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'pinterest_graphic_templates' %}"><img src="{% static 'web/images/Pinterest graphic templates.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'pinterest_graphic_templates' %}">Pinterest graphic templates</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">Pinterest</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Course -->
+                    <div class="single-course wow fadeInUp" data-wow-delay=".2s">
+                        <div class="course1-image">
+                            <a href="{% url 'story_highlight_icons' %}"><img src="{% static 'web/images/Story highlight icons.jpg' %}" alt="#"></a>
+                            <p class="price">design</p>
+                        </div>
+                        <div class="content">
+                            <h3><a href="{% url 'story_highlight_icons' %}">Story highlight icons</a></h3>
+                            <p></p>
+                        </div>
+                        <div class="bottom-content">
+                            <ul class="review">
+                                
+                            </ul>
+                            <span class="tag">
+                                <i class="lni lni-tag"></i>
+                                <a href="javascript:void(0)">icons</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Single Course -->
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Courses Area -->
+
+
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+
+
+</body></html>
+
+{% endblock %}
