@@ -1,0 +1,270 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Worntech Online || Pricing</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.2.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Tables</title>
+    <style>
+        .pricing-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .pricing-plan {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+            margin: 10px;
+            position: relative;
+        }
+        .pricing-plan h2 {
+            margin: 0 0 10px;
+        }
+        .price {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .features li:last-child {
+            border-bottom: none;
+        }
+        .btn {
+            display: inline-block;
+            color: white;
+            background: #007bff;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+            }
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .badge1 {
+            position: absolute;
+            top: 10px;
+            left: -10px;
+            background: #283290;
+            color: white;
+            padding: 5px 15px;
+            transform: rotate(-30deg);
+            font-weight: bold;
+        }
+        .badge2 {
+            position: absolute;
+            top: 10px;
+            left: -10px;
+            background: red;
+            color: white;
+            padding: 5px 15px;
+            transform: rotate(-30deg);
+            font-weight: bold;
+        }
+        .badge3 {
+            position: absolute;
+            top: 10px;
+            left: -10px;
+            background: red;
+            color: white;
+            padding: 5px 15px;
+            transform: rotate(-30deg);
+            font-weight: bold;
+        }
+    </style>
+    
+
+</head>
+
+<body>
+
+    <!-- Start About Us Area -->
+    <section class="about-us section">
+        <div class="container">
+            
+            <div class="row">
+                <div class="pricing-container">
+                    <div class="pricing-plan">
+                        <div class="badge1">Available</div>
+                        <h2>Basic</h2>
+                        <p class="price">$0/month</p>
+                        <ul class="features">
+                            <li>Sell product</li>
+                            <li>Buy Product</li>
+                            <li>8.5% transaction fee</li>
+                            <li>11.5% system fee</li>
+                            <li>80% your earnings</li>
+                            <li>24/6 Support</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+                    </div>
+                    <div class="pricing-plan">
+                        <div class="badge2">Unavailable</div>
+                        <h2>Classic</h2>
+                        <p class="price">$50/month</p>
+                        <ul class="features">
+                            <li>Sell product</li>
+                            <li>Buy Product</li>
+                            <li>8.5% transaction fee</li>
+                            <li>No system fee</li>
+                            <li>91.5% your earnings</li>
+                            <li>24/6 Support</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <a href="#" class="btn">Unavailable</a>
+                    </div>
+                    <div class="pricing-plan">
+                        <div class="badge3">Unavailable</div>
+                        <h2>Primier</h2>
+                        <p class="price">$130/month</p>
+                        <ul class="features">
+                            <li>Sell product</li>
+                            <li>Buy Product</li>
+                            <li>No transaction fee</li>
+                            <li>No system fee</li>
+                            <li>100% your earnings</li>
+                            <li>24/6 Support</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <a href="#" class="btn">Unavailable</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End About Us Area -->
+
+
+    
+                
+                
+
+    <!-- Start Footer Area -->
+    
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="{% static 'web/js/count-up.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.min.js' %}"></script>
+    <script src="{% static 'web/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'web/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+    <script type="text/javascript">
+        //========= testimonial 
+        tns({
+            container: '.testimonial-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 2,
+                },
+                1170: {
+                    items: 3,
+                }
+            }
+        });
+        //====== Clients Logo Slider
+        tns({
+            container: '.client-logo-carousel',
+            slideBy: 'page',
+            autoplay: true,
+            autoplayButtonOutput: false,
+            mouseDrag: true,
+            gutter: 15,
+            nav: false,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 3,
+                },
+                768: {
+                    items: 4,
+                },
+                992: {
+                    items: 4,
+                },
+                1170: {
+                    items: 6,
+                }
+            }
+        });
+        //========= glightbox
+        GLightbox({
+            'href': '#',
+            'type': 'video',
+            'source': 'youtube', //vimeo, youtube or local
+            'width': 900,
+            'autoplayVideos': true,
+        });
+    </script>
+
+
+</body>
+</html>
+{% endblock %}

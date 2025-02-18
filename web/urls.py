@@ -827,6 +827,7 @@ urlpatterns = [
     # FOR SUBSCRIPTION
     path('subscription/', views.subscription, name='subscription'),
     path('successsubscription/', views.successsubscription, name='successsubscription'),
+    path('pricing/', views.pricing, name='pricing'),
     
     # URL FOR SITEMAP
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),

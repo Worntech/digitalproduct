@@ -4705,6 +4705,16 @@ class SigninSitemap(Sitemap):
 
     def location(self, obj):
         return reverse('signin')
+    
+class PricingSitemap(Sitemap):
+    changefreq = "weekly"  # Set the indexing frequency to every week
+    priority = 0.5  # You can adjust the priority (0.0 to 1.0) based on importance
+    
+    def items(self):
+        return ['pricing']
+
+    def location(self, obj):
+        return reverse('pricing')
 
 
 # Register all sitemaps
@@ -5153,4 +5163,5 @@ sitemaps = {
     'terms_conditions': TermsConditionsSitemap,
     'signup': SignupSitemap,
     'signin': SigninSitemap,
+    'pricing': PricingSitemap,
 }

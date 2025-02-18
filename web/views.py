@@ -10162,9 +10162,12 @@ def handle_websitetemplate_payment(request, transaction_id, unique_code):
     if payment:
         template_id = payment.template.id
         payment = get_object_or_404(Payment, template_id=template_id, unique_code=unique_code, user=request.user)
-        update_websitetemplatepayment_status(payment, transaction_id)
-        # process_websitetemplate_purchase(request, template_id)
-        return redirect(reverse('process_websitetemplate_purchase', args=[template_id]))
+        if payment.payment_status == "paid":
+            return redirect(reverse('viewwebsitetemplate', args=[template_id]))
+        else:
+            update_websitetemplatepayment_status(payment, transaction_id)
+            # process_websitetemplate_purchase(request, template_id)
+            return redirect(reverse('process_websitetemplate_purchase', args=[template_id]))
     return None
 
 def handle_mobiletemplate_payment(request, transaction_id, unique_code):
@@ -12552,4 +12555,7 @@ def subscription(request):
 
 def successsubscription(request):
     return render(request, 'web/successsubscription.html')
+def pricing(request):
+    return render(request, 'web/pricing.html')
+
 
