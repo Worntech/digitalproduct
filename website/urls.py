@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('web.urls')),
     path("pesapal/", include("pesapal.urls")),
+    path('chat/', include('chat.urls')),
 ]
 
 # Serve static files in development (when DEBUG is True)

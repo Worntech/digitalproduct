@@ -30,6 +30,17 @@
 </head>
 <body>
 
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+
     <!-- Start Header Area -->
     <header class="header navbar-area">
         <!-- Toolbar Start -->
@@ -105,6 +116,7 @@
                                 <li class="nav-item">
                                     <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#project" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Product</a>
                                     <ul class="sub-menu collapse scroll-container" id="project">
+                                        <li class="nav-item"><a href="{% url 'allproduct' %}">All Product</a></li>
                                         <li class="nav-item"><a href="{% url 'template' %}">Templates</a></li>
                                         <li class="nav-item"><a href="{% url 'project' %}">Project</a></li>
                                         <li class="nav-item"><a href="{% url 'image' %}">Images</a></li>
@@ -216,10 +228,12 @@
                                 <li class="nav-item">
                                     <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#account" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Account</a>
                                     <ul class="sub-menu collapse" id="account">
-                                        <li class="nav-item"><a href="{% url 'mybought' %}">Bought Product</a></li>
-                                        {% comment %} <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">My Selling/Dashboard</a></li> {% endcomment %}
-                                        <li class="nav-item"><a href="{% url 'myproduct' %}">My Product</a></li>
-                                        <li class="nav-item"><a href="{% url 'dashboard' %}">My Dashboard</a></li>
+                                        <li class="nav-item"><a href="{% url 'mybought' %}">My Purchased Product</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">My Sales/Dashboard</a></li> {% endcomment %}
+                                        <li class="nav-item"><a href="{% url 'myproduct' %}">My Product Published</a></li>
+                                        <li class="nav-item"><a href="{% url 'myselling' %}">My Sales</a></li>
+                                        <li class="nav-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                        <li class="nav-item"><a href="{% url 'room_selection' %}">Live Chat & Help</a></li>
                                         <li class="nav-item"><a href="{% url 'change_password' %}">Change Password</a></li>
 
                                     </ul>
@@ -258,6 +272,7 @@
                                 <li class="nav-item">
                                     <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#project" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Product</a>
                                     <ul class="sub-menu collapse scroll-container" id="project">
+                                        <li class="nav-item"><a href="{% url 'allproduct' %}">All Product</a></li>
                                         <li class="nav-item"><a href="{% url 'template' %}">Templates</a></li>
                                         <li class="nav-item"><a href="{% url 'project' %}">Project</a></li>
                                         <li class="nav-item"><a href="{% url 'image' %}">Images</a></li>
@@ -340,10 +355,12 @@
                                 <li class="nav-item">
                                     <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#account" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Account</a>
                                     <ul class="sub-menu collapse" id="account">
-                                        <li class="nav-item"><a href="{% url 'mybought' %}">Bought Product</a></li>
-                                        {% comment %} <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">My Selling/Dashboard</a></li> {% endcomment %}
-                                        <li class="nav-item"><a href="{% url 'myproduct' %}">My Product</a></li>
-                                        <li class="nav-item"><a href="{% url 'dashboard' %}">My Dashboard</a></li>
+                                        <li class="nav-item"><a href="{% url 'mybought' %}">My Purchased Product</a></li>
+                                        {% comment %} <li class="nav-item"><a href="{% url 'mobiletemplatepost' %}">My Sales/Dashboard</a></li> {% endcomment %}
+                                        <li class="nav-item"><a href="{% url 'myproduct' %}">My Product Published</a></li>
+                                        <li class="nav-item"><a href="{% url 'myselling' %}">My Sales</a></li>
+                                        <li class="nav-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                        <li class="nav-item"><a href="{% url 'room_selection' %}">Live Chat & Help</a></li>
                                         <li class="nav-item"><a href="{% url 'change_password' %}">Change Password</a></li>
 
                                     </ul>
@@ -382,6 +399,7 @@
                                 <li class="nav-item">
                                     <a class="page-scroll dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#project" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Product</a>
                                     <ul class="sub-menu collapse scroll-container" id="project">
+                                        <li class="nav-item"><a href="{% url 'allproduct' %}">All Product</a></li>
                                         <li class="nav-item"><a href="{% url 'template' %}">Templates</a></li>
                                         <li class="nav-item"><a href="{% url 'project' %}">Project</a></li>
                                         <li class="nav-item"><a href="{% url 'image' %}">Images</a></li>
@@ -428,6 +446,8 @@
                                 
                                 <li class="nav-item"><a href="{% url 'contactpost' %}">Contact</a></li>
                                 <li class="nav-item"><a href="{% url 'pricing' %}">Pricing</a></li>
+                                <li class="nav-item"><a href="{% url 'signup' %}">Sign Up</a></li>
+                                <li class="nav-item"><a href="{% url 'signin' %}">Sign In</a></li>
                             </ul>
 
                             
@@ -518,21 +538,14 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
                         <!-- Single Widget -->
-                        <div class="single-footer sm-custom-border recent-blog">
-                            <h3>Latest News</h3>
+                        <div class="single-footer sm-custom-border f-link">
+                            <h3>Accounts </h3>
                             <ul>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="{% static 'web/images/footer-news1.jpg' %}" alt="#">
-                                        World worntech innovation 2025.
-                                    </a>
-                                    <span class="date"><i class="lni lni-calendar"></i>Desember 15, 2025</span>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="{% static 'web/images/footer-news2.jpg' %}" alt="#">
-                                        How to start selling and buying product.
-                                    </a>
-                                    <span class="date"><i class="lni lni-calendar"></i>July 1, 2025</span>
-                                </li>
+                                <li><a href="{% url 'room_selection' %}">Live Chat & Help</a></li>
+                                <li><a href="{% url 'mybought' %}">My Purchased Product</a></li>
+                                <li><a href="{% url 'myselling' %}">My Sales</a></li>
+                                <li><a href="{% url 'myproduct' %}">My Product Published</a></li>
+                                <li><a href="{% url 'pricing' %}">Pricing</a></li>
                             </ul>
                         </div>
                         <!-- End Single Widget -->
@@ -601,7 +614,11 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="left">
-                                <p>Designed and Developed by<a href="javascript:void(0)" rel="nofollow" target="_blank">Worntech || The Technology Center</a></p>
+                                <p>Worntech Online Services || Copyright ©
+                                    <script>
+                                        document.write(new Date().getFullYear());
+                                    </script>
+                                    <a href="javascript:void(0)" rel="nofollow" target="_blank"></a></p>
                             </div>
                         </div>
                     </div>

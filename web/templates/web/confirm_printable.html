@@ -1,0 +1,98 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Worntech Online || Complete Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+
+<body>
+
+    <!-- Start Mail Success Area -->
+    <div class="mail-success">
+        <div class="d-table">
+            <div class="d-table-cell">
+                
+                <!-- Payment Completion Message -->
+                <div id="payment-success" class="hidden fade-in">
+                    <div class="container">
+                        <div class="mail-content">
+                            <h1>Congratulations!</h1>
+                            <h2>Payment Completed Successfully</h2>
+                            <p>Thank you for your purchase. You can now access your product.</p>
+                            <div class="button">
+                                <a href="{% url 'mybought' %}" class="btn">My Purchased Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Original Payment Section -->
+                <div id="payment-container">
+                    <div class="container">
+                        <div class="mail-content">
+                            <h1>Complete Payment</h1>
+                            <h2>You are about to complete the payment</h2>
+                            <p>Click Complete Payment to finalize your payment.</p>
+                            <div class="button">
+                                <a href="{{ process_url }}" id="complete-purchase-btn" class="btn">Complete Payment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Mail Success Area -->
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let paymentSuccessDiv = document.getElementById("payment-success");
+            let paymentContainerDiv = document.getElementById("payment-container");
+            let completePurchaseBtn = document.getElementById("complete-purchase-btn");
+
+            // Get the product ID dynamically
+            let productId = "{{ product_id }}";  // This is now dynamically rendered from the backend
+
+            // Unique key for this product's payment status
+            let storageKey = "paymentCompleted_" + productId;
+
+            // ✅ 1. Check if payment was completed before
+            if (localStorage.getItem(storageKey) === "true") {
+                paymentSuccessDiv.classList.remove("hidden");
+                paymentContainerDiv.classList.add("hidden");
+                return;
+            }
+
+            // ✅ 2. Only mark payment as completed when the button is clicked
+            completePurchaseBtn?.addEventListener("click", function () {
+                localStorage.setItem(storageKey, "true"); // Save purchase completion
+            });
+
+            // ✅ 3. Handle back button navigation to ensure the status is consistent when returning to the page
+            window.addEventListener("pageshow", function (event) {
+                if (localStorage.getItem(storageKey) === "true") {
+                    paymentSuccessDiv.classList.remove("hidden");
+                    paymentContainerDiv.classList.add("hidden");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+{% endblock %}

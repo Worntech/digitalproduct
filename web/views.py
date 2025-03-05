@@ -65,8 +65,6 @@ from django.contrib.auth.views import (
     PasswordResetConfirmView, PasswordResetCompleteView
 )
 
-
-
 # Create your views here.
 # @login_required(login_url='signin')
 def admin(request):
@@ -80,6 +78,10 @@ def signup(request):
         last_name = request.POST.get('last_name')
         password = request.POST.get('password')
         password2 = request.POST.get('password2')
+        
+        staff_role = request.POST.get('staff_role')
+        mobile_number = request.POST.get('mobile_number')
+        profile_picture = request.POST.get('profile_picture')
 
         if password == password2:
             if MyUser.objects.filter(email=email).exists():
@@ -92,6 +94,9 @@ def signup(request):
                 user = MyUser.objects.create_user(username=username, email=email, first_name=first_name, last_name=last_name, password=password)
                 user.save()
                 # messages.info(request, 'Registered succesefull.')
+                
+                staff = Staff.objects.create(username=username, email=email, first_name=first_name, last_name=last_name, staff_role="normal user", mobile_number=mobile_number, profile_picture=profile_picture)
+                staff.save()
                 
                 
                 # EMAILING
@@ -130,7 +135,7 @@ def signin(request):
 
 def logout(request):
     auth.logout(request)
-    # messages.info(request, 'Loged out succesefull.')
+    #messages.info(request, 'Loged out succesefull.')
     return redirect('logedout')
 
 @login_required(login_url='signin')
@@ -227,6 +232,8 @@ def aboutus(request):
     return render(request, 'web/aboutus.html')
 def base1(request):
     # Order the notifications by the most recent ones first
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     notification = Notification.objects.all().order_by('-id')
     
     # Count the notifications for the logged-in user
@@ -235,12 +242,19 @@ def base1(request):
     context = {
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/base1.html', context)
 def base(request):
     return render(request, 'web/base.html')
 def contactus(request):
     contact = Contact.objects.all()
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -249,6 +263,11 @@ def contactus(request):
         "contact":contact,
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/contactus.html',context)
 
@@ -300,33 +319,63 @@ def subscribe(request):
 
 @login_required(login_url='signin')
 def contactlist(request):
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     contactlist = Contact.objects.all()
     countmessage= Contact.objects.all().count()
     context={
         "contactlist":contactlist,
-        "countmessage":countmessage
+        "countmessage":countmessage,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/contactlist.html', context)
 @login_required(login_url='signin')
 def viewcontact(request, id):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     contact = Contact.objects.get(id=id)
     
-    context = {"contact":contact}
+    context = {
+        "contact":contact,
+               
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
+        }
     return render(request, 'web/viewcontact.html', context)
 @login_required(login_url='signin')
 def deletecontact(request, id):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     contact = Contact.objects.get(id=id)
     if request.method == "POST":
         contact.delete()
         messages.info(request, 'Message deleted succesefull.')
         return redirect('contactlist')
     
-    context = {"contact":contact}
+    context = {
+        "contact":contact,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
+        }
     return render(request, 'web/deletecontact.html', context)
 
 
 @login_required(login_url='signin')
 def dashboard(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -396,12 +445,20 @@ def dashboard(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     
     return render(request, 'web/dashboard.html', context)
 
 @login_required(login_url='signin')
 def masterdashboard(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     user_amount = Myamount.objects.aggregate(total=Sum('My_amount'))['total']
     masteramount = get_object_or_404(MasterAmount, unique_code='welcomemasterofus')
     allusers = MyUser.objects.all().count()
@@ -470,6 +527,11 @@ def masterdashboard(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/masterdashboard.html', context)
 
@@ -6424,6 +6486,82 @@ def myproduct(request):
     cad = CAD.objects.filter(user=current_user)
     software = Software.objects.filter(user=current_user)
     business = Business.objects.filter(user=current_user)
+    
+    # Prepare data for each template
+    for template in project:
+        avg_rating = ReviewProject.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewProject.objects.filter(template=template).count()  # Total reviews
+        
+    for template in image:
+        avg_rating = ReviewImage.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewImage.objects.filter(template=template).count()  # Total reviews
+        
+    for template in book:
+        avg_rating = ReviewBook.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewBook.objects.filter(template=template).count()  # Total reviews
+        
+    for template in printable:
+        avg_rating = ReviewPrintable.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewPrintable.objects.filter(template=template).count()  # Total reviews
+        
+    for template in music:
+        avg_rating = ReviewMusic.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewMusic.objects.filter(template=template).count()  # Total reviews
+        
+    for template in multmedia:
+        avg_rating = ReviewMultimedia.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewMultimedia.objects.filter(template=template).count()  # Total reviews
+        
+    for template in digitalArt:
+        avg_rating = ReviewDigitalArt.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewDigitalArt.objects.filter(template=template).count()  # Total reviews
+        
+    for template in cad:
+        avg_rating = ReviewCAD.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewCAD.objects.filter(template=template).count()  # Total reviews
+        
+    for template in software:
+        avg_rating = ReviewSoftware.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewSoftware.objects.filter(template=template).count()  # Total reviews
+        
+    for template in business:
+        avg_rating = ReviewBusiness.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewBusiness.objects.filter(template=template).count()  # Total reviews
+        
+    for template in websitetemplate:
+        avg_rating = ReviewWebsitetemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewWebsitetemplate.objects.filter(template=template).count()  # Total reviews
+        
+    for template in mobiletemplate:
+        avg_rating = ReviewMobiletemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewMobiletemplate.objects.filter(template=template).count()  # Total reviews
+        
+    for template in desktoptemplate:
+        avg_rating = ReviewDesktoptemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewDesktoptemplate.objects.filter(template=template).count()  # Total reviews
+        
+    for template in microsofttemplate:
+        avg_rating = ReviewMicrosofttemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewMicrosofttemplate.objects.filter(template=template).count()  # Total reviews
+        
+    for template in adobetemplate:
+        avg_rating = ReviewAdobetemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+        template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+        template.total_reviews = ReviewAdobetemplate.objects.filter(template=template).count()  # Total reviews
  
     context = {
         "website": website,
@@ -6447,6 +6585,7 @@ def myproduct(request):
         "cad": cad,
         "software": software,
         "business": business,
+
     }
     return render(request, 'web/myproduct.html', context)
 
@@ -7898,7 +8037,7 @@ class viewCAD(DetailView):
                 request.session['Title'] = slugify(self.object.Title)
                 
                 # Redirect to the paymentproject URL with required parameters
-                return redirect(reverse('paymentcad', kwargs={
+                return redirect(reverse('paymentCAD', kwargs={
                     'product_id': self.object.id,
                 }))
         # Handle rating submission
@@ -8829,6 +8968,9 @@ def viewadobetemplate(request, id):
 
 @login_required(login_url='signin')
 def viewcontact(request, id):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     contact = Contact.objects.get(id=id)
     
     notification = Notification.objects.filter(user=request.user).order_by('-id')
@@ -8838,6 +8980,11 @@ def viewcontact(request, id):
         "contact":contact,
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
         }
     return render(request, 'web/viewcontact.html', context)
 
@@ -9280,6 +9427,18 @@ def updatecard(request, id):
             return redirect('mycard')
     context = {"card":card}
     return render(request, 'web/updatecard.html', context)
+
+def updatesystemuser(request, id):
+    syu = Staff.objects.get(id=id)
+    systemuser = StaffForm(instance=syu)
+    if request.method == "POST":
+        systemuser = StaffForm(request.POST, files=request.FILES, instance=syu)
+        if systemuser.is_valid():
+            systemuser.save()
+            messages.info(request, 'Updated succesefull.')
+            return redirect('systemuser')
+    context = {"systemuser":systemuser}
+    return render(request, 'web/updatesystemuser.html', context)
 
 
 # views for updating template
@@ -10153,74 +10312,187 @@ def update_imagepayment_status(imagepayment, transaction_id):
     
     
 #HANDLING PAYMENT
-@disable_browser_cache
 def handle_websitetemplate_payment(request, transaction_id, unique_code):
     """Handle website template payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
     payment = Payment.objects.filter(user=request.user).last()
+    
     if payment:
-        template_id = payment.template.id
-        payment = get_object_or_404(Payment, template_id=template_id, unique_code=unique_code, user=request.user)
-        if payment.payment_status == "paid":
-            return redirect(reverse('viewwebsitetemplate', args=[template_id]))
+        product_id = payment.template.id  # Updated variable name
+        paymentcheckt = get_object_or_404(Payment, template_id=product_id, unique_code=unique_code, user=request.user)
+        
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{paymentcheckt.id}'):
+            return redirect(reverse('viewwebsitetemplate', args=[product_id]))
+        
+        # If payment is already marked as Paid, redirect immediately
+        if paymentcheckt.payment_status == "Paid":
+            request.session[f'payment_processed_{paymentcheckt.id}'] = True
+            return redirect(reverse('viewwebsitetemplate', args=[product_id]))
         else:
             update_websitetemplatepayment_status(payment, transaction_id)
-            # process_websitetemplate_purchase(request, template_id)
-            return redirect(reverse('process_websitetemplate_purchase', args=[template_id]))
+            
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_websitetemplate.html', {
+                'product_id': product_id,  # Updated key name
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_websitetemplate_purchase', args=[product_id])
+            })
+    
     return None
 
 def handle_mobiletemplate_payment(request, transaction_id, unique_code):
     """Handle mobile template payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
-    mobiletemplatepayment = PaymentMobiletemplate.objects.filter(user=request.user).last()
-    if mobiletemplatepayment:
-        mobiletemplate_id = mobiletemplatepayment.mobiletemplate.id
-        mobiletemplatepayment = get_object_or_404(PaymentMobiletemplate, mobiletemplate_id=mobiletemplate_id, unique_code=unique_code, user=request.user)
-        update_mobiletemplatepayment_status(mobiletemplatepayment, transaction_id)
-        # process_mobiletemplate_purchase(request, mobiletemplate_id)
-        return redirect(reverse('process_mobiletemplate_purchase', args=[mobiletemplate_id]))
+    payment = PaymentMobiletemplate.objects.filter(user=request.user).last()
+
+    if payment:
+        product_id = payment.mobiletemplate.id  # Updated variable name
+        paymentcheckt = get_object_or_404(
+            PaymentMobiletemplate,
+            mobiletemplate_id=product_id,
+            unique_code=unique_code,
+            user=request.user
+        )
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{paymentcheckt.id}'):
+            return redirect(reverse('viewmobiletemplate', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if paymentcheckt.payment_status == "Paid":
+            request.session[f'payment_processed_{paymentcheckt.id}'] = True
+            return redirect(reverse('viewmobiletemplate', args=[product_id]))
+        else:
+            update_mobiletemplatepayment_status(payment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_mobiletemplate.html', {
+                'product_id': product_id,  # Updated key name
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_mobiletemplate_purchase', args=[product_id])
+            })
+
     return None
 
 def handle_desktoptemplate_payment(request, transaction_id, unique_code):
     """Handle desktop template payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
-    desktoptemplatepayment = PaymentDesktoptemplate.objects.filter(user=request.user).last()
-    if desktoptemplatepayment:
-        desktoptemplate_id = desktoptemplatepayment.desktoptemplate.id
-        desktoptemplatepayment = get_object_or_404(PaymentDesktoptemplate, desktoptemplate_id=desktoptemplate_id, unique_code=unique_code, user=request.user)
-        update_desktoptemplatepayment_status(desktoptemplatepayment, transaction_id)
-        #process_desktoptemplate_purchase(request, desktoptemplate_id)
-        return redirect(reverse('process_desktoptemplate_purchase', args=[desktoptemplate_id]))
+    payment = PaymentDesktoptemplate.objects.filter(user=request.user).last()
+
+    if payment:
+        product_id = payment.desktoptemplate.id  # Updated variable name
+        paymentcheckt = get_object_or_404(
+            PaymentDesktoptemplate,
+            desktoptemplate_id=product_id,
+            unique_code=unique_code,
+            user=request.user
+        )
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{paymentcheckt.id}'):
+            return redirect(reverse('viewdesktoptemplate', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if paymentcheckt.payment_status == "Paid":
+            request.session[f'payment_processed_{paymentcheckt.id}'] = True
+            return redirect(reverse('viewdesktoptemplate', args=[product_id]))
+        else:
+            update_desktoptemplatepayment_status(payment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_desktoptemplate.html', {
+                'product_id': product_id,  # Updated key name
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_desktoptemplate_purchase', args=[product_id])
+            })
+
     return None
 
 def handle_microsofttemplate_payment(request, transaction_id, unique_code):
-    """Handle mobile template payment."""
+    """Handle Microsoft template payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
-    microsofttemplatepayment = PaymentMicrosofttemplate.objects.filter(user=request.user).last()
-    if microsofttemplatepayment:
-        microsofttemplate_id = mobiletemplatepayment.mobiletemplate.id
-        mobiletemplatepayment = get_object_or_404(PaymentMicrosofttemplate, microsofttemplate_id=microsofttemplate_id, unique_code=unique_code, user=request.user)
-        update_microsofttemplatepayment_status(microsofttemplatepayment, transaction_id)
-        # process_microsofttemplate_purchase(request, microsofttemplate_id)
-        return redirect(reverse('process_microsofttemplate_purchase', args=[microsofttemplate_id]))
+    payment = PaymentMicrosofttemplate.objects.filter(user=request.user).last()
+
+    if payment:
+        product_id = payment.microsofttemplate.id  # Updated variable name
+        paymentcheckt = get_object_or_404(
+            PaymentMicrosofttemplate,
+            microsofttemplate_id=product_id,
+            unique_code=unique_code,
+            user=request.user
+        )
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{paymentcheckt.id}'):
+            return redirect(reverse('viewmicrosofttemplate', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if paymentcheckt.payment_status == "Paid":
+            request.session[f'payment_processed_{paymentcheckt.id}'] = True
+            return redirect(reverse('viewmicrosofttemplate', args=[product_id]))
+        else:
+            update_microsofttemplatepayment_status(payment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_microsofttemplate.html', {
+                'product_id': product_id,  # Updated key name
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_microsofttemplate_purchase', args=[product_id])
+            })
+
     return None
 
+
 def handle_adobetemplate_payment(request, transaction_id, unique_code):
-    """Handle desktop template payment."""
+    """Handle Adobe template payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
-    adobetemplatepayment = PaymentAdobetemplate.objects.filter(user=request.user).last()
-    if adobetemplatepayment:
-        adobetemplate_id = adobetemplatepayment.adobetemplate.id
-        adobetemplatepayment = get_object_or_404(PaymentAdobetemplate, adobetemplate_id=adobetemplate_id, unique_code=unique_code, user=request.user)
-        update_adobetemplatepayment_status(adobetemplatepayment, transaction_id)
-        # process_adobetemplate_purchase(request, adobetemplate_id)
-        return redirect(reverse('process_adobetemplate_purchase', args=[adobetemplate_id]))
+    payment = PaymentAdobetemplate.objects.filter(user=request.user).last()
+
+    if payment:
+        product_id = payment.adobetemplate.id  # Updated variable name
+        paymentcheckt = get_object_or_404(
+            PaymentAdobetemplate,
+            adobetemplate_id=product_id,
+            unique_code=unique_code,
+            user=request.user
+        )
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{paymentcheckt.id}'):
+            return redirect(reverse('viewadobetemplate', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if paymentcheckt.payment_status == "Paid":
+            request.session[f'payment_processed_{paymentcheckt.id}'] = True
+            return redirect(reverse('viewadobetemplate', args=[product_id]))
+        else:
+            update_adobetemplatepayment_status(payment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_adobetemplate.html', {
+                'product_id': product_id,  # Updated key name
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_adobetemplate_purchase', args=[product_id])
+            })
+
     return None
+
 
 #HANDLING PAYMENT FOR COURSES
 def handle_website_payment(request, transaction_id, unique_code):
@@ -10291,136 +10563,357 @@ def handle_graphics_payment(request, transaction_id, unique_code):
 
 # HANDLE PAYMENT FOR PROJECT
 def handle_project_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle project payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
-    projectpayment = PaymentProject.objects.filter(user=request.user).last()
-    product_id = request.session.get('product_id')
-    if projectpayment:
-        projectpayment = get_object_or_404(PaymentProject, unique_code=unique_code, user=request.user)
-        update_projectpayment_status(projectpayment, transaction_id)
-        # process_project_purchase(request, product_id)
-        return redirect(reverse('process_project_purchase', args=[product_id]))
+    product_id = request.session.get('product_id')  # Retrieve product ID from session
+    payment = PaymentProject.objects.filter(user=request.user).last()
+
+    if payment:
+        paymentcheckt = get_object_or_404(
+            PaymentProject,
+            unique_code=unique_code,
+            user=request.user
+        )
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{paymentcheckt.id}'):
+            return redirect(reverse('viewproject', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if paymentcheckt.payment_status == "Paid":
+            request.session[f'payment_processed_{paymentcheckt.id}'] = True
+            return redirect(reverse('viewproject', args=[product_id]))
+        else:
+            update_projectpayment_status(paymentcheckt, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_project.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_project_purchase', args=[product_id])
+            })
+
     return None
+
 
 # HANDLE PAYMENT FOR DIGITAL PRODUCT
 def handle_book_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle book payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
+    product_id = request.session.get('product_id')  # Retrieve product ID from session
     bookpayment = PaymentBook.objects.filter(user=request.user).last()
-    product_id = request.session.get('product_id')
+
     if bookpayment:
-        bookpayment = get_object_or_404(PaymentBook, unique_code=unique_code, user=request.user)
-        update_bookpayment_status(bookpayment, transaction_id)
-        # process_book_purchase(request, product_id)
-        return redirect(reverse('process_book_purchase', args=[product_id]))
+        # Retrieve the book payment with the given unique code and user
+        bookpayment = get_object_or_404(
+            PaymentBook,
+            unique_code=unique_code,
+            user=request.user
+        )
+
+        # Prevent reprocessing when the back button is clicked
+        if request.session.get(f'payment_processed_{bookpayment.id}'):
+            return redirect(reverse('viewbook', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if bookpayment.payment_status == "Paid":
+            request.session[f'payment_processed_{bookpayment.id}'] = True
+            return redirect(reverse('viewbook', args=[product_id]))
+        else:
+            update_bookpayment_status(bookpayment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_book.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_book_purchase', args=[product_id])
+            })
+
     return None
+
 
 def handle_printable_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle printable payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
+    product_id = request.session.get('product_id')  # Retrieve product ID from session
     printablepayment = PaymentPrintable.objects.filter(user=request.user).last()
-    product_id = request.session.get('product_id')
+
     if printablepayment:
-        printablepayment = get_object_or_404(PaymentPrintable, unique_code=unique_code, user=request.user)
-        update_printablepayment_status(printablepayment, transaction_id)
-        # process_printable_purchase(request, product_id)
-        return redirect(reverse('process_printable_purchase', args=[product_id]))
+        # Retrieve the printable payment with the given unique code and user
+        printablepayment = get_object_or_404(
+            PaymentPrintable,
+            unique_code=unique_code,
+            user=request.user
+        )
+
+        # Prevent reprocessing when the back button is clicked
+        if request.session.get(f'payment_processed_{printablepayment.id}'):
+            return redirect(reverse('viewprintable', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if printablepayment.payment_status == "Paid":
+            request.session[f'payment_processed_{printablepayment.id}'] = True
+            return redirect(reverse('viewprintable', args=[product_id]))
+        else:
+            update_printablepayment_status(printablepayment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_printable.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_printable_purchase', args=[product_id])
+            })
+
     return None
 
+
 def handle_music_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle music template payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
     musicpayment = PaymentMusic.objects.filter(user=request.user).last()
     product_id = request.session.get('product_id')
+
     if musicpayment:
+        # Retrieve the music payment with the given unique code and user
         musicpayment = get_object_or_404(PaymentMusic, unique_code=unique_code, user=request.user)
-        update_musicpayment_status(musicpayment, transaction_id)
-        # process_music_purchase(request, product_id)
-        return redirect(reverse('process_music_purchase', args=[product_id]))
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{musicpayment.id}'):
+            return redirect(reverse('viewmusic', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if musicpayment.payment_status == "Paid":
+            request.session[f'payment_processed_{musicpayment.id}'] = True
+            return redirect(reverse('viewmusic', args=[product_id]))
+        else:
+            update_musicpayment_status(musicpayment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_music.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_music_purchase', args=[product_id])
+            })
+
     return None
 
+
 def handle_multimedia_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle multimedia template payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
     multimediapayment = PaymentMultimedia.objects.filter(user=request.user).last()
     product_id = request.session.get('product_id')
+
     if multimediapayment:
+        # Retrieve the multimedia payment with the given unique code and user
         multimediapayment = get_object_or_404(PaymentMultimedia, unique_code=unique_code, user=request.user)
-        update_multimediapayment_status(multimediapayment, transaction_id)
-        # process_multimedia_purchase(request, product_id)
-        return redirect(reverse('process_multimedia_purchase', args=[product_id]))
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{multimediapayment.id}'):
+            return redirect(reverse('viewmultimedia', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if multimediapayment.payment_status == "Paid":
+            request.session[f'payment_processed_{multimediapayment.id}'] = True
+            return redirect(reverse('viewmultimedia', args=[product_id]))
+        else:
+            update_multimediapayment_status(multimediapayment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_multimedia.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_multimedia_purchase', args=[product_id])
+            })
+
     return None
 
+
 def handle_digitalArt_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle digital art payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
     digitalArtpayment = PaymentDigitalArt.objects.filter(user=request.user).last()
     product_id = request.session.get('product_id')
+
     if digitalArtpayment:
+        # Retrieve the digital art payment with the given unique code and user
         digitalArtpayment = get_object_or_404(PaymentDigitalArt, unique_code=unique_code, user=request.user)
-        update_digitalArtpayment_status(digitalArtpayment, transaction_id)
-        # process_digitalArt_purchase(request, product_id)
-        return redirect(reverse('process_digitalArt_purchase', args=[product_id]))
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{digitalArtpayment.id}'):
+            return redirect(reverse('viewdigitalArt', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if digitalArtpayment.payment_status == "Paid":
+            request.session[f'payment_processed_{digitalArtpayment.id}'] = True
+            return redirect(reverse('viewdigitalArt', args=[product_id]))
+        else:
+            update_digitalArtpayment_status(digitalArtpayment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_digitalArt.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_digitalArt_purchase', args=[product_id])
+            })
+
     return None
 
+
 def handle_CAD_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle CAD payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
     CADpayment = PaymentCAD.objects.filter(user=request.user).last()
     product_id = request.session.get('product_id')
+
     if CADpayment:
+        # Retrieve the CAD payment with the given unique code and user
         CADpayment = get_object_or_404(PaymentCAD, unique_code=unique_code, user=request.user)
-        update_CADpayment_status(CADpayment, transaction_id)
-        # process_CAD_purchase(request, product_id)
-        return redirect(reverse('process_CAD_purchase', args=[product_id]))
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{CADpayment.id}'):
+            return redirect(reverse('viewCAD', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if CADpayment.payment_status == "Paid":
+            request.session[f'payment_processed_{CADpayment.id}'] = True
+            return redirect(reverse('viewCAD', args=[product_id]))
+        else:
+            update_CADpayment_status(CADpayment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_CAD.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_CAD_purchase', args=[product_id])
+            })
+
     return None
 
+
 def handle_software_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle software payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
     softwarepayment = PaymentSoftware.objects.filter(user=request.user).last()
     product_id = request.session.get('product_id')
+
     if softwarepayment:
+        # Retrieve the software payment with the given unique code and user
         softwarepayment = get_object_or_404(PaymentSoftware, unique_code=unique_code, user=request.user)
-        update_softwarepayment_status(softwarepayment, transaction_id)
-        # process_CAD_purchase(request, product_id)
-        return redirect(reverse('process_software_purchase', args=[product_id]))
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{softwarepayment.id}'):
+            return redirect(reverse('viewSoftware', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if softwarepayment.payment_status == "Paid":
+            request.session[f'payment_processed_{softwarepayment.id}'] = True
+            return redirect(reverse('viewSoftware', args=[product_id]))
+        else:
+            update_softwarepayment_status(softwarepayment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_software.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_software_purchase', args=[product_id])
+            })
+
     return None
 
+
 def handle_business_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle business payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
     businesspayment = PaymentBusiness.objects.filter(user=request.user).last()
     product_id = request.session.get('product_id')
+
     if businesspayment:
+        # Retrieve the business payment with the given unique code and user
         businesspayment = get_object_or_404(PaymentBusiness, unique_code=unique_code, user=request.user)
-        update_businesspayment_status(businesspayment, transaction_id)
-        # process_business_purchase(request, product_id)
-        return redirect(reverse('process_business_purchase', args=[product_id]))
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{businesspayment.id}'):
+            return redirect(reverse('viewBusiness', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if businesspayment.payment_status == "Paid":
+            request.session[f'payment_processed_{businesspayment.id}'] = True
+            return redirect(reverse('viewBusiness', args=[product_id]))
+        else:
+            update_businesspayment_status(businesspayment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_business.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_business_purchase', args=[product_id])
+            })
+
     return None
+
 
 # HANDLE PAYMENT FOR IMAGE
 def handle_image_payment(request, transaction_id, unique_code):
-    """Handle website template payment."""
+    """Handle image payment."""
     amount = request.session.get('amount')
     request.session['amount'] = amount
     imagepayment = PaymentImage.objects.filter(user=request.user).last()
     product_id = request.session.get('product_id')
+
     if imagepayment:
+        # Retrieve the image payment with the given unique code and user
         imagepayment = get_object_or_404(PaymentImage, unique_code=unique_code, user=request.user)
-        update_imagepayment_status(imagepayment, transaction_id)
-        # process_image_purchase(request, product_id)
-        return redirect(reverse('process_image_purchase', args=[product_id]))
+
+        # Prevent reprocessing when back button is clicked
+        if request.session.get(f'payment_processed_{imagepayment.id}'):
+            return redirect(reverse('viewImage', args=[product_id]))
+
+        # If payment is already marked as Paid, redirect immediately
+        if imagepayment.payment_status == "Paid":
+            request.session[f'payment_processed_{imagepayment.id}'] = True
+            return redirect(reverse('viewImage', args=[product_id]))
+        else:
+            update_imagepayment_status(imagepayment, transaction_id)
+
+            # Render an HTML template with a link to complete the process
+            return render(request, 'web/confirm_image.html', {
+                'product_id': product_id,
+                'transaction_id': transaction_id,
+                'unique_code': unique_code,
+                'amount': amount,
+                'process_url': reverse('process_image_purchase', args=[product_id])
+            })
+
     return None
+
 
 # PAYMENT COMPLETION
 @disable_browser_cache
@@ -10523,6 +11016,82 @@ class PurchasedView(ListView):
         paid_software = Software.objects.filter(id__in=PaymentSoftware.objects.filter(user=user, payment_status='paid').values_list('product', flat=True))
         paid_business = Business.objects.filter(id__in=PaymentBusiness.objects.filter(user=user, payment_status='paid').values_list('product', flat=True))
         
+        # Prepare data for each template
+        for template in paid_projects:
+            avg_rating = ReviewProject.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewProject.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_images:
+            avg_rating = ReviewImage.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewImage.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_book:
+            avg_rating = ReviewBook.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewBook.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_printable:
+            avg_rating = ReviewPrintable.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewPrintable.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_music:
+            avg_rating = ReviewMusic.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewMusic.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_multimedia:
+            avg_rating = ReviewMultimedia.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewMultimedia.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_digitalArt:
+            avg_rating = ReviewDigitalArt.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewDigitalArt.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_CAD:
+            avg_rating = ReviewCAD.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewCAD.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_software:
+            avg_rating = ReviewSoftware.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewSoftware.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_business:
+            avg_rating = ReviewBusiness.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewBusiness.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_website_templates:
+            avg_rating = ReviewWebsitetemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewWebsitetemplate.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_mobile_templates:
+            avg_rating = ReviewMobiletemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewMobiletemplate.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_desktop_templates:
+            avg_rating = ReviewDesktoptemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewDesktoptemplate.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_microsoft_templates:
+            avg_rating = ReviewMicrosofttemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewMicrosofttemplate.objects.filter(template=template).count()  # Total reviews
+            
+        for template in paid_adobe_templates:
+            avg_rating = ReviewAdobetemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewAdobetemplate.objects.filter(template=template).count()  # Total reviews
+        
         context = {
             'paid_website_templates': paid_website_templates,
             'paid_mobile_templates': paid_mobile_templates,
@@ -10545,6 +11114,139 @@ class PurchasedView(ListView):
             'paid_CAD': paid_CAD,
             'paid_software': paid_software,
             'paid_business': paid_business,
+
+        }
+
+        return render(request, self.template_name, context)
+ 
+class SoldView(ListView):
+    template_name = 'web/sold_templates.html'
+
+    def get(self, request, *args, **kwargs):
+        user = request.user
+
+        # Query sold products based on their actual user (owner)
+        sold_website_templates = Websitetemplate.objects.filter(user=user, id__in=Payment.objects.filter(payment_status='paid').values_list('template', flat=True))
+        sold_mobile_templates = Mobiletemplate.objects.filter(user=user, id__in=PaymentMobiletemplate.objects.filter(payment_status='paid').values_list('mobiletemplate', flat=True))
+        sold_desktop_templates = Desktoptemplate.objects.filter(user=user, id__in=PaymentDesktoptemplate.objects.filter(payment_status='paid').values_list('desktoptemplate', flat=True))
+        sold_microsoft_templates = Microsofttemplate.objects.filter(user=user, id__in=PaymentMicrosofttemplate.objects.filter(payment_status='paid').values_list('microsofttemplate', flat=True))
+        sold_adobe_templates = Adobetemplate.objects.filter(user=user, id__in=PaymentAdobetemplate.objects.filter(payment_status='paid').values_list('adobetemplate', flat=True))
+
+        sold_websites = Website.objects.filter(user=user, id__in=PaymentWebsite.objects.filter(payment_status='paid').values_list('website', flat=True))
+        sold_mobiles = Mobile.objects.filter(user=user, id__in=PaymentMobile.objects.filter(payment_status='paid').values_list('mobile', flat=True))
+        sold_desktops = Desktop.objects.filter(user=user, id__in=PaymentDesktop.objects.filter(payment_status='paid').values_list('desktop', flat=True))
+        sold_embededs = Embeded.objects.filter(user=user, id__in=PaymentEmbeded.objects.filter(payment_status='paid').values_list('embeded', flat=True))
+        sold_graphics = Graphics.objects.filter(user=user, id__in=PaymentGraphics.objects.filter(payment_status='paid').values_list('graphics', flat=True))
+        sold_projects = Project.objects.filter(user=user, id__in=PaymentProject.objects.filter(payment_status='paid').values_list('project', flat=True))
+        sold_images = Image.objects.filter(user=user, id__in=PaymentImage.objects.filter(payment_status='paid').values_list('image', flat=True))
+
+        sold_book = Book.objects.filter(user=user, id__in=PaymentBook.objects.filter(payment_status='paid').values_list('book', flat=True))
+        sold_printable = Printable.objects.filter(user=user, id__in=PaymentPrintable.objects.filter(payment_status='paid').values_list('product', flat=True))
+        sold_music = Music.objects.filter(user=user, id__in=PaymentMusic.objects.filter(payment_status='paid').values_list('product', flat=True))
+        sold_multimedia = Multimedia.objects.filter(user=user, id__in=PaymentMultimedia.objects.filter(payment_status='paid').values_list('product', flat=True))
+        sold_digitalArt = DigitalArt.objects.filter(user=user, id__in=PaymentDigitalArt.objects.filter(payment_status='paid').values_list('product', flat=True))
+        sold_CAD = CAD.objects.filter(user=user, id__in=PaymentCAD.objects.filter(payment_status='paid').values_list('product', flat=True))
+        sold_software = Software.objects.filter(user=user, id__in=PaymentSoftware.objects.filter(payment_status='paid').values_list('product', flat=True))
+        sold_business = Business.objects.filter(user=user, id__in=PaymentBusiness.objects.filter(payment_status='paid').values_list('product', flat=True))
+        
+
+        # Prepare data for each template
+        for template in sold_projects:
+            avg_rating = ReviewProject.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewProject.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_images:
+            avg_rating = ReviewImage.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewImage.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_book:
+            avg_rating = ReviewBook.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewBook.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_printable:
+            avg_rating = ReviewPrintable.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewPrintable.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_music:
+            avg_rating = ReviewMusic.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewMusic.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_multimedia:
+            avg_rating = ReviewMultimedia.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewMultimedia.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_digitalArt:
+            avg_rating = ReviewDigitalArt.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewDigitalArt.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_CAD:
+            avg_rating = ReviewCAD.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewCAD.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_software:
+            avg_rating = ReviewSoftware.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewSoftware.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_business:
+            avg_rating = ReviewBusiness.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewBusiness.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_website_templates:
+            avg_rating = ReviewWebsitetemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewWebsitetemplate.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_mobile_templates:
+            avg_rating = ReviewMobiletemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewMobiletemplate.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_desktop_templates:
+            avg_rating = ReviewDesktoptemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewDesktoptemplate.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_microsoft_templates:
+            avg_rating = ReviewMicrosofttemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewMicrosofttemplate.objects.filter(template=template).count()  # Total reviews
+            
+        for template in sold_adobe_templates:
+            avg_rating = ReviewAdobetemplate.objects.filter(template=template).aggregate(Avg('rating'))['rating__avg'] or 0
+            template.avg_rating = round(avg_rating, 1)  # Round to 1 decimal place
+            template.total_reviews = ReviewAdobetemplate.objects.filter(template=template).count()  # Total reviews
+
+        context = {
+            'sold_website_templates': sold_website_templates,
+            'sold_mobile_templates': sold_mobile_templates,
+            'sold_desktop_templates': sold_desktop_templates,
+            'sold_microsoft_templates': sold_microsoft_templates,
+            'sold_adobe_templates': sold_adobe_templates,
+            'sold_websites': sold_websites,
+            'sold_mobiles': sold_mobiles,
+            'sold_desktops': sold_desktops,
+            'sold_embededs': sold_embededs,
+            'sold_graphics': sold_graphics,
+            'sold_projects': sold_projects,
+            'sold_images': sold_images,
+            'sold_book': sold_book,
+            'sold_printable': sold_printable,
+            'sold_music': sold_music,
+            'sold_multimedia': sold_multimedia,
+            'sold_digitalArt': sold_digitalArt,
+            'sold_CAD': sold_CAD,
+            'sold_software': sold_software,
+            'sold_business': sold_business,
         }
 
         return render(request, self.template_name, context)
@@ -11725,6 +12427,9 @@ def process_image_purchase(request, product_id):
     
 @login_required(login_url='signin')
 def withdraw(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -11777,6 +12482,8 @@ def withdraw(request):
                 withdraw_instance.Phone_Number = cardinfo.Phone_Number
                 withdraw_instance.Country = cardinfo.Country
                 withdraw_instance.Card_Type = cardinfo.Card_Type
+                withdraw_instance.First_Name = cardinfo.First_Name
+                withdraw_instance.Last_Name = cardinfo.Last_Name
                 
                 withdraw_instance.Status = 'Processing'
                 withdraw_instance.save()
@@ -11786,7 +12493,7 @@ def withdraw(request):
                 email = request.user.email
                 
                 subject = "WORNTECH ONLINE SERVICES"
-                message = f"Hellow {fname} {lname} You have withdrawed ${withdraw_instance.Amount_in_USD} from Worntech, you money will be confirmed soon, For any isue contact us, contact +255 710 891 288"
+                message = f"Hellow {fname} {lname} You have withdrawed ${withdraw_instance.Amount_in_USD} from Worntech Online, you money will be confirmed soon, For any isue contact us through live chat in this worntech online platform to chat live with our customer care, if no altenative way contact us through whatsapp number +255 710 891 288"
                 #from_email = settings.EMAIL_HOST_USER
                 from_email = 'worntechservices@gmail.com'
                 recipient_list = [email]
@@ -11801,12 +12508,20 @@ def withdraw(request):
         'my_amount_record': my_amount_record,
         "notification": notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     
     return render(request, 'web/withdraw.html', context)
 
 @login_required(login_url='signin')
 def mycard(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -11832,7 +12547,7 @@ def mycard(request):
             email = request.user.email
                 
             subject = "WORNTECH ONLINE SERVICES"
-            message = f"Hellow {fname} {lname} You have added {mycard_instance.Card_Number} in Worntech online services, Thanks, now you can cashout using this card, For any isue contact us, contact +255 710 891 288"
+            message = f"Hellow {fname} {lname} You have added {mycard_instance.Card_Number} in Worntech online services, Thanks, now you can cashout using this card, For any isue chat with our customer care live in worntech online website or mobile application, if no altenative contact via whatsapp +255 710 891 288"
             #from_email = settings.EMAIL_HOST_USER
             from_email = 'worntechservices@gmail.com'
             recipient_list = [email]
@@ -11845,12 +12560,19 @@ def mycard(request):
         "cardinfo": cardinfo,
         "notification": notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     
     return render(request, 'web/mycard.html', context)
 
 @login_required(login_url='signin')
 def cardinfo(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
@@ -11862,11 +12584,19 @@ def cardinfo(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/cardinfo.html', context)
 
 @login_required(login_url='signin')
 def master_withdraw(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -11919,6 +12649,11 @@ def master_withdraw(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/master_withdraw.html', context)
 
@@ -11934,8 +12669,11 @@ def update_master_status(request, id, status):
     return redirect('viewmasterpayment', id=id)  # Redirect back to the payment view
 
 
+
 @login_required(login_url='signin')
 def mypayment(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
@@ -11947,11 +12685,18 @@ def mypayment(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/mypayment.html', context)
 
 @login_required(login_url='signin')
 def viewmypayment(request, id):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
@@ -11972,6 +12717,11 @@ def viewmypayment(request, id):
         
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
         }
     return render(request, 'web/viewmypayment.html', context)
 
@@ -11987,11 +12737,11 @@ def update_status(request, id, status):
         # Create a notification for the user
         message = ""
         if status == 'Completed':
-            message = f"Confirmed you have received ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number}, if there is any problem please contact us through whatsapp number +255 710891288, thank you for chosing worntech to sell your product."
+            message = f"Confirmed you have received ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number}, if there is any problem please contact us through live chat with our customer care, if no altenative contact us via whatsapp number +255 710891288, thank you for chosing worntech to sell and buy digital product."
         elif status == 'Processing':
-            message = f"Withdraw of ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number} is in process plese wait for the confirmation, if there is any problem please contact us through whatsapp number +255 710891288, thank you for chosing worntech to sell your product."
+            message = f"Withdraw of ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number} is in process plese wait for the confirmation, if there is any problem please contact us through live chat with our customer care, if no altenative contact us via whatsapp number +255 710891288, thank you for chosing worntech to sell and buy digital product."
         elif status == 'Declined':
-            message = f"Withdraw of ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number} is declained, if there is any problem please contact us through whatsapp number +255 710891288, thank you for chosing worntech to sell your product."
+            message = f"Withdraw of ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number} is declained, if there is any problem please contact us via live chat with our customer care to know the clear causes of decline, if no altenative contact us via whatsapp number +255 710891288, thank you for chosing worntech to sell and buy digital product."
 
         # Assuming the user is the one making the request
         Notification.objects.create(
@@ -12004,6 +12754,9 @@ def update_status(request, id, status):
 
 
 def view_notifications(request, id):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     notifications = Notification.objects.get(id=id)
     
     # Order the notifications by the most recent ones first
@@ -12018,6 +12771,11 @@ def view_notifications(request, id):
         'notifications': notifications,
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     
     return render(request, 'web/view_notifications.html', context)
@@ -12032,6 +12790,9 @@ def delete_viewed_notifications(request):
 
 @login_required(login_url='signin')
 def allpayment(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12042,11 +12803,19 @@ def allpayment(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/allpayment.html', context)
 
 @login_required(login_url='signin')
 def masterpayment(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12057,11 +12826,19 @@ def masterpayment(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/masterpayment.html', context)
 
 @login_required(login_url='signin')
 def viewmasterpayment(request, id):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12080,6 +12857,11 @@ def viewmasterpayment(request, id):
         
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
         }
     return render(request, 'web/viewmasterpayment.html', context)
 
@@ -12106,6 +12888,8 @@ def completed_transaction(request):
     paymentCAD = PaymentCAD.objects.all()
     paymentsoftware = PaymentSoftware.objects.all()
     paymentbusiness = PaymentBusiness.objects.all()
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
@@ -12136,6 +12920,11 @@ def completed_transaction(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/completed_transaction.html', context)
 
@@ -12161,6 +12950,8 @@ def pending_transaction(request):
     paymentCAD = PaymentCAD.objects.all()
     paymentsoftware = PaymentSoftware.objects.all()
     paymentbusiness = PaymentBusiness.objects.all()
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
@@ -12191,6 +12982,11 @@ def pending_transaction(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/pending_transaction.html', context)
 
@@ -12217,6 +13013,8 @@ def failed_transaction(request):
     paymentsoftware = PaymentSoftware.objects.all()
     paymentbusiness = PaymentBusiness.objects.all()
     
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12246,6 +13044,11 @@ def failed_transaction(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/failed_transaction.html', context)
 
@@ -12272,6 +13075,8 @@ def my_transaction(request):
     paymentsoftware = PaymentSoftware.objects.filter(user=request.user)
     paymentbusiness = PaymentBusiness.objects.filter(user=request.user)
     
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12301,11 +13106,19 @@ def my_transaction(request):
         
         'notification': notification,
         'notificationcount': notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/my_transaction.html', context)
 
 @login_required(login_url='signin')
 def allusers(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12317,11 +13130,43 @@ def allusers(request):
         
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
         }
     return render(request, 'web/allusers.html', context)
 
 @login_required(login_url='signin')
+def systemuser(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
+    # Order the notifications by the most recent ones first
+    notification = Notification.objects.filter(user=request.user).order_by('-id')
+    notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
+    
+    alluser = Staff.objects.all()
+    
+    context = {
+        "alluser":alluser,
+        
+        "notification":notification,
+        "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
+        }
+    return render(request, 'web/systemuser.html', context)
+
+@login_required(login_url='signin')
 def staffusers(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12333,11 +13178,19 @@ def staffusers(request):
         
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
         }
     return render(request, 'web/staffusers.html', context)
 
 @login_required(login_url='signin')
 def adminusers(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12349,11 +13202,19 @@ def adminusers(request):
         
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
         }
     return render(request, 'web/adminusers.html', context)
 
 @login_required(login_url='signin')
 def useramount(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12365,10 +13226,18 @@ def useramount(request):
         
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
         }
     return render(request, 'web/useramount.html', context)
 
 def help(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12376,10 +13245,18 @@ def help(request):
     context = {
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
         }
     
     return render(request, 'web/help.html', context)
 def terms_conditions(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
@@ -12387,6 +13264,11 @@ def terms_conditions(request):
     context = {
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
         }
     
     return render(request, 'web/terms_conditions.html', context)
@@ -12425,21 +13307,21 @@ def search_all_product(request):
         productmirosofttemplate = Microsofttemplate.objects.filter(queries)
         productadobetemplate = Adobetemplate.objects.filter(queries)
     else:
-        productproject = Project.objects.all()
-        productimage = Image.objects.all()
-        productbook = Book.objects.all()
-        productprintable = Printable.objects.all()
-        productmusic = Music.objects.all()
-        productmultmedia = Multimedia.objects.all()
-        productdigitalart = DigitalArt.objects.all()
-        productcad = CAD.objects.all()
-        productsoftware = Software.objects.all()
-        productbusiness = Business.objects.all()
-        productwebsitetemplate = Websitetemplate.objects.all()
-        productmobiletemplate = Mobiletemplate.objects.all()
-        productdesktoptemplate = Desktoptemplate.objects.all()
-        productmirosofttemplate = Microsofttemplate.objects.all()
-        productadobetemplate = Adobetemplate.objects.all()
+        productproject = Project.objects.all().order_by('?')
+        productimage = Image.objects.all().order_by('?')
+        productbook = Book.objects.all().order_by('?')
+        productprintable = Printable.objects.all().order_by('?')
+        productmusic = Music.objects.all().order_by('?')
+        productmultmedia = Multimedia.objects.all().order_by('?')
+        productdigitalart = DigitalArt.objects.all().order_by('?')
+        productcad = CAD.objects.all().order_by('?')
+        productsoftware = Software.objects.all().order_by('?')
+        productbusiness = Business.objects.all().order_by('?')
+        productwebsitetemplate = Websitetemplate.objects.all().order_by('?')
+        productmobiletemplate = Mobiletemplate.objects.all().order_by('?')
+        productdesktoptemplate = Desktoptemplate.objects.all().order_by('?')
+        productmirosofttemplate = Microsofttemplate.objects.all().order_by('?')
+        productadobetemplate = Adobetemplate.objects.all().order_by('?')
         
     # Prepare data for each template
     for template in productproject:
@@ -12541,6 +13423,9 @@ def search_all_product(request):
 
 # FOR SUBSCRIBERS
 def subscription(request):
+    
+    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    
     subscription = Subscription.objects.all()
     
     notification = Notification.objects.filter(user=request.user).order_by('-id')
@@ -12550,6 +13435,11 @@ def subscription(request):
         "subscription":subscription,
         "notification":notification,
         "notificationcount":notificationcount,
+        
+        "staff_role": staff.staff_role,
+        "first_name": staff.first_name,
+        "last_name": staff.last_name,
+        "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/subscription.html',context)
 
@@ -12557,5 +13447,6 @@ def successsubscription(request):
     return render(request, 'web/successsubscription.html')
 def pricing(request):
     return render(request, 'web/pricing.html')
-
+def livechat(request):
+    return render(request, 'web/livechat.html')
 

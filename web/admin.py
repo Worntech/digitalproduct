@@ -24,6 +24,7 @@ class MyUserAdmin(BaseUserAdmin):
 # Register your models here.
 #for courses
 admin.site.register(MyUser, MyUserAdmin)
+admin.site.register(Staff)
 admin.site.register(Contact)
 admin.site.register(Subscription)
 admin.site.register(Website)

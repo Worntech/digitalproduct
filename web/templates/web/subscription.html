@@ -11,7 +11,7 @@
     <meta name="author" content="WRAPCODERS">
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
-    <title>Worntech Online || Dashboard</title>
+    <title>Worntech Online || Subscribtion</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
     {% comment %} <link rel="shortcut icon" type="image/x-icon" href="{% static 'dash/favicon.ico' %}"> {% endcomment %}
@@ -29,7 +29,7 @@
 </head>
 
 <body>
- 
+    {% if user.is_staff  or user.is_admin or staff_role == "CEO" or staff_role == "Finance Officer" or staff_role == "Marketing Officer" %}
     <main class="nxl-container">
         <div class="nxl-content">
             <!-- [ page-header ] start -->
@@ -52,10 +52,11 @@
                             </a>
                         </div>
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                            <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            {% comment %} <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse" data-bs-target="#collapseOne">
                                 <i class="feather-bar-chart"></i>
-                            </a>
-                            <div class="dropdown">
+                            </a> {% endcomment %}
+
+                            {% comment %} <div class="dropdown">
                                 <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10" data-bs-auto-close="outside">
                                     <i class="feather-filter"></i>
                                 </a>
@@ -102,8 +103,8 @@
                                         <span>Customers</span>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="dropdown">
+                            </div> {% endcomment %}
+                            {% comment %} <div class="dropdown">
                                 <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10" data-bs-auto-close="outside">
                                     <i class="feather-paperclip"></i>
                                 </a>
@@ -134,7 +135,7 @@
                                         <span>Print</span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
                             <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
                                 <div class="dropdown filter-dropdown">
                                     <a href="{% url 'withdraw' %}" class="btn btn-primary">
@@ -450,7 +451,7 @@
     <script src="js/theme-customizer-init.min.js"></script>
     <!--! END: Theme Customizer !--> {% endcomment %}
 
-
+{% endif %}
 </body></html>
 
 {% endblock %}

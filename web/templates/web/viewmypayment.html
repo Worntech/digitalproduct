@@ -1,5 +1,6 @@
 {% extends 'web/base1.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 
 <!DOCTYPE html><html lang="zxx"><head>
@@ -223,7 +224,7 @@
                         <div class="card invoice-container">
                             <div class="card-header">
                                 <div>
-                                    <h2 class="fs-16 fw-700 text-truncate-1-line mb-0 mb-sm-1">My Payment</h2>
+                                    <h2 class="fs-16 fw-700 text-truncate-1-line mb-0 mb-sm-1">Worntech Payeout Receipt</h2>
                                     {% if user.is_staff  and user.is_admin %}
                                     <div class="dropdown d-none d-sm-block notprint">
                                         <a href="javascript:void(0)" class="dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" data-bs-offset="0,25" aria-expanded="false">
@@ -265,7 +266,7 @@
                                         </div>
                                     </a> {% endcomment %}
                                     <a href="javascript:void(0)" class="d-flex me-1 printBTN">
-                                        <div class="avatar-text avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Print Invoice">
+                                        <div class="avatar-text avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Print Receipt">
                                             <button class="printbutton" onclick="printData()"><i class="feather feather-printer"></i></button>
                                         </div>
                                     </a>
@@ -286,9 +287,9 @@
                                 <div class="px-4 pt-4">
                                     <div class="d-sm-flex align-items-center justify-content-between">
                                         <div>
-                                            <div class="fs-24 fw-bolder font-montserrat-alt text-uppercase">Worntech</div>
+                                            <div class="fs-24 fw-bolder font-montserrat-alt text-primary">Worn<span class="text-success">tech</span></div>
                                             <address class="text-muted">
-                                                P.O. Box 41114,<br>
+                                                P.O. Box 41114<br>
                                                 Mbuyuni, Dodoma, Tanzania<br>
                                                 Phone : +255 710 891 288 <br>
                                                 Email : worntechservices@gmail.com
@@ -312,7 +313,7 @@
                                             </div>
                                         </div>
                                         <div class="lh-lg pt-3 pt-sm-0">
-                                            <h2 class="fs-4 fw-bold text-primary">Withdraw</h2>
+                                            <h2 class="fs-4 fw-bold text-primary">Payeout</h2>
                                             <div>
                                                 <span class="fw-bold text-dark">Card Number:</span>
                                                 <span class="fw-bold text-primary">{{mypaymentview.Card_Number}}</span>
@@ -332,33 +333,38 @@
                                 <div class="px-4 py-sm-5">
                                     <div class="d-sm-flex gap-4 justify-content-center">
                                         <div class="text-sm-end">
-                                            <h2 class="fs-16 fw-bold text-dark mb-3">Withdrawed By:</h2>
+                                            <h2 class="fs-16 fw-bold text-dark mb-3">User Details:</h2>
                                             <address class="text-muted lh-lg">
-                                                {{mypaymentview.Card_Name}}<br>
-                                                {{mypaymentview.Email}}<br>
-                                                Phone No: {{mypaymentview.Phone_Number}}<br>
-                                                {{mypaymentview.Country}}
+                                                Name: <span class="fw-bold text-dark">{{mypaymentview.First_Name}} {{mypaymentview.Last_Name}}</span><br>
+                                                Email: <span class="fw-bold text-dark">{{mypaymentview.Email}}</span><br>
+                                                Phone No: <span class="fw-bold text-dark">{{mypaymentview.Phone_Number}}</span><br>
+                                                Country: <span class="fw-bold text-dark">{{mypaymentview.Country}}</span><br>
+                                                Date: <span class="fw-bold text-dark">{{mypaymentview.Withdraw_date}}</span>
                                             </address>
                                         </div>
                                         <div class="border-end border-end-dashed border-gray-500 d-none d-sm-block"></div>
                                         <div class="mt-4 mt-sm-0">
-                                            <h2 class="fs-16 fw-bold text-dark mb-3">Withdraw Details:</h2>
+                                            <h2 class="fs-16 fw-bold text-dark mb-3">Payeout Details:</h2>
                                             <div class="text-muted lh-lg">
                                                 <div>
                                                     <span class="text-muted">Total Due:</span>
-                                                    <span class="fw-bold text-dark">${{mypaymentview.Amount_in_USD}} USD</span>
+                                                    <span class="fw-bold text-dark">$ {{mypaymentview.Amount_in_USD|floatformat:2|intcomma}} USD</span>
                                                 </div>
                                                 <div>
                                                     <span class="text-muted">Payout Status:</span>
-                                                    <span class="fw-bold text-warning">{{mypaymentview.Status}}</span>
+                                                    <span class="fw-bold text-success">{{mypaymentview.Status}}</span>
                                                 </div>
                                                 <div>
                                                     <span class="text-muted">Card Holder:</span>
-                                                    <span class="fw-bold text-dark">{{mypaymentview.user}}</span>
+                                                    <span class="fw-bold text-dark">{{mypaymentview.Card_Name}}</span>
                                                 </div>
                                                 <div>
-                                                    <span class="text-muted">Payment Method:</span>
+                                                    <span class="text-muted">Card Number:</span>
                                                     <span class="fw-bold text-dark">{{mypaymentview.Card_Number}}</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-muted">Card Type:</span>
+                                                    <span class="fw-bold text-dark">{{mypaymentview.Card_Type}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -417,23 +423,23 @@
 
                                             <tr>
                                                 <td colspan="3"></td>
-                                                <td class="fw-semibold text-dark bg-gray-100 text-lg-end">Received (+ 80%)</td>
-                                                <td class="fw-bold text-dark bg-gray-100">+ ${{mypaymentview.Amount_in_USD}}</td>
+                                                <td class="fw-semibold text-dark bg-gray-100 text-lg-end">Payeout Amount (+ 80%)</td>
+                                                <td class="fw-bold text-dark bg-gray-100">= + $ {{mypaymentview.Amount_in_USD|floatformat:2|intcomma}}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3"></td>
                                                 <td class="fw-semibold text-dark bg-gray-100 text-lg-end">System Fee ( + 11.5%)</td>
-                                                <td class="fw-bold text-success bg-gray-100">+ ${{system_fee}}</td>
+                                                <td class="fw-bold text-dark bg-gray-100">= + $ {{system_fee|floatformat:2|intcomma}}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3"></td>
                                                 <td class="fw-semibold text-dark bg-gray-100 text-lg-end">Gateway and Transaction Fee (+ 8.5%)</td>
-                                                <td class="fw-bold text-dark bg-gray-100">+ ${{gateway_fee}}</</td>
+                                                <td class="fw-bold text-dark bg-gray-100">= + $ {{gateway_fee|floatformat:2|intcomma}}</</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3"></td>
                                                 <td class="fw-semibold text-dark bg-gray-100 text-lg-end">Total Amount</td>
-                                                <td class="fw-bolder text-dark bg-gray-100">= ${{Total_amount}}</td>
+                                                <td class="fw-bolder text-success bg-gray-100">= $ {{Total_amount|floatformat:2|intcomma}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -443,15 +449,15 @@
                                     <div class="alert alert-dismissible p-4 mt-3 alert-soft-warning-message" role="alert">
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         <p class="mb-0">
-                                            <strong>NOTES:</strong> All withdraw are to be confirmed within 5 hours up to one day after request. <br>
+                                            <strong>NOTES:</strong> All Payeout are to be confirmed within 5 hours up to one day after request. <br>
                                             Card Accepted are Master Card, Visa Card and American card. <br>
-                                            If you will note receive money after one day please contact us.
+                                            If you will note receive money after one day please contact us via Worntech Onlive live chat.
                                         </p>
                                     </div>
                                 </div>
                                 <div class="px-4 pt-4 d-sm-flex align-items-center justify-content-between">
                                     <div class="mb-5 mb-sm-0">
-                                        <h6 class="fs-13 fw-bold mb-3">Tarm &amp; Condition :</h6>
+                                        <h6 class="fs-13 fw-bold mb-3">Terms &amp; Conditions :</h6>
                                         <ul class="list-unstyled lh-lg fs-12">
                                             <li># 11.5% of the money sold is reducted by the system for system fee.</li>
                                             <li># 8.5% of the money after selling is for payment gateway and all transaction fee</li>

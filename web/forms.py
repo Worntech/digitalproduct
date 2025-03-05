@@ -7,6 +7,11 @@ class MyUserForm(UserCreationForm):
     class Meta:
         model = MyUser
         fields = ['first_name', 'last_name', 'email', 'username']
+        
+class StaffForm(ModelForm):
+    class Meta:
+        model = Staff
+        fields = '__all__'
 
 
 class ContactForm(forms.ModelForm):

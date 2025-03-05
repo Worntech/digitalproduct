@@ -42,12 +42,14 @@ SECRET_KEY = 'django-insecure-7wkdxajm*d+(8=k=4m=q57@k7+c@_28ov*l@hu!j@pafe_%mn5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'worntechonline.shop', 'www.worntechonline.shop']
+ALLOWED_HOSTS = ['*', '192.168.17.225', 'worntechonline.shop', 'www.worntechonline.shop']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',  # Required for Django Channels
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,10 +58,23 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'web',
     "pesapal",
     "django_pesapal",
+    'chat',
 ]
+
+# for live chating
+ASGI_APPLICATION = "website.asgi.application"
+
+# Django Channels Layer (using in-memory channel layer for now)
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
+# end for live chating
 
 # INTERNAL_IPSLANGUAGES = ['sw']
 
@@ -123,6 +138,17 @@ os.makedirs(LOG_DIR, exist_ok=True)
 
 WSGI_APPLICATION = 'website.wsgi.application'
 AUTH_USER_MODEL="web.MyUser"
+
+# for live chating
+ASGI_APPLICATION = "website.asgi.application"
+
+# Django Channels Layer (using in-memory channel layer for now)
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
+# end for live chating
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

@@ -1,5 +1,6 @@
 {% extends 'web/base1.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 
 <!DOCTYPE html><html lang="zxx"><head>
@@ -11,7 +12,7 @@
     <meta name="author" content="WRAPCODERS">
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
-    <title>Worntech Online || Dashboard</title>
+    <title>Worntech Online || My Transaction</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
     {% comment %} <link rel="shortcut icon" type="image/x-icon" href="{% static 'dash/favicon.ico' %}"> {% endcomment %}
@@ -51,10 +52,10 @@
                             </a>
                         </div>
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                            <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            {% comment %} <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse" data-bs-target="#collapseOne">
                                 <i class="feather-bar-chart"></i>
-                            </a>
-                            <div class="dropdown">
+                            </a> {% endcomment %}
+                            {% comment %} <div class="dropdown">
                                 <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10" data-bs-auto-close="outside">
                                     <i class="feather-filter"></i>
                                 </a>
@@ -133,7 +134,7 @@
                                         <span>Print</span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
                             <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
                                 <div class="dropdown filter-dropdown">
                                     <a href="{% url 'withdraw' %}" class="btn btn-primary">
@@ -206,7 +207,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.template}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -251,7 +252,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.mobiletemplate}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -297,7 +298,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.desktoptemplate}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -344,7 +345,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.microsofttemplate}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -390,7 +391,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.adobetemplate}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -436,7 +437,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.website}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -482,7 +483,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.mobile}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -528,7 +529,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.desktop}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -574,7 +575,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.embeded}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -620,7 +621,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.graphics}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -666,7 +667,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.project}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -712,7 +713,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.image}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -757,7 +758,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.image}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -802,7 +803,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.image}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -847,7 +848,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.image}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -893,7 +894,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.image}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -938,7 +939,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.image}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -983,7 +984,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.image}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -1028,7 +1029,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.image}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>
@@ -1074,7 +1075,7 @@
                                                 </td>
                                                 <td class="fw-bold text-dark">{{i.image}}</td>
                                                 <td>{{i.payment_date}}</td>
-                                                <td><a href="javascript:void(0);">${{i.amount}}</a></td>
+                                                <td><a href="javascript:void(0);">$ {{i.amount|floatformat:2|intcomma}}</a></td>
                                                 <td><a href="javascript:void(0);">{{i.transaction_id}}</a></td>
                                                 {% if i.payment_status == "Paid" %}
                                                 <td>

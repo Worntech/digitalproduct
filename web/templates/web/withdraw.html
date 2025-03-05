@@ -1,6 +1,7 @@
 
 {% extends 'web/base1.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 
 <!DOCTYPE html>
@@ -110,7 +111,7 @@
                                             <i class="feather-dollar-sign"></i>
                                         </div>
                                         <div>
-                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ my_amount_record.Total_amount }}</span><span class="counter"></span></div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">$ {{ my_amount_record.Total_amount|floatformat:2|intcomma }}</span><span class="counter"></span></div>
                                             <h3 class="fs-13 fw-semibold text-truncate-1-line">Total Amount Earned</h3>
                                         </div>
                                     </div>
@@ -144,7 +145,7 @@
                                             <i class="feather-cast"></i>
                                         </div>
                                         <div>
-                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ my_amount_record.My_amount }}</span><span class="counter"></span></div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">$ {{ my_amount_record.My_amount|floatformat:2|intcomma }}</span><span class="counter"></span></div>
                                             <h3 class="fs-13 fw-semibold text-truncate-1-line">Amount to withdraw</h3>
                                         </div>
                                     </div>

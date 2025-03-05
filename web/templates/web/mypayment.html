@@ -1,5 +1,6 @@
 {% extends 'web/base1.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 
 <!DOCTYPE html><html lang="zxx"><head>
@@ -11,7 +12,7 @@
     <meta name="author" content="WRAPCODERS">
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
-    <title>Worntech Online || Dashboard</title>
+    <title>Worntech Online || My Payment</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
     {% comment %} <link rel="shortcut icon" type="image/x-icon" href="{% static 'dash/favicon.ico' %}"> {% endcomment %}
@@ -51,10 +52,10 @@
                             </a>
                         </div>
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                            <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            {% comment %} <a href="javascript:void(0);" class="btn btn-icon btn-light-brand" data-bs-toggle="collapse" data-bs-target="#collapseOne">
                                 <i class="feather-bar-chart"></i>
-                            </a>
-                            <div class="dropdown">
+                            </a> {% endcomment %}
+                            {% comment %} <div class="dropdown">
                                 <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10" data-bs-auto-close="outside">
                                     <i class="feather-filter"></i>
                                 </a>
@@ -133,7 +134,7 @@
                                         <span>Print</span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
                             <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
                                 <div class="dropdown filter-dropdown">
                                     <a href="{% url 'withdraw' %}" class="btn btn-primary">
@@ -193,7 +194,7 @@
                                                     </div>
                                                 </td>
                                                 <td><a href="invoice-view.html" class="fw-bold">{{i.Card_Number}}</a></td>
-                                                <td class="fw-bold text-dark">${{i.Amount_in_USD}} USD</td>
+                                                <td class="fw-bold text-dark">$ {{i.Amount_in_USD|floatformat:2|intcomma}} USD</td>
                                                 <td>{{i.Withdraw_date}}</td>
                                                 {% if i.Status == "Completed" %}
                                                 <td>

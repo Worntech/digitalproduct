@@ -6,12 +6,14 @@ from django.contrib.auth import views as auth_views
 from .views import change_password
 
 from web.views import PaymentViewWebsitetemplate, PaymentViewMobiletemplate, PaymentViewDesktoptemplate, PaymentViewMicrosofttemplate, PaymentViewAdobetemplate, PaymentViewWebsite, PaymentViewMobile, PaymentViewDesktop, PaymentViewEmbeded, PaymentViewGraphics, PaymentViewProject, PaymentViewImage, PurchasedView, PaymentViewBook, PaymentViewPrintable, PaymentViewMusic, PaymentViewMultimedia, PaymentViewDigitalArt, PaymentViewCAD, PaymentViewSoftware, PaymentViewBusiness
-# from web.views import *
+from web.views import SoldView
 
 from .views import delete_viewed_notifications
 
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import sitemaps
+
+from .views import handle_websitetemplate_payment, handle_mobiletemplate_payment, handle_desktoptemplate_payment, handle_microsofttemplate_payment, handle_adobetemplate_payment, handle_project_payment, handle_book_payment, handle_printable_payment, handle_music_payment, handle_multimedia_payment, handle_digitalArt_payment, handle_CAD_payment, handle_software_payment, handle_business_payment, handle_image_payment
 
 from .views import (
     CustomPasswordResetView, CustomPasswordResetDoneView,
@@ -743,6 +745,7 @@ urlpatterns = [
     path('updateadobetemplate/<int:id>/', views.updateadobetemplate, name = "updateadobetemplate"),
     
     path('updatecard/<int:id>/', views.updatecard, name = "updatecard"),
+    path('updatesystemuser/<int:id>/', views.updatesystemuser, name = "updatesystemuser"),
     
     # FOR PAYMENT
     path('pesapal/transaction/completed/', views.payment_completed, name='payment_completed'),
@@ -788,8 +791,25 @@ urlpatterns = [
     path('paymentsoftware/<int:product_id>/', PaymentViewSoftware.as_view(), name='paymentsoftware'),
     path('paymentbusiness/<int:product_id>/', PaymentViewBusiness.as_view(), name='paymentbusiness'),
     
+    path('completewebsitepayment/<str:transaction_id>/<str:unique_code>/', handle_websitetemplate_payment, name='handle_websitetemplate_payment'),
+    path('completemobilepayment/<str:transaction_id>/<str:unique_code>/', handle_mobiletemplate_payment, name='handle_mobiletemplate_payment'),
+    path('completedesktoppayment/<str:transaction_id>/<str:unique_code>/', handle_desktoptemplate_payment, name='handle_desktoptemplate_payment'),
+    path('completemicrosoftpayment/<str:transaction_id>/<str:unique_code>/', handle_microsofttemplate_payment, name='handle_microsofttemplate_payment'),
+    path('completeadobepayment/<str:transaction_id>/<str:unique_code>/', handle_adobetemplate_payment, name='handle_adobetemplate_payment'),
+    path('completeprojectpayment/<str:transaction_id>/<str:unique_code>/', handle_project_payment, name='handle_project_payment'),
+    path('completebookpayment/<str:transaction_id>/<str:unique_code>/', handle_book_payment, name='handle_book_payment'),
+    path('completeprontablepayment/<str:transaction_id>/<str:unique_code>/', handle_printable_payment, name='handle_printable_payment'),
+    path('completemusicpayment/<str:transaction_id>/<str:unique_code>/', handle_music_payment, name='handle_music_payment'),
+    path('completemultmediapayment/<str:transaction_id>/<str:unique_code>/', handle_multimedia_payment, name='handle_multimedia_payment'),
+    path('completedigitalartpayment/<str:transaction_id>/<str:unique_code>/', handle_digitalArt_payment, name='handle_digitalArt_payment'),
+    path('completecadpayment/<str:transaction_id>/<str:unique_code>/', handle_CAD_payment, name='handle_CAD_payment'),
+    path('completesoftwarepayment/<str:transaction_id>/<str:unique_code>/', handle_software_payment, name='handle_software_payment'),
+    path('completebusinesspayment/<str:transaction_id>/<str:unique_code>/', handle_business_payment, name='handle_business_payment'),
+    path('completeimagepayment/<str:transaction_id>/<str:unique_code>/', handle_image_payment, name='handle_image_payment'),
+    
     # MY PRODUCT
     path('mybought/', PurchasedView.as_view(), name='mybought'),
+    path('myselling/', SoldView.as_view(), name='myselling'),
     
     # WITHDRAW
     path('withdraw', views.withdraw, name = "withdraw"),
@@ -811,6 +831,7 @@ urlpatterns = [
     path('my_transaction', views.my_transaction, name = "my_transaction"),
     
     path('allusers', views.allusers, name = "allusers"),
+    path('systemuser', views.systemuser, name = "systemuser"),
     path('staffusers', views.staffusers, name = "staffusers"),
     path('adminusers', views.adminusers, name = "adminusers"),
     
@@ -828,6 +849,7 @@ urlpatterns = [
     path('subscription/', views.subscription, name='subscription'),
     path('successsubscription/', views.successsubscription, name='successsubscription'),
     path('pricing/', views.pricing, name='pricing'),
+    path('livechat/', views.livechat, name='livechat'),
     
     # URL FOR SITEMAP
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),

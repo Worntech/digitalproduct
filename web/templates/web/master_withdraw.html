@@ -1,6 +1,7 @@
 
 {% extends 'web/base1.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 
 <!DOCTYPE html>
@@ -33,7 +34,7 @@
 </head>
 
 <body>
-
+    {% if user.is_staff  or user.is_admin or staff_role == "CEO" or staff_role == "Finance Officer" or staff_role == "Marketing Officer" %}
     <main class="nxl-container">
         <div class="nxl-content">
             <!-- [ page-header ] start -->
@@ -85,7 +86,7 @@
                                             <i class="feather-dollar-sign"></i>
                                         </div>
                                         <div>
-                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ total_amount }}</span><span class="counter"></span></div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">$ {{ total_amount|floatformat:2|intcomma }}</span><span class="counter"></span></div>
                                             <h3 class="fs-13 fw-semibold text-truncate-1-line">Money In Acount</h3>
                                         </div>
                                     </div>
@@ -119,7 +120,7 @@
                                             <i class="feather-cast"></i>
                                         </div>
                                         <div>
-                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ user_amount }}</span><span class="counter"></span></div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">$ {{ user_amount|floatformat:2|intcomma }}</span><span class="counter"></span></div>
                                             <h3 class="fs-13 fw-semibold text-truncate-1-line">User/Customer Money</h3>
                                         </div>
                                     </div>
@@ -153,7 +154,7 @@
                                             <i class="feather-briefcase"></i>
                                         </div>
                                         <div>
-                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ masteramount.My_amount }}</span><span class="counter"></span></div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">$ {{ masteramount.My_amount|floatformat:2|intcomma }}</span><span class="counter"></span></div>
                                             <h3 class="fs-13 fw-semibold text-truncate-1-line">Amount Erned Present</h3>
                                         </div>
                                     </div>
@@ -189,7 +190,7 @@
                                             <i class="feather-activity"></i>
                                         </div>
                                         <div>
-                                            <div class="fs-4 fw-bold text-dark"><span class="counter">${{ masteramount.Gateway_Amount }}</span></div>
+                                            <div class="fs-4 fw-bold text-dark"><span class="counter">$ {{ masteramount.Gateway_Amount|floatformat:2|intcomma }}</span></div>
                                             <h3 class="fs-13 fw-semibold text-truncate-1-line">Gateway Reduction</h3>
                                         </div>
                                     </div>
@@ -755,7 +756,7 @@
     <script src="{% static 'dash/js/theme-customizer-init.min.js' %}"></script>
     <!--! END: Theme Customizer !--> {% endcomment %}
 
-
+{% endif %}
 </body>
 
 </html>

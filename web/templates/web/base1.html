@@ -89,7 +89,7 @@
                         </a>
                         <ul class="nxl-submenu">
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'dashboard' %}">My Dashboard</a></li>
-                            {% if user.is_staff  and user.is_admin %}
+                            {% if user.is_staff  or user.is_admin or staff_role == "CEO" or staff_role == "Finance Officer" or staff_role == "Marketing Officer" %}
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'masterdashboard' %}">Master Dashboard</a></li>
                             {% endif %}
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'home' %}">Home</a></li>
@@ -132,7 +132,7 @@
                         </a>
                         <ul class="nxl-submenu">
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'mypayment' %}">My Cashout</a></li>
-                            {% if user.is_staff  and user.is_admin %}
+                            {% if user.is_staff  or user.is_admin or staff_role == "CEO" or staff_role == "Finance Officer" or staff_role == "Marketing Officer" %}
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'allpayment' %}">User Cashout</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'useramount' %}">User Amount</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'master_withdraw' %}">Master Cashout</a></li>
@@ -150,7 +150,7 @@
                             <span class="nxl-mtext">Transaction</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            {% if user.is_staff  and user.is_admin %}
+                            {% if user.is_staff  or user.is_admin or staff_role == "CEO" or staff_role == "Finance Officer" or staff_role == "Marketing Officer" %}
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'completed_transaction' %}">Completed Transaction</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'pending_transaction' %}">Pending Transaction</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'failed_transaction' %}">Failed Transaction</a></li>
@@ -159,20 +159,33 @@
                         </ul>
                     </li>
 
-                    {% if user.is_staff  and user.is_admin %}
+                    {% if user.is_staff  or user.is_admin or staff_role == "CEO" or staff_role == "Finance Officer" or staff_role == "Marketing Officer" %}
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-users"></i></span>
                             <span class="nxl-mtext">Customers</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="{% url 'allusers' %}">All Users</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="{% url 'staffusers' %}">Staff Users</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="{% url 'adminusers' %}">Admin Users</a></li>
+                            {% if user.is_staff  or user.is_admin %}
+                            <li class="nxl-item"><a class="nxl-link" href="{% url 'systemuser' %}">All Users</a></li>
+                            {% endif %}
+                            <li class="nxl-item"><a class="nxl-link" href="{% url 'allusers' %}">All Account</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="{% url 'staffusers' %}">Staff Account</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="{% url 'adminusers' %}">Admin Account</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'subscription' %}">Subscription</a></li>
                         </ul>
                     </li>
                     {% endif %}
+
+                    <li class="nxl-item nxl-hasmenu">
+                        <a href="javascript:void(0);" class="nxl-link">
+                            <span class="nxl-micon"><i class="feather-send"></i></span>
+                            <span class="nxl-mtext">Live Chat & Help</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                        </a>
+                        <ul class="nxl-submenu">
+                            <li class="nxl-item"><a class="nxl-link" href="{% url 'room_selection' %}">Live Chat</a></li>
+                        </ul>
+                    </li>
 
                     {% comment %} <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
@@ -186,7 +199,7 @@
                         </ul>
                     </li> {% endcomment %}
 
-                    
+                    {% if user.is_staff  or user.is_admin or staff_role == "CEO" or staff_role == "Finance Officer" or staff_role == "Marketing Officer" %}
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-layout"></i></span>
@@ -196,6 +209,7 @@
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'contactus' %}">Messages</a></li>
                         </ul>
                     </li>
+                    {% endif %}
 
                     {% comment %} <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
@@ -295,9 +309,6 @@
                         </a>
                         <ul class="nxl-submenu">
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'terms_conditions' %}">Terms and Conditions</a></li>
-                            {% comment %} <li class="nxl-item"><a class="nxl-link" href="proposal-view.html">Proposal View</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="proposal-edit.html">Proposal Edit</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="proposal-create.html">Proposal Create</a></li> {% endcomment %}
                         </ul>
                     </li>
 
@@ -308,8 +319,6 @@
                         </a>
                         <ul class="nxl-submenu">
                             <li class="nxl-item"><a class="nxl-link" href="{% url 'help' %}">Help and Support</a></li>
-                            {% comment %} <li class="nxl-item"><a class="nxl-link" href="help-knowledgebase.html">KnowledgeBase</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href=".docs/documentations.html">Documentations</a></li> {% endcomment %}
                         </ul>
                     </li>
                 </ul>

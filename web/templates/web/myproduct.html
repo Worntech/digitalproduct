@@ -54,12 +54,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -89,12 +127,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -124,12 +200,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -159,12 +273,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -194,12 +346,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -229,12 +419,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -264,12 +492,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -299,12 +565,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -334,12 +638,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -369,12 +711,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -404,12 +784,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -439,12 +857,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -487,12 +943,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -521,12 +1015,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -555,12 +1087,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -589,12 +1159,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -623,12 +1231,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -657,12 +1303,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -691,12 +1375,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>
@@ -725,12 +1447,50 @@
                         </div>
                         <div class="bottom-content">
                             <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li>22 Reviews</li>
+                                <!-- Star Display -->
+                                {% if i.avg_rating >= 4.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                {% elif i.avg_rating >= 3.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 2.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 1.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% elif i.avg_rating >= 0.5 %}
+                                    <li><i class="lni lni-star-filled"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% else %}
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                    <li><i class="lni lni-star-empty"></i></li>
+                                {% endif %}
+                            
+                                <!-- Display Average Rating -->
+                                <li>{{ i.avg_rating }}</li>
+                                
+                                <!-- Display Total Reviews -->
+                                <li>{{ i.total_reviews }} Reviews</li>
                             </ul>
                             <span class="tag">
                                 <i class="lni lni-tag"></i>

@@ -1140,3 +1140,2378 @@ Traceback (most recent call last):
     raise self.error(
 django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1104: 'endcomment', expected 'endblock'. Did you forget to register or load this tag?
 "GET / HTTP/1.1" 500 187749
+Internal Server Error: /myselling/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10507, in get
+    paid_website_templates = Websitetemplate.objects.filter(id__in=Payment.objects.filter(user=user, payment_status='paid').values_list('template', flat=True))
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1416, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1435, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1343, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1172, in check_related_objects
+    for v in value:
+             ^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\functional.py", line 247, in inner
+    return func(self._wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'AnonymousUser' object is not iterable
+"GET /myselling/ HTTP/1.1" 500 124948
+Internal Server Error: /myselling/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10566, in get
+    sold_website_templates = Websitetemplate.objects.filter(owner=user, id__in=Payment.objects.filter(payment_status='paid').values_list('template', flat=True))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1416, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1435, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1309, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1135, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1562, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'owner' into field. Choices are: Explanation, Image, Preview_Video, Template, Title, Type, amount_in_USD, date_created, id, payment, preview, reviews, user, user_id
+"GET /myselling/ HTTP/1.1" 500 125082
+Internal Server Error: /myselling/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+           ^^^^^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'ForwardManyToOneDescriptor'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10566, in get
+    sold_website_templates = Websitetemplate.objects.filter(user=Websitetemplate.user, id__in=Payment.objects.filter(payment_status='paid').values_list('template', flat=True))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1416, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1435, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1370, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1216, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.db.models.fields.related_descriptors.ForwardManyToOneDescriptor object at 0x00000195C5E8BC80>.
+"GET /myselling/ HTTP/1.1" 500 140504
+Internal Server Error: /myselling/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1955, in add_fields
+    join_info = self.setup_joins(name.split(LOOKUP_SEP), opts, alias, allow_many=allow_m2m)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1648, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1562, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'product' into field. Choices are: amount, id, payment_date, payment_status, template, template_id, transaction_id, unique_code, user, user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10661, in get
+    id__in=payment_model.objects.filter(payment_status='paid').values_list('product', flat=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 867, in values_list
+    clone = self._values(*_fields, **expressions)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 835, in _values
+    clone.query.set_values(fields)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 2272, in set_values
+    self.add_fields(field_names, True)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1982, in add_fields
+    raise FieldError("Cannot resolve keyword %r into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'product' into field. Choices are: amount, id, payment_date, payment_status, template, template_id, transaction_id, unique_code, user, user_id
+"GET /myselling/ HTTP/1.1" 500 118596
+Internal Server Error: /myselling/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10612, in get
+    return render(request, self.template_name, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'logout' not found. 'logout' is not a valid view function or pattern name.
+"GET /myselling/ HTTP/1.1" 500 190900
+Internal Server Error: /myselling/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10612, in get
+    return render(request, self.template_name, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'logout' not found. 'logout' is not a valid view function or pattern name.
+"GET /myselling/ HTTP/1.1" 500 190900
+Internal Server Error: /mybought/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10557, in get
+    return render(request, self.template_name, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'logout' not found. 'logout' is not a valid view function or pattern name.
+"GET /mybought/ HTTP/1.1" 500 189858
+Internal Server Error: /websitetemplatepost/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 6716, in websitetemplatepost
+    return render(request, 'web/websitetemplatepost.html',context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'logout' not found. 'logout' is not a valid view function or pattern name.
+"GET /websitetemplatepost/ HTTP/1.1" 500 168474
+Internal Server Error: /websitetemplatepost/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 6716, in websitetemplatepost
+    return render(request, 'web/websitetemplatepost.html',context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'logout' not found. 'logout' is not a valid view function or pattern name.
+"GET /websitetemplatepost/ HTTP/1.1" 500 168454
+Internal Server Error: /websitetemplatepost/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 6716, in websitetemplatepost
+    return render(request, 'web/websitetemplatepost.html',context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'logout' not found. 'logout' is not a valid view function or pattern name.
+"GET /websitetemplatepost/ HTTP/1.1" 500 168722
+Internal Server Error: /search_all_product/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 12719, in search_all_product
+    productproject = Project.order_by('?')
+                     ^^^^^^^^^^^^^^^^
+AttributeError: type object 'Project' has no attribute 'order_by'
+"GET /search_all_product/ HTTP/1.1" 500 68749
+Internal Server Error: /search_all_product/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 12719, in search_all_product
+    productproject = Project.all.order_by('?')
+                     ^^^^^^^^^^^
+AttributeError: type object 'Project' has no attribute 'all'
+"GET /search_all_product/ HTTP/1.1" 500 68761
+Internal Server Error: /search_all_product/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 12719, in search_all_product
+    productproject = Project.all().order_by('?')
+                     ^^^^^^^^^^^
+AttributeError: type object 'Project' has no attribute 'all'
+"GET /search_all_product/ HTTP/1.1" 500 68777
+Internal Server Error: /livechat/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 12852, in livechat
+    return render(request, 'web/livechat.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: web/livechat.html
+"GET /livechat/ HTTP/1.1" 500 83855
+Internal Server Error: /chat/create/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: chat_chatroom.created_by_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 54, in create_room
+    ChatRoom.objects.create(name=room_name)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 776, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 919, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: NOT NULL constraint failed: chat_chatroom.created_by_id
+[35;1mHTTP POST /chat/create/ 500 [0.25, 127.0.0.1:58585][0m
+Internal Server Error: /chat/create/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: chat_chatroom.created_by_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 54, in create_room
+    ChatRoom.objects.create(name=room_name)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 776, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 919, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: NOT NULL constraint failed: chat_chatroom.created_by_id
+[35;1mHTTP POST /chat/create/ 500 [0.06, 127.0.0.1:58632][0m
+Internal Server Error: /chat/testing room/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 48, in chat_room
+    return render(request, "chat/chat_room.html", {"room_name": room_name})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: chat/chat_room.html
+[35;1mHTTP GET /chat/testing%20room/ 500 [0.06, 127.0.0.1:58657][0m
+Internal Server Error: /chat/second one/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 52, in chat_room
+    messages = Message.objects.filter(room=room).order_by('created_at')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1149, in order_by
+    obj.query.add_ordering(*field_names)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 2016, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1562, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'created_at' into field. Choices are: content, id, room, room_id, sender, sender_id, timestamp
+[35;1mHTTP GET /chat/second%20one/ 500 [0.11, 127.0.0.1:59081][0m
+Internal Server Error: /chat/second one/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 52, in chat_room
+    messages = Message.objects.filter(room=room).order_by('created_at')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1149, in order_by
+    obj.query.add_ordering(*field_names)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 2016, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1562, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'created_at' into field. Choices are: content, id, room, room_id, sender, sender_id, timestamp
+[35;1mHTTP GET /chat/second%20one/ 500 [0.10, 127.0.0.1:59179][0m
+Internal Server Error: /chat/create/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 63, in create_room
+    ChatRoom.objects.create(name=room_name, created_by=request.user)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\models.py", line 24, in save
+    self.name = re.sub(r'[^a-zA-Z0-9._-]', '_', self.name.strip())
+                ^^
+NameError: name 're' is not defined. Did you forget to import 're'
+[35;1mHTTP POST /chat/create/ 500 [0.07, 127.0.0.1:61645][0m
+Internal Server Error: /chat/room_selection/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 45, in room_selection
+    rooms = ChatRoom.objects.all().order_by('timestamp')  # Fetch all chat rooms
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1149, in order_by
+    obj.query.add_ordering(*field_names)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 2016, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1562, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'timestamp' into field. Choices are: created_at, created_by, created_by_id, id, messages, name
+[35;1mHTTP GET /chat/room_selection/ 500 [0.08, 127.0.0.1:62774][0m
+Internal Server Error: /chat/room_selection/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endcomment'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 46, in room_selection
+    return render(request, "chat/room_list.html", {"rooms": rooms})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 531, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 302: 'endcomment'. Did you forget to register or load this tag?
+[35;1mHTTP GET /chat/room_selection/ 500 [0.28, 127.0.0.1:63083][0m
+Internal Server Error: /admin/chat/chatroom/add/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: chat_chatroom.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\models.py", line 17, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 739, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 776, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 919, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: chat_chatroom.name
+[35;1mHTTP POST /admin/chat/chatroom/add/ 500 [0.10, 127.0.0.1:64614][0m
+Internal Server Error: /chat/money_not_received/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 50, in chat_room
+    room = ChatRoom.objects.get(name=room_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 439, in get
+    raise self.model.MultipleObjectsReturned(
+chat.models.ChatRoom.MultipleObjectsReturned: get() returned more than one ChatRoom -- it returned 2!
+[35;1mHTTP GET /chat/money_not_received/ 500 [0.07, 127.0.0.1:64836][0m
+Internal Server Error: /chat/money_not_received/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 50, in chat_room
+    room = ChatRoom.objects.get(name=room_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 439, in get
+    raise self.model.MultipleObjectsReturned(
+chat.models.ChatRoom.MultipleObjectsReturned: get() returned more than one ChatRoom -- it returned 2!
+[35;1mHTTP GET /chat/money_not_received/ 500 [0.04, 127.0.0.1:64836][0m
+Internal Server Error: /chat/money_not_received/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() missing 1 required positional argument: 'id'
+[35;1mHTTP GET /chat/money_not_received/ 500 [0.07, 127.0.0.1:64907][0m
+Internal Server Error: /chat/money_not_received/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() got an unexpected keyword argument 'room_name'
+[35;1mHTTP GET /chat/money_not_received/ 500 [0.07, 127.0.0.1:64927][0m
+Internal Server Error: /chat/money_not_received/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 50, in chat_room
+    room = ChatRoom.objects.get(name=room_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 439, in get
+    raise self.model.MultipleObjectsReturned(
+chat.models.ChatRoom.MultipleObjectsReturned: get() returned more than one ChatRoom -- it returned 2!
+[35;1mHTTP GET /chat/money_not_received/ 500 [0.09, 127.0.0.1:64947][0m
+Internal Server Error: /chat/money_not_received/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() got an unexpected keyword argument 'room_name'
+[35;1mHTTP GET /chat/money_not_received/ 500 [0.05, 127.0.0.1:65165][0m
+Internal Server Error: /chat/money_not_received/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() got an unexpected keyword argument 'room_name'
+[35;1mHTTP GET /chat/money_not_received/ 500 [0.02, 127.0.0.1:65165][0m
+Internal Server Error: /chat/kwani_wewe_nani_/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() got an unexpected keyword argument 'room_name'
+[35;1mHTTP GET /chat/kwani_wewe_nani_/ 500 [0.03, 127.0.0.1:65165][0m
+Internal Server Error: /chat/no_good_for/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() got an unexpected keyword argument 'room_name'
+[35;1mHTTP GET /chat/no_good_for/ 500 [0.05, 127.0.0.1:65351][0m
+Internal Server Error: /chat/no_good_for/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() got an unexpected keyword argument 'room_name'
+[35;1mHTTP GET /chat/no_good_for/ 500 [0.05, 127.0.0.1:59246][0m
+Internal Server Error: /chat/no_good_for/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() got an unexpected keyword argument 'room_name'
+[35;1mHTTP GET /chat/no_good_for/ 500 [0.03, 127.0.0.1:59246][0m
+Internal Server Error: /chat/kaka_kuona/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() got an unexpected keyword argument 'room_name'
+[35;1mHTTP GET /chat/kaka_kuona/ 500 [0.04, 127.0.0.1:59313][0m
+Internal Server Error: /chat/chat/kaka_kuona/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 50, in chat_room
+    room = ChatRoom.objects.get(unique_code=unique_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 435, in get
+    raise self.model.DoesNotExist(
+chat.models.ChatRoom.DoesNotExist: ChatRoom matching query does not exist.
+[35;1mHTTP GET /chat/chat/kaka_kuona/ 500 [0.05, 127.0.0.1:59575][0m
+Internal Server Error: /chat/chat/kaka_kuona/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: chat_room() missing 1 required positional argument: 'room_name'
+[35;1mHTTP GET /chat/chat/kaka_kuona/ 500 [0.05, 127.0.0.1:59653][0m
+Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 98, in signup
+    staff = Staff.objects.create(user=username, email=email, first_name=first_name, last_name=last_name, staff_role="normal user", mobile_number=mobile_number, profile_picture=profile_picture)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 451, in create
+    obj = self.model(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 485, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'testing'": "Staff.user" must be a "MyUser" instance.
+[35;1mHTTP POST /signup/ 500 [0.66, 127.0.0.1:49819][0m
+Internal Server Error: /chat/room_selection/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 47, in room_selection
+    return render(request, "chat/room_list.html", {"rooms": rooms})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_chat_status' with arguments '('', 'Active')' not found. 1 pattern(s) tried: ['chat/update_chat_status/(?P<id>[0-9]+)/(?P<status>[^/]+)/\\Z']
+[35;1mHTTP GET /chat/room_selection/ 500 [0.76, 127.0.0.1:50489][0m
+Internal Server Error: /chat/room_selection/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 47, in room_selection
+    return render(request, "chat/room_list.html", {"rooms": rooms})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_chat_status' with arguments '('', 'Active')' not found. 1 pattern(s) tried: ['chat/update_chat_status/(?P<id>[0-9]+)/(?P<status>[^/]+)/\\Z']
+[35;1mHTTP GET /chat/room_selection/ 500 [0.13, 127.0.0.1:50489][0m
+Internal Server Error: /chat/room_selection/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 47, in room_selection
+    return render(request, "chat/room_list.html", {"rooms": rooms})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_chat_status' with arguments '('', 'Active')' not found. 1 pattern(s) tried: ['chat/update_chat_status/(?P<id>[0-9]+)/(?P<status>[^/]+)/\\Z']
+[35;1mHTTP GET /chat/room_selection/ 500 [0.11, 127.0.0.1:50489][0m
+Internal Server Error: /chat/room_selection/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 47, in room_selection
+    return render(request, "chat/room_list.html", {"rooms": rooms})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_chat_status' with arguments '('', 'Active')' not found. 1 pattern(s) tried: ['chat/update_chat_status/(?P<id>[0-9]+)/(?P<status>[^/]+)/\\Z']
+[35;1mHTTP GET /chat/room_selection/ 500 [0.19, 127.0.0.1:50489][0m
+Internal Server Error: /chat/create/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 67, in create_room
+    Message.objects.create(room=room_name, content="Welcome to Worntech Online Customer Care Live Chat, what can we help you with Worntech online?, feel free to ask every things you want.", sender="Worntech")
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 451, in create
+    obj = self.model(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 485, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'piason ngiliuke'": "Message.room" must be a "ChatRoom" instance.
+[35;1mHTTP POST /chat/create/ 500 [0.25, 127.0.0.1:50645][0m
+Internal Server Error: /chat/chat/3eeef02a8fc0/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\__init__.py", line 1823, in get_prep_value
+    return int(value)
+           ^^^^^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'builtin_function_or_method'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 78, in chat_room
+    notifications = Notification.objects.get(id=id)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 424, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1416, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1435, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1370, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1216, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\lookups.py", line 77, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <built-in function id>.
+[35;1mHTTP GET /chat/chat/3eeef02a8fc0/ 500 [0.49, 127.0.0.1:49470][0m
+Internal Server Error: /chat/create/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\chat\views.py", line 120, in create_room
+    return redirect("chat_room", context, unique_code=room.unique_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 41, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 130, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 628, in _reverse_with_prefix
+    raise ValueError("Don't mix *args and **kwargs in call to reverse()!")
+ValueError: Don't mix *args and **kwargs in call to reverse()!
+[35;1mHTTP POST /chat/create/ 500 [0.20, 127.0.0.1:49909][0m
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 229, in home
+    return render(request, 'web/home.html',context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'signup' not found. 'signup' is not a valid view function or pattern name.
+[35;1mHTTP GET / 500 [0.41, 127.0.0.1:57229][0m
+Internal Server Error: /pesapal/transaction/completed/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10643, in payment_completed
+    response = handle_websitetemplate_payment(request, transaction_id, unique_code)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10359, in handle_websitetemplate_payment
+    return render(request, 'confirm_websitetemplate.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: confirm_websitetemplate.html
+[35;1mHTTP GET /pesapal/transaction/completed/?pesapal_transaction_tracking_id=7e2c183e-9a3f-4246-b240-dc172981e58d&pesapal_merchant_reference=60 500 [0.11, 127.0.0.1:57323][0m
+Internal Server Error: /pesapal/transaction/completed/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10645, in payment_completed
+    response = handle_websitetemplate_payment(request, transaction_id, unique_code)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 10361, in handle_websitetemplate_payment
+    return render(request, 'web/confirm_websitetemplate.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 449, in parse
+    raise self.error(token, e)
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 447, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' 'mybought'' from 'url 'mybought''
+[35;1mHTTP GET /pesapal/transaction/completed/?pesapal_transaction_tracking_id=bd2b50e5-2a89-4559-b87a-dc1720dd0dc4&pesapal_merchant_reference=62 500 [0.49, 127.0.0.1:58333][0m
+Internal Server Error: /viewCAD/2/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 8040, in post
+    return redirect(reverse('paymentcad', kwargs={
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 698, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'paymentcad' not found. 'paymentcad' is not a valid view function or pattern name.
+[35;1mHTTP POST /viewCAD/2/ 500 [0.12, 127.0.0.1:60245][0m
+Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 38, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\AppData\Local\Programs\Python\Python312\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\WORNTECH\Desktop\WORKING PROJECT\WEB DEVELOPMENT\WORKING WITH\WORKING\EDUCATION WEBSITE\FINAL GITHUB\GITHUB3\website\web\views.py", line 105, in signup
+    from_email = settings.EMAIL_HOST_USER
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'pesapal.conf' has no attribute 'EMAIL_HOST_USER'
+[35;1mHTTP POST /signup/ 500 [0.72, 127.0.0.1:63996][0m

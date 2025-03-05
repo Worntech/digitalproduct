@@ -96,6 +96,22 @@ def validate_file_size(value):
     if value.size > limit:
         raise ValidationError(f"The maximum file size allowed is 1024MB. Your file is {value.size / (1024 * 1024):.2f}MB.")
     
+class Staff(models.Model):
+    myrole = (
+            ('CEO', 'CEO'),
+			('Finance Officer', 'Finance Officer'),
+			('Marketing Officer', 'Marketing Officer'),
+            ('normal user', 'normal user'),
+			)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    staff_role = models.CharField(max_length=200, null=True, choices=myrole)
+    mobile_number = models.CharField(max_length=15)
+    email = models.EmailField(unique=True)
+    username = models.CharField(max_length=100, unique=True)
+    profile_picture = models.FileField(upload_to="home/", blank=True, null=True, help_text="Optional")
+    date_joined = models.DateTimeField(auto_now_add=True, null=True)
+
 class Contact(models.Model):
     Full_Name = models.CharField(max_length=100, null=True)
     Subject = models.CharField(max_length=100, null=True)
@@ -1907,6 +1923,8 @@ class Withdraw(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
     Status = models.CharField(max_length=10, choices=status, default='Processing')
     Card_Number = models.CharField(max_length=500)
+    First_Name = models.CharField(max_length=500)
+    Last_Name = models.CharField(max_length=500)
     Card_Name = models.CharField(max_length=500)
     Amount_in_USD = models.DecimalField(max_digits=10, decimal_places=2)
     Phone_Number = models.CharField(max_length=500)
@@ -2376,4 +2394,5 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.message}"
+    
 
