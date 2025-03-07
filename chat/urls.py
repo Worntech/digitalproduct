@@ -12,4 +12,6 @@ urlpatterns = [
     path("chat/<str:unique_code>/", views.chat_room, name="chat_room"),  # ✅ Use unique_code
     
     path('update_chat_status/<int:id>/<str:status>/', views.update_chat_status, name='update_chat_status'),
+    
+    path('deletechat/<int:pk>/', views.deletechat, name = "deletechat"),
 ]

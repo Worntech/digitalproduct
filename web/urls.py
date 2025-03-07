@@ -5,7 +5,7 @@ from django.contrib.auth import views as auth_views
 
 from .views import change_password
 
-from web.views import PaymentViewWebsitetemplate, PaymentViewMobiletemplate, PaymentViewDesktoptemplate, PaymentViewMicrosofttemplate, PaymentViewAdobetemplate, PaymentViewWebsite, PaymentViewMobile, PaymentViewDesktop, PaymentViewEmbeded, PaymentViewGraphics, PaymentViewProject, PaymentViewImage, PurchasedView, PaymentViewBook, PaymentViewPrintable, PaymentViewMusic, PaymentViewMultimedia, PaymentViewDigitalArt, PaymentViewCAD, PaymentViewSoftware, PaymentViewBusiness
+from web.views import PaymentViewWebsitetemplate, PaymentViewMobiletemplate, PaymentViewDesktoptemplate, PaymentViewMicrosofttemplate, PaymentViewAdobetemplate, PaymentViewWebsite, PaymentViewMobile, PaymentViewDesktop, PaymentViewEmbeded, PaymentViewGraphics, PaymentViewProject, PaymentViewImage, PurchasedView, PaymentViewBook, PaymentViewPrintable, PaymentViewMusic, PaymentViewMultimedia, PaymentViewDigitalArt, PaymentViewCAD, PaymentViewSoftware, PaymentViewBusiness, send_email_view
 from web.views import SoldView
 
 from .views import delete_viewed_notifications
@@ -27,17 +27,14 @@ urlpatterns = [
 	path('logout/', views.logout, name="logout"),
     path('change-password/', change_password, name='change_password'),
     
-    # path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
-    # path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
-    # path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    # path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     
     # Password reset URLs
     path('password-reset/', auth_views.PasswordResetView.as_view(template_name='web/registration/password_reset_form.html'), name='password_reset'),
     path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='web/registration/password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='web/registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='web/registration/password_reset_complete.html'), name='password_reset_complete'),
- 
+    
+    
     path("",views.home,name = "home"),
     path("aboutus/",views.aboutus,name = "aboutus"),
     path("base1/",views.base1,name = "base1"),
@@ -850,6 +847,8 @@ urlpatterns = [
     path('successsubscription/', views.successsubscription, name='successsubscription'),
     path('pricing/', views.pricing, name='pricing'),
     path('livechat/', views.livechat, name='livechat'),
+    
+    path('send-email/', send_email_view, name='send_email'),
     
     # URL FOR SITEMAP
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),

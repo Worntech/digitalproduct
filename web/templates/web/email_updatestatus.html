@@ -1,0 +1,63 @@
+<div style="max-width: 800px; margin: 0 auto; background: #f4f7fb; padding: 30px; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif; color: #333;">
+    
+    <!-- Logo -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <img src="https://worntechonline.shop/static/web/images/worntech2.png" alt="Worntech Logo" style="max-width: 350px; height: auto;">
+    </div>
+
+    <!-- Subject -->
+    <h2 style="color: #003366; text-align: center; font-size: 28px; margin-bottom: 15px; font-weight: bold;">Withdrawal Status Update</h2>
+
+    <!-- Message Content -->
+    <p style="font-size: 16px; line-height: 1.6; text-align: justify; margin-bottom: 20px; color: #333;">
+        Hello <strong>{{ user.first_name }} {{ user.last_name }}</strong>,<br><br>
+
+        {% if status == "Completed" %}
+        We are pleased to inform you that your withdrawal request for <strong>${{ amount }}</strong> has been successfully processed, and the amount has been <strong>loaded onto your card ending in {{ card_last4 }}</strong>. You can now access your funds and make transactions with your card.<br><br>
+
+        If you experience any issues or need further assistance, please do not hesitate to contact our support team via live chat on our website or through WhatsApp: <strong>{{ whatsapp_number }}</strong>.<br><br>
+        
+        Thank you for choosing Worntech Online Services!
+        
+        {% elif status == "Processing" %}
+        Your withdrawal request for <strong>${{ amount }}</strong> is currently being processed. Once completed, the amount will be loaded onto your card ending in <strong>{{ card_last4 }}</strong>. Please be patient as we work to complete your transaction.<br><br>
+
+        If you have any questions, feel free to reach out to us through live chat or WhatsApp: <strong>{{ whatsapp_number }}</strong>.<br><br>
+
+        Thank you for your trust in Worntech Online Services!
+        
+        {% elif status == "Declined" %}
+        Unfortunately, your withdrawal request for <strong>${{ amount }}</strong> to your card ending in <strong>{{ card_last4 }}</strong> has been declined. This could be due to various reasons, such as insufficient balance, incorrect details, or verification issues.<br><br>
+
+        To understand why your request was declined and how to resolve the issue, please contact our customer support team via live chat or WhatsApp: <strong>{{ whatsapp_number }}</strong>.<br><br>
+
+        We appreciate your patience and look forward to assisting you!
+        {% endif %}
+    </p>
+
+    <!-- Transaction Details -->
+    <div style="background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+        <h3 style="color: #003366; text-align: center; font-size: 20px;">Withdrawal Details</h3>
+        <p><strong>Amount:</strong> ${{ amount }}</p>
+        <p><strong>Status:</strong> <span style="color: {% if status == 'Completed' %}#00c853{% elif status == 'Processing' %}#ff9800{% else %}#d9534f{% endif %}; font-weight: bold;">{{ status }}</span></p>
+        <p><strong>Card Type:</strong> {{ card_type }}</p>
+        <p><strong>Card Number:</strong> **** **** **** {{ card_last4 }}</p>
+    </div>
+
+    <!-- Footer -->
+    <p style="text-align: center; font-size: 14px; color: #003366; margin-top: 30px;">
+        <strong>Best regards,</strong><br>
+        <span style="color: #00c853; font-weight: bold;">Worntech Online Team</span>
+    </p>
+
+    <!-- Divider -->
+    <hr style="border: 0; height: 2px; background: #003366; margin: 20px 0;">
+
+    <!-- Contact Information -->
+    <p style="text-align: center; font-size: 14px; color: #003366;">
+        Visit our website: <a href="https://worntechonline.shop/" style="color: #00c853; text-decoration: none; font-weight: bold;">Worntech Online</a>
+    </p>
+    <p style="text-align: center; font-size: 14px; color: #003366;">
+        Need help? Contact us at <a href="mailto:worntechservices@gmail.com" style="color: #00c853; text-decoration: none; font-weight: bold;">worntechservices@gmail.com</a>
+    </p>
+</div>

@@ -6,6 +6,9 @@ from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
 from web.models import *
 
+from django.views.decorators.csrf import csrf_protect
+from django.http import HttpResponseNotAllowed
+
 User = get_user_model()
 
 @login_required(login_url='signin')
@@ -109,4 +112,26 @@ def update_chat_status(request, id, status):
         chat.save()
 
     return redirect('room_selection')  # Redirect back to the payment view
+
+# @login_required(login_url='signin')
+# def deletechat(request, pk):
+#     chatdelete = get_object_or_404(ChatRoom, pk=pk)
+#     if request.method == "POST":
+#         chatdelete.delete()
+#         messages.success(request, "Chat deleted successfully.")
+#         return redirect('room_selection')
+#     return redirect('room_selection')
+
+@csrf_protect
+@login_required(login_url='signin')
+def deletechat(request, pk):
+    chat_room = get_object_or_404(ChatRoom, pk=pk)
+    
+    if request.method == "POST":
+        chat_room.delete()
+        messages.success(request, "Chat deleted successfully.")
+        return redirect('room_selection')
+
+    # If method is not POST, return a 405 Method Not Allowed response
+    return HttpResponseNotAllowed(["POST"])
 

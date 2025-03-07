@@ -17,6 +17,16 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 
 from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from .models import Subscription, Staff, Contact
+
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
 
 from pesapal.views import *
 
@@ -60,6 +70,8 @@ from django.utils.decorators import method_decorator
 from django.db.models import Avg, Count
 from math import floor
 
+from django.core.mail import EmailMultiAlternatives
+
 from django.contrib.auth.views import (
     PasswordResetView, PasswordResetDoneView,
     PasswordResetConfirmView, PasswordResetCompleteView
@@ -69,8 +81,8 @@ from django.contrib.auth.views import (
 # @login_required(login_url='signin')
 def admin(request):
     return render(request, 'web/admin.html')
+
 def signup(request):
-    
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -93,19 +105,48 @@ def signup(request):
             else:
                 user = MyUser.objects.create_user(username=username, email=email, first_name=first_name, last_name=last_name, password=password)
                 user.save()
-                # messages.info(request, 'Registered succesefull.')
                 
-                staff = Staff.objects.create(username=username, email=email, first_name=first_name, last_name=last_name, staff_role="normal user", mobile_number=mobile_number, profile_picture=profile_picture)
+                # Create staff record
+                staff = Staff.objects.create(
+                    username=username, email=email, first_name=first_name, 
+                    last_name=last_name, staff_role="normal user", 
+                    mobile_number=mobile_number, profile_picture=profile_picture
+                )
                 staff.save()
+
+                # EMAILING with HTML Template
+                subject = "Worntech Online sign up"
                 
+                # Prepare the context for the template rendering
+                context = {
+                    'subject': subject,
+                    'first_name': first_name,
+                    'last_name': last_name,
+                    'email': email,
+                    'password': password
+                }
                 
-                # EMAILING
-                subject = "WORNTECH ONLINE SERVICES"
-                message = f"Hellow {first_name} {last_name} You have created account in Worntech, welcome and enjoy the service of selling and buyying digital product, if there is any problem contact us. Your user name is: {email} and your password is: {password}, welcome and enjoy the service with worntech online services"
-                #from_email = settings.EMAIL_HOST_USER
+                # Load the HTML email template
+                html_message = render_to_string('web/email_signup.html', context)
+                
+                # Plain-text fallback
+                plain_message = strip_tags(html_message)
+                
+                # Email sending
                 from_email = 'worntechservices@gmail.com'
-                recipient_list = [email]
-                send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+                recipient_list = [email]  # Send to the registered email
+                
+                # Send the email with both HTML and plain-text
+                send_mail(
+                    subject, 
+                    plain_message, 
+                    from_email, 
+                    recipient_list, 
+                    html_message=html_message,  # Send HTML email
+                    fail_silently=True
+                )
+
+                # After successful registration and email send, redirect to success page
                 return redirect('signupsucces')
         else:
             messages.info(request, 'The Two Passwords Not Matching')
@@ -146,32 +187,48 @@ def change_password(request):
             user = passwordchange.save()
             
             # Create a notification for the user
-            message = "You have changed your password in worntech online srvices, welcome and enjoy selling and buying digital product."
+            message = "You have changed your password in Worntech online services, welcome and enjoy selling and buying digital products."
 
-            # Assuming the user is the one making the request
+            # Create a new notification
             Notification.objects.create(
                 user=request.user,  # Replace with appropriate user if needed
                 message=message,
                 status="None"
             )
             
+            # Load the HTML email template
+            html_message = render_to_string('web/email_reseatconfirmation.html', {
+                'first_name': request.user.first_name,
+                'last_name': request.user.last_name,
+                'email': request.user.email,
+                'whatsapp_number': '+255 710 891 288',  # Add the WhatsApp contact
+            })
             
-            subject = "WORNTECH ONLINE SERVICES"
-            message = f"Hellow {request.user.first_name} {request.user.last_name} You have changed your password in worntech online services, if not you please contact us through whatsapp +255 710 891 288"
-            #from_email = settings.EMAIL_HOST_USER
+            # Send email
+            subject = "Worntech Online - Password Changed"
             from_email = 'worntechservices@gmail.com'
-            recipient_list = [user.request.email]
-            send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+            recipient_list = [request.user.email]
+            
+            send_mail(
+                subject,
+                '',  # Plain text message can be left empty or provide a fallback message
+                from_email,
+                recipient_list,
+                fail_silently=True,
+                html_message=html_message  # This is the HTML message we created
+            )
                 
             # This is to keep the user logged in after password change
             update_session_auth_hash(request, user)
             messages.success(request, 'Your password was successfully updated!')
-            return redirect('signin')  # Redirect to the same page after successful password change
+            return redirect('signin')  # Redirect to the signin page after successful password change
         else:
-            messages.error(request, 'Please inseart correct information.')
+            messages.error(request, 'Please insert correct information.')
     else:
         passwordchange = PasswordChangeForm(request.user)
+
     return render(request, 'web/change_password.html', {'passwordchange': passwordchange})
+
 
 # Custom Password Reset View
 class CustomPasswordResetView(PasswordResetView):
@@ -190,6 +247,7 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 # Custom Password Reset Complete View
 class CustomPasswordResetCompleteView(PasswordResetCompleteView):
     template_name = 'registration/password_reset_complete.html'
+
 
 def home(request):
     image_count = Image.objects.all().count()
@@ -275,19 +333,36 @@ def contactpost(request):
     if request.method == "POST":
         contactpost = ContactForm(request.POST)
         if contactpost.is_valid():
-            contactpost.save()
+            # Save the form data to the database as a Contact instance
+            contact = contactpost.save()
 
-            subject = "WORNTECH ONLINE SERVICES"
-            message = f"Hellow {request.user.first_name} {request.user.last_name} Thanks for contacting us, worntech online service is working for your message, opinion and question, get read we are here for your, for more infomation contact via whatsapp +255 710 891 288"
-            #from_email = settings.EMAIL_HOST_USER
+            # Prepare subject for the email
+            subject = "Worntech Online - We Appreciate Your Message"
+
+            # Render the HTML content using the template
+            html_message = render_to_string('web/email_contactpost.html', {
+                'subject': subject,
+                'name': contact.Full_Name,  # Use the Full_Name from the saved Contact instance
+                'whatsapp_number': '+255 710 891 288',  # Static number, can be dynamic if needed
+            })
+
+            # Send the email using send_mail with HTML content
             from_email = 'worntechservices@gmail.com'
-            recipient_list = [request.user.email]
-            send_mail(subject, message, from_email, recipient_list, fail_silently=True)
-            messages.success(request, 'Message sent successfully.')
+            recipient_list = [contact.Email]  # Use the Email from the Contact instance
+            send_mail(
+                subject=subject,
+                message='Your message has been received. Thank you for contacting us!',  # The plain-text fallback message
+                from_email=from_email,
+                recipient_list=recipient_list,
+                html_message=html_message,  # The HTML version of the email
+                fail_silently=True
+            )
+
+            messages.success(request, 'Message sent successfully. Our team will get back to you shortly!')
             return redirect('contactpost')  # Ensure this URL exists in your project
     else:
         contactpost = ContactForm()
-    
+
     context = {
         "contactpost": contactpost
     }
@@ -303,14 +378,27 @@ def subscribe(request):
             else:
                 Subscription.objects.create(email=email)  # Save the new subscription
                 
-                subject = "WORNTECH ONLINE SERVICES"
-                message = f"Thanks for subscribing in worntech online services, sell and buy digital product online with worntech online service, welcome and enjoy the services"
-                #from_email = settings.EMAIL_HOST_USER
-                from_email = 'worntechservices@gmail.com'
-                recipient_list = [email]
-                send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+                # Prepare subject for the email
+            subject = "Worntech Online - We Appreciate Your Subscription"
+
+            # Render the HTML content using the template
+            html_message = render_to_string('web/email_subscription.html', {
+                'subject': subject,
+            })
+
+            # Send the email using send_mail with HTML content
+            from_email = 'worntechservices@gmail.com'
+            recipient_list = [email]  # Use the Email from the Contact instance
+            send_mail(
+                subject=subject,
+                message='Your message has been received. Thank you for contacting us!',  # The plain-text fallback message
+                from_email=from_email,
+                recipient_list=recipient_list,
+                html_message=html_message,  # The HTML version of the email
+                fail_silently=True
+            )
                 
-                messages.success(request, 'Thank you for subscribing!')
+            messages.success(request, 'Thank you for subscribing!')
 
         return redirect('successsubscription')  # Change to the appropriate template name or URL
 
@@ -12427,20 +12515,15 @@ def process_image_purchase(request, product_id):
     
 @login_required(login_url='signin')
 def withdraw(request):
-    
     staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
-    # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
     
     cardinfo = Card.objects.filter(user=request.user).first()
     
-    # Check if the user has a Myamount record; if not, create a default one
     my_amount_record = Myamount.objects.filter(user=request.user).first()
-    
     if not my_amount_record:
-        # Create a default Myamount record with 0.00 values
         my_amount_record = Myamount.objects.create(
             user=request.user,
             Total_amount=Decimal('0.00'),
@@ -12460,12 +12543,11 @@ def withdraw(request):
             if my_amount_record.My_amount < withdraw_instance.Amount_in_USD:
                 messages.info(request, 'Amount to withdraw is greater than your balance.')
             elif withdraw_instance.Amount_in_USD < 20:
-                messages.info(request, 'Sorry! Minimum Amount To Withdraw is $20.')
+                messages.info(request, 'Sorry! Minimum Amount To Withdraw is $ 20.')
             elif not cardinfo:
                 messages.info(request, 'Please add your card details before making a withdrawal.')
                 return redirect('mycard')
             else:
-                # Update Myamount record with new values
                 twent = withdraw_instance.Amount_in_USD * Decimal('0.25')
                 my_amount_record.Total_amount -= (withdraw_instance.Amount_in_USD + twent)
                 my_amount_record.My_amount -= withdraw_instance.Amount_in_USD
@@ -12473,10 +12555,8 @@ def withdraw(request):
                 my_amount_record.Withdrawed_amount += withdraw_instance.Amount_in_USD
                 my_amount_record.save()
 
-                # Save the withdraw record
                 withdraw_instance.user = request.user
                 withdraw_instance.Email = request.user.email
-                
                 withdraw_instance.Card_Number = cardinfo.Card_Number
                 withdraw_instance.Card_Name = cardinfo.Card_Name
                 withdraw_instance.Phone_Number = cardinfo.Phone_Number
@@ -12484,20 +12564,42 @@ def withdraw(request):
                 withdraw_instance.Card_Type = cardinfo.Card_Type
                 withdraw_instance.First_Name = cardinfo.First_Name
                 withdraw_instance.Last_Name = cardinfo.Last_Name
-                
                 withdraw_instance.Status = 'Processing'
                 withdraw_instance.save()
-                
+
                 fname = request.user.first_name
                 lname = request.user.last_name
                 email = request.user.email
-                
-                subject = "WORNTECH ONLINE SERVICES"
-                message = f"Hellow {fname} {lname} You have withdrawed ${withdraw_instance.Amount_in_USD} from Worntech Online, you money will be confirmed soon, For any isue contact us through live chat in this worntech online platform to chat live with our customer care, if no altenative way contact us through whatsapp number +255 710 891 288"
-                #from_email = settings.EMAIL_HOST_USER
-                from_email = 'worntechservices@gmail.com'
-                recipient_list = [email]
-                send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+
+                # Debugging: Print context before sending email
+                print(f"Sending email to {email} with amount: {withdraw_instance.Amount_in_USD}")
+
+                # Email content using the HTML template
+                subject = "Worntech Online - Cashout Request"
+                whatsapp_number = "+255 710 891 288"
+                context = {
+                    "subject": subject,
+                    "user": request.user,
+                    "amount": "{:.2f}".format(withdraw_instance.Amount_in_USD + twent),  # Format to 2 decimal places
+                    "fee": "{:.2f}".format(twent),  # 20% service charge
+                    "card_type": cardinfo.Card_Type,
+                    "card_last4": str(cardinfo.Card_Number)[-4:],  # Last 4 digits of card
+                    "whatsapp_number": whatsapp_number
+                }
+
+                # Render email content
+                html_content = render_to_string('web/email_withdraw.html', context)
+                text_content = strip_tags(html_content)
+
+                # Debugging: Print rendered HTML content
+                print(html_content)
+
+                # Send email
+                email_message = EmailMultiAlternatives(
+                    subject, text_content, 'worntechservices@gmail.com', [email]
+                )
+                email_message.attach_alternative(html_content, "text/html")
+                email_message.send(fail_silently=False)  # Change to False to see errors
 
                 messages.info(request, 'Money withdrawn successfully.')
                 return redirect('withdraw')
@@ -12508,7 +12610,6 @@ def withdraw(request):
         'my_amount_record': my_amount_record,
         "notification": notification,
         'notificationcount': notificationcount,
-        
         "staff_role": staff.staff_role,
         "first_name": staff.first_name,
         "last_name": staff.last_name,
@@ -12517,12 +12618,10 @@ def withdraw(request):
     
     return render(request, 'web/withdraw.html', context)
 
-@login_required(login_url='signin')
+
 def mycard(request):
-    
     staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
-    # Order the notifications by the most recent ones first
     notification = Notification.objects.filter(user=request.user).order_by('-id')
     notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
     cardinfo = Card.objects.filter(user=request.user)
@@ -12540,34 +12639,42 @@ def mycard(request):
             mycard_instance.First_Name = request.user.first_name
             mycard_instance.Last_Name = request.user.last_name
             mycard_instance.Email = request.user.email
-            mycard.save()
-                
-            fname = request.user.first_name
-            lname = request.user.last_name
-            email = request.user.email
-                
-            subject = "WORNTECH ONLINE SERVICES"
-            message = f"Hellow {fname} {lname} You have added {mycard_instance.Card_Number} in Worntech online services, Thanks, now you can cashout using this card, For any isue chat with our customer care live in worntech online website or mobile application, if no altenative contact via whatsapp +255 710 891 288"
-            #from_email = settings.EMAIL_HOST_USER
-            from_email = 'worntechservices@gmail.com'
-            recipient_list = [email]
-            send_mail(subject, message, from_email, recipient_list, fail_silently=True)
-            messages.info(request, 'Card Added Successfully.')
-            return redirect('mycard')
+            mycard_instance.save()
+
+            # Prepare email content
+            subject = "Worntech Online - Card Added Successfully"
+            email_context = {
+                "subject": subject,
+                "user": mycard_instance.Card_Name,
+                "card_type": mycard_instance.Card_Type,
+                "card_last4": mycard_instance.Card_Number[-4:],  # Last 4 digits only
+                "country": mycard_instance.Country,
+                "whatsapp_number": "+255 710 891 288",
+            }
+
+            # Render email template
+            message = render_to_string("web/email_crd.html", email_context)
+
+            # Send email
+            from_email = "worntechservices@gmail.com"
+            recipient_list = [request.user.email]
+            send_mail(subject, "", from_email, recipient_list, html_message=message, fail_silently=True)
+
+            messages.info(request, "Card Added Successfully.")
+            return redirect("mycard")
 
     context = {
         "mycard": mycard,
         "cardinfo": cardinfo,
         "notification": notification,
-        'notificationcount': notificationcount,
-        
+        "notificationcount": notificationcount,
         "staff_role": staff.staff_role,
         "first_name": staff.first_name,
         "last_name": staff.last_name,
         "profile_picture": staff.profile_picture,
     }
     
-    return render(request, 'web/mycard.html', context)
+    return render(request, "web/mycard.html", context)
 
 @login_required(login_url='signin')
 def cardinfo(request):
@@ -12726,6 +12833,7 @@ def viewmypayment(request, id):
     return render(request, 'web/viewmypayment.html', context)
 
 @login_required(login_url='signin')
+
 def update_status(request, id, status):
     mypaymentview = get_object_or_404(Withdraw, id=id)
     
@@ -12734,23 +12842,77 @@ def update_status(request, id, status):
         mypaymentview.Status = status
         mypaymentview.save()
         
-        # Create a notification for the user
-        message = ""
-        if status == 'Completed':
-            message = f"Confirmed you have received ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number}, if there is any problem please contact us through live chat with our customer care, if no altenative contact us via whatsapp number +255 710891288, thank you for chosing worntech to sell and buy digital product."
-        elif status == 'Processing':
-            message = f"Withdraw of ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number} is in process plese wait for the confirmation, if there is any problem please contact us through live chat with our customer care, if no altenative contact us via whatsapp number +255 710891288, thank you for chosing worntech to sell and buy digital product."
-        elif status == 'Declined':
-            message = f"Withdraw of ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number} is declained, if there is any problem please contact us via live chat with our customer care to know the clear causes of decline, if no altenative contact us via whatsapp number +255 710891288, thank you for chosing worntech to sell and buy digital product."
+        user = mypaymentview.user
+        email = user.email
 
-        # Assuming the user is the one making the request
+        # Prepare message and subject
+        if status == 'Completed':
+            message_text = f"Your withdrawal of ${mypaymentview.Amount_in_USD} has been successfully processed, and the amount has been loaded onto your card ending in {mypaymentview.Card_Number[-4:]}. If you experience any issues, please contact us via live chat or WhatsApp: +255 710 891 288."
+            subject = "Funds Successfully Loaded to Your Card - WORNTECH ONLINE"
+        elif status == 'Processing':
+            message_text = f"Your withdrawal request of ${mypaymentview.Amount_in_USD} is currently being processed and will be loaded onto your card ending in {mypaymentview.Card_Number[-4:]}. Please wait for further confirmation. If you have any concerns, contact us via live chat or WhatsApp: +255 710 891 288."
+            subject = "Withdrawal Processing - WORNTECH ONLINE"
+        elif status == 'Declined':
+            message_text = f"Unfortunately, your withdrawal request of ${mypaymentview.Amount_in_USD} to your card ending in {mypaymentview.Card_Number[-4:]} has been declined. Please reach out to customer support via live chat or WhatsApp: +255 710 891 288 for clarification."
+            subject = "Withdrawal Declined - WORNTECH ONLINE"
+
+        # Create a notification for the user
         Notification.objects.create(
-            user=mypaymentview.user,  # Replace with appropriate user if needed
-            message=message,
+            user=user,
+            message=message_text,
             status=status
         )
 
+        # Email content
+        email_context = {
+            "user": user,
+            "amount": mypaymentview.Amount_in_USD,
+            "status": status,
+            "card_type": mypaymentview.Card_Type,
+            "card_last4": mypaymentview.Card_Number[-4:],  # Show only last 4 digits for security
+            "whatsapp_number": "+255 710 891 288"
+        }
+
+        # Render email template
+        email_html_message = render_to_string("web/email_updatestatus.html", email_context)
+
+        # Send email
+        send_mail(
+            subject,
+            "",  # Empty text message since we are using HTML
+            "worntechservices@gmail.com",
+            [email],
+            fail_silently=True,
+            html_message=email_html_message
+        )
+
     return redirect('viewmypayment', id=id)  # Redirect back to the payment view
+
+# def update_status(request, id, status):
+#     mypaymentview = get_object_or_404(Withdraw, id=id)
+    
+#     # Update the status based on the passed parameter
+#     if status in ['Completed', 'Processing', 'Declined']:
+#         mypaymentview.Status = status
+#         mypaymentview.save()
+        
+#         # Create a notification for the user
+#         message = ""
+#         if status == 'Completed':
+#             message = f"Confirmed you have received ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number}, if there is any problem please contact us through live chat with our customer care, if no altenative contact us via whatsapp number +255 710891288, thank you for chosing worntech to sell and buy digital product."
+#         elif status == 'Processing':
+#             message = f"Withdraw of ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number} is in process plese wait for the confirmation, if there is any problem please contact us through live chat with our customer care, if no altenative contact us via whatsapp number +255 710891288, thank you for chosing worntech to sell and buy digital product."
+#         elif status == 'Declined':
+#             message = f"Withdraw of ${mypaymentview.Amount_in_USD} in card number {mypaymentview.Card_Number} is declained, if there is any problem please contact us via live chat with our customer care to know the clear causes of decline, if no altenative contact us via whatsapp number +255 710891288, thank you for chosing worntech to sell and buy digital product."
+
+#         # Assuming the user is the one making the request
+#         Notification.objects.create(
+#             user=mypaymentview.user,  # Replace with appropriate user if needed
+#             message=message,
+#             status=status
+#         )
+
+#     return redirect('viewmypayment', id=id)  # Redirect back to the payment view
 
 
 def view_notifications(request, id):
@@ -13450,3 +13612,92 @@ def pricing(request):
 def livechat(request):
     return render(request, 'web/livechat.html')
 
+def send_email_view(request):
+    if request.method == "POST":
+        subject = request.POST.get("subject")
+        message_content = request.POST.get("message")
+
+        # Collect unique emails from Subscription, Staff, and Contact models
+        subscription_emails = set(Subscription.objects.values_list('email', flat=True))
+        staff_emails = set(Staff.objects.values_list('email', flat=True))
+        contact_emails = set(Contact.objects.values_list('Email', flat=True))  # Ensure 'Email' matches model field
+
+        # Combine all emails and remove duplicates
+        all_emails = list(subscription_emails | staff_emails | contact_emails)
+
+        if not all_emails:
+            messages.error(request, "No recipients found.")
+            return redirect('send_email')
+
+        # Load email template
+        html_message = render_to_string('web/email_template.html', {
+            'subject': subject,
+            'message_content': message_content
+        })
+        plain_message = strip_tags(html_message)  # Plain-text fallback
+
+        # Send email to all recipients
+        send_mail(
+            subject=subject,
+            message=plain_message,
+            from_email="worntechservices@gmail.com",
+            recipient_list=all_emails,
+            html_message=html_message,
+        )
+
+        messages.success(request, "Notification sent successfully!")
+        return redirect('send_email')
+
+    # Render the form from web/contact_form.html
+    return render(request, "web/contact_form.html")
+
+# def send_email_view(request):
+#     if request.method == "POST":
+#         subject = request.POST.get("subject")
+#         message_content = request.POST.get("message")
+
+#         # Collect unique emails from Subscription, Staff, and Contact models
+#         subscription_emails = set(Subscription.objects.values_list('email', flat=True))
+#         staff_emails = set(Staff.objects.values_list('email', flat=True))
+#         contact_emails = set(Contact.objects.values_list('Email', flat=True))  # Ensure 'Email' matches model field
+
+#         # Combine all emails and remove duplicates
+#         all_emails = list(subscription_emails | staff_emails | contact_emails)
+
+#         if not all_emails:
+#             messages.error(request, "No recipients found.")
+#             return redirect('send_email')
+
+#         # Load email template with dynamic content
+#         html_message = render_to_string('web/email_template.html', {
+#             'subject': subject,
+#             'message_content': message_content
+#         })
+
+#         # Fallback for plain-text email
+#         plain_message = strip_tags(html_message)  # Strip HTML tags for plain text fallback
+
+#         # Create the email message
+#         email = EmailMessage(
+#             subject=subject,
+#             body=plain_message,  # Plain text fallback
+#             from_email="worntechservices@gmail.com",
+#             to=["worntechservices@gmail.com"],  # Use a "no-reply" address for the 'To' field
+#             bcc=all_emails,  # Use BCC to hide recipients from each other
+#         )
+
+#         # Specify the content type as HTML to ensure the styles are applied
+#         email.content_subtype = "html"  # Ensures the email is sent as HTML
+#         email.html_message = html_message  # Set the HTML message as well
+
+#         # Send the email
+#         email.send()
+
+#         messages.success(request, "Notification sent successfully!")
+#         return redirect('send_email')
+
+#     # Render the form from web/contact_form.html
+#     return render(request, "web/contact_form.html")
+
+
+# mycard
