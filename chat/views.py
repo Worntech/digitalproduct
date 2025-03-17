@@ -83,8 +83,8 @@ def create_room(request):
         # Create the chat room with the logged-in user as the creator
         room = ChatRoom.objects.create(name=room_name, status="Active", created_by=request.user)
 
-        # Get or create the "Worntech" user (system bot)
-        worntech_user, created = User.objects.get_or_create(username="Worntech", defaults={"first_name": "Worntech", "last_name": "Support"})
+        # Get or create the "Worntech Support" user (system bot)
+        worntech_user, created = User.objects.get_or_create(username="Worntech Support", defaults={"first_name": "Worntech", "last_name": "Support"})
 
         # Create an initial welcome message in the newly created room
         Message.objects.create(

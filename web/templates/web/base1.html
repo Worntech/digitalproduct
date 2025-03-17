@@ -82,6 +82,7 @@
                     <li class="nxl-item nxl-caption">
                         <label>Navigation</label>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-airplay"></i></span>
@@ -301,7 +302,7 @@
                             </li>
                         </ul>
                     </li> {% endcomment %}
-
+                    {% endif %}
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-at-sign"></i></span>
@@ -1851,7 +1852,8 @@
             <!--! [Start] Header Right !-->
             <div class="header-right ms-auto">
                 <div class="d-flex align-items-center">
-                    <div class="dropdown nxl-h-item nxl-header-search">
+
+                    {% comment %} <div class="dropdown nxl-h-item nxl-header-search">
                         <a href="javascript:void(0);" class="nxl-head-link me-0" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                             <i class="feather-search"></i>
                         </a>
@@ -2053,7 +2055,7 @@
                                 <a href="javascript:void(0);" class="p-3 fs-10 fw-bold text-uppercase text-center d-block">Loar More</a>
                             </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
 
 
 
@@ -2215,7 +2217,7 @@
 
 
 
-
+                    {% if user.is_authenticated %}
                     <div class="dropdown nxl-h-item">
                         <a class="nxl-head-link me-3" data-bs-toggle="dropdown" href="#" role="button" data-bs-auto-close="outside">
                             <i class="feather-bell"></i>
@@ -2273,6 +2275,8 @@
                             </div> {% endcomment %}
                         </div>
                     </div>
+                    {% endif %}
+                    {% if user.is_authenticated %}
                     <div class="dropdown nxl-h-item">
                         <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button" data-bs-auto-close="outside">
                             <img src="{% static 'web/images/profile2.jpg' %}" alt="user-image" class="img-fluid user-avtar me-0">
@@ -2422,6 +2426,7 @@
                             </a>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
             <!--! [End] Header Right !-->
@@ -2444,7 +2449,7 @@
         <!-- [ Footer ] start -->
         <footer class="footer">
             <p class="fs-11 text-muted fw-medium text-uppercase mb-0 copyright">
-                <span>Worntech Online Services || Copyright ©</span>
+                <span>Worntech Online || Copyright ©</span>
                 <script>
                     document.write(new Date().getFullYear());
                 </script>

@@ -174,6 +174,7 @@ def signin(request):
     else:
         return render(request, 'web/signin.html')
 
+@login_required(login_url='signin')
 def logout(request):
     auth.logout(request)
     #messages.info(request, 'Loged out succesefull.')
@@ -288,6 +289,7 @@ def home(request):
 
 def aboutus(request):
     return render(request, 'web/aboutus.html')
+
 def base1(request):
     # Order the notifications by the most recent ones first
     staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
@@ -307,8 +309,11 @@ def base1(request):
         "profile_picture": staff.profile_picture,
     }
     return render(request, 'web/base1.html', context)
+
 def base(request):
     return render(request, 'web/base.html')
+
+@login_required(login_url='signin')
 def contactus(request):
     contact = Contact.objects.all()
     
@@ -7007,7 +7012,7 @@ def adobeposttemplate(request):
     return render(request, 'web/adobeposttemplate.html',context)
 
 
-class viewwebsite(DetailView):
+class viewwebsite(LoginRequiredMixin, DetailView):
     model = Website
     template_name = 'web/viewwebsite.html'
     comment_form_class = CommentwebsiteForm
@@ -7064,7 +7069,7 @@ class viewwebsite(DetailView):
         return context
 
     
-class viewmobile(DetailView):
+class viewmobile(LoginRequiredMixin, DetailView):
     model = Mobile
     template_name = 'web/viewmobile.html'
     comment_form_class = CommentmobileForm
@@ -7120,7 +7125,7 @@ class viewmobile(DetailView):
         return context
 
     
-class viewdesktop(DetailView):
+class viewdesktop(LoginRequiredMixin, DetailView):
     model = Desktop
     template_name = 'web/viewdesktop.html'
     comment_form_class = CommentdesktopForm
@@ -7177,7 +7182,7 @@ class viewdesktop(DetailView):
 
 
 
-class viewembeded(DetailView):
+class viewembeded(LoginRequiredMixin, DetailView):
     model = Embeded
     template_name = 'web/viewembeded.html'
     comment_form_class = CommentembededForm
@@ -7234,7 +7239,7 @@ class viewembeded(DetailView):
 
 
 
-class viewgraphics(DetailView):
+class viewgraphics(LoginRequiredMixin, DetailView):
     model = Graphics
     template_name = 'web/viewgraphics.html'
     comment_form_class = CommentgraphicsForm
@@ -7291,7 +7296,7 @@ class viewgraphics(DetailView):
 
 
 # VIEW FOR VIEWING PROJECT
-class viewproject(DetailView):
+class viewproject(LoginRequiredMixin, DetailView):
     model = Project
     template_name = 'web/viewproject.html'
     comment_form_class = CommentprojectForm
@@ -7427,7 +7432,7 @@ class viewproject(DetailView):
     
     
 # VIEWS FOR VIEWING DIGITAL PRODUCTS
-class viewbook(DetailView):
+class viewbook(LoginRequiredMixin, DetailView):
     model = Book
     template_name = 'web/viewbook.html'
     comment_form_class = CommentbookForm
@@ -7560,7 +7565,7 @@ class viewbook(DetailView):
         })
         return context
     
-class viewprintable(DetailView):
+class viewprintable(LoginRequiredMixin, DetailView):
     model = Printable
     template_name = 'web/viewprintable.html'
     comment_form_class = CommentprintableForm
@@ -7693,7 +7698,7 @@ class viewprintable(DetailView):
         })
         return context
     
-class viewmusic(DetailView):
+class viewmusic(LoginRequiredMixin, DetailView):
     model = Music
     template_name = 'web/viewmusic.html'
     comment_form_class = CommentmusicForm
@@ -7826,7 +7831,7 @@ class viewmusic(DetailView):
         })
         return context
     
-class viewmultimedia(DetailView):
+class viewmultimedia(LoginRequiredMixin, DetailView):
     model = Multimedia
     template_name = 'web/viewmultimedia.html'
     comment_form_class = CommentmultimediaForm
@@ -7960,7 +7965,7 @@ class viewmultimedia(DetailView):
         })
         return context
     
-class viewdigitalArt(DetailView):
+class viewdigitalArt(LoginRequiredMixin, DetailView):
     model = DigitalArt
     template_name = 'web/viewdigitalArt.html'
     comment_form_class = CommentdigitalArtForm
@@ -8093,7 +8098,7 @@ class viewdigitalArt(DetailView):
         })
         return context
     
-class viewCAD(DetailView):
+class viewCAD(LoginRequiredMixin, DetailView):
     model = CAD
     template_name = 'web/viewCAD.html'
     comment_form_class = CommentCADForm
@@ -8226,7 +8231,7 @@ class viewCAD(DetailView):
         })
         return context
     
-class viewsoftware(DetailView):
+class viewsoftware(LoginRequiredMixin, DetailView):
     model = Software
     template_name = 'web/viewsoftware.html'
     comment_form_class = CommentsoftwareForm
@@ -8360,7 +8365,7 @@ class viewsoftware(DetailView):
         return context
     
     
-class viewbusiness(DetailView):
+class viewbusiness(LoginRequiredMixin, DetailView):
     model = Business
     template_name = 'web/viewbusiness.html'
     comment_form_class = CommentbusinessForm
@@ -8496,7 +8501,7 @@ class viewbusiness(DetailView):
         return context
     
 # VIEW FOR VIEWING IMAGE
-class viewimage(DetailView):
+class viewimage(LoginRequiredMixin, DetailView):
     model = Image
     template_name = 'web/viewimage.html'
     comment_form_class = CommentimageForm
@@ -9504,6 +9509,7 @@ def updateimage(request, id):
     context = {"image":image}
     return render(request, 'web/updateimage.html', context)
 
+@login_required(login_url='signin')
 def updatecard(request, id):
     ca = Card.objects.get(id=id)
     card = CardForm(instance=ca)
@@ -9516,6 +9522,7 @@ def updatecard(request, id):
     context = {"card":card}
     return render(request, 'web/updatecard.html', context)
 
+@login_required(login_url='signin')
 def updatesystemuser(request, id):
     syu = Staff.objects.get(id=id)
     systemuser = StaffForm(instance=syu)
@@ -10274,30 +10281,35 @@ class PaymentViewImage(LoginRequiredMixin, View, PaymentRequestMixin):
     
     
 # UPDATING PAYMENT
+@login_required(login_url='signin')
 def update_websitetemplatepayment_status(payment, transaction_id):
     """Update the payment status to 'paid'."""
     payment.payment_status = 'paid'
     payment.transaction_id = transaction_id
     payment.save()
-    
+
+@login_required(login_url='signin')
 def update_mobiletemplatepayment_status(mobiletemplatepayment, transaction_id):
     """Update the payment status to 'paid'."""
     mobiletemplatepayment.payment_status = 'paid'
     mobiletemplatepayment.transaction_id = transaction_id
     mobiletemplatepayment.save()
-    
+
+@login_required(login_url='signin')
 def update_desktoptemplatepayment_status(desktoptemplatepayment, transaction_id):
     """Update the payment status to 'paid'."""
     desktoptemplatepayment.payment_status = 'paid'
     desktoptemplatepayment.transaction_id = transaction_id
     desktoptemplatepayment.save()
-    
+
+@login_required(login_url='signin')
 def update_microsofttemplatepayment_status(microsofttemplatepayment, transaction_id):
     """Update the payment status to 'paid'."""
     microsofttemplatepayment.payment_status = 'paid'
     microsofttemplatepayment.transaction_id = transaction_id
     microsofttemplatepayment.save()
-    
+
+@login_required(login_url='signin')
 def update_adobetemplatepayment_status(adobetemplatepayment, transaction_id):
     """Update the payment status to 'paid'."""
     adobetemplatepayment.payment_status = 'paid'
@@ -10305,30 +10317,35 @@ def update_adobetemplatepayment_status(adobetemplatepayment, transaction_id):
     adobetemplatepayment.save()
     
 # UPDATING PAYMENT FOR COURSES
+@login_required(login_url='signin')
 def update_websitepayment_status(websitepayment, transaction_id):
     """Update the payment status to 'paid'."""
     websitepayment.payment_status = 'paid'
     websitepayment.transaction_id = transaction_id
     websitepayment.save()
-    
+
+@login_required(login_url='signin')
 def update_mobilepayment_status(mobilepayment, transaction_id):
     """Update the payment status to 'paid'."""
     mobilepayment.payment_status = 'paid'
     mobilepayment.transaction_id = transaction_id
     mobilepayment.save()
-    
+
+@login_required(login_url='signin')
 def update_desktoppayment_status(desktoppayment, transaction_id):
     """Update the payment status to 'paid'."""
     desktoppayment.payment_status = 'paid'
     desktoppayment.transaction_id = transaction_id
     desktoppayment.save()
-    
+
+@login_required(login_url='signin')
 def update_embededpayment_status(embededpayment, transaction_id):
     """Update the payment status to 'paid'."""
     embededpayment.payment_status = 'paid'
     embededpayment.transaction_id = transaction_id
     embededpayment.save()
-    
+
+@login_required(login_url='signin')
 def update_graphicspayment_status(graphicspayment, transaction_id):
     """Update the payment status to 'paid'."""
     graphicspayment.payment_status = 'paid'
@@ -10336,6 +10353,7 @@ def update_graphicspayment_status(graphicspayment, transaction_id):
     graphicspayment.save()
 
 # UPDATE PAYMENT FOR PROJECT
+@login_required(login_url='signin')
 def update_projectpayment_status(projectpayment, transaction_id):
     """Update the payment status to 'paid'."""
     projectpayment.payment_status = 'paid'
@@ -10343,48 +10361,56 @@ def update_projectpayment_status(projectpayment, transaction_id):
     projectpayment.save()
     
 # UPDATE PAYMENT FOR DIGITAL PRODUCT
+@login_required(login_url='signin')
 def update_bookpayment_status(bookpayment, transaction_id):
     """Update the payment status to 'paid'."""
     bookpayment.payment_status = 'paid'
     bookpayment.transaction_id = transaction_id
     bookpayment.save()
-    
+
+@login_required(login_url='signin')
 def update_printablepayment_status(printablepayment, transaction_id):
     """Update the payment status to 'paid'."""
     printablepayment.payment_status = 'paid'
     printablepayment.transaction_id = transaction_id
     printablepayment.save()
-    
+
+@login_required(login_url='signin')
 def update_musicpayment_status(musicpayment, transaction_id):
     """Update the payment status to 'paid'."""
     musicpayment.payment_status = 'paid'
     musicpayment.transaction_id = transaction_id
     musicpayment.save()
-    
+
+@login_required(login_url='signin')
 def update_multimediapayment_status(multimediapayment, transaction_id):
     """Update the payment status to 'paid'."""
     multimediapayment.payment_status = 'paid'
     multimediapayment.transaction_id = transaction_id
     multimediapayment.save()
-    
+
+@login_required(login_url='signin')
 def update_digitalArtpayment_status(digitalArtpayment, transaction_id):
     """Update the payment status to 'paid'."""
     digitalArtpayment.payment_status = 'paid'
     digitalArtpayment.transaction_id = transaction_id
     digitalArtpayment.save()
-    
+
+@login_required(login_url='signin')
 def update_CADpayment_status(CADpayment, transaction_id):
     """Update the payment status to 'paid'."""
     CADpayment.payment_status = 'paid'
     CADpayment.transaction_id = transaction_id
     CADpayment.save()
-    
+
+@login_required(login_url='signin')
 def update_softwarepayment_status(softwarepayment, transaction_id):
     """Update the payment status to 'paid'."""
     softwarepayment.payment_status = 'paid'
     softwarepayment.transaction_id = transaction_id
     softwarepayment.save()
-    
+
+@login_required(login_url='signin')
 def update_businesspayment_status(businesspayment, transaction_id):
     """Update the payment status to 'paid'."""
     businesspayment.payment_status = 'paid'
@@ -10392,6 +10418,7 @@ def update_businesspayment_status(businesspayment, transaction_id):
     businesspayment.save()
     
 # UPDATE PAYMENT FOR IMAGE
+@login_required(login_url='signin')
 def update_imagepayment_status(imagepayment, transaction_id):
     """Update the payment status to 'paid'."""
     imagepayment.payment_status = 'paid'
@@ -10400,6 +10427,7 @@ def update_imagepayment_status(imagepayment, transaction_id):
     
     
 #HANDLING PAYMENT
+@login_required(login_url='signin')
 def handle_websitetemplate_payment(request, transaction_id, unique_code):
     """Handle website template payment."""
     amount = request.session.get('amount')
@@ -10432,6 +10460,7 @@ def handle_websitetemplate_payment(request, transaction_id, unique_code):
     
     return None
 
+@login_required(login_url='signin')
 def handle_mobiletemplate_payment(request, transaction_id, unique_code):
     """Handle mobile template payment."""
     amount = request.session.get('amount')
@@ -10469,6 +10498,7 @@ def handle_mobiletemplate_payment(request, transaction_id, unique_code):
 
     return None
 
+@login_required(login_url='signin')
 def handle_desktoptemplate_payment(request, transaction_id, unique_code):
     """Handle desktop template payment."""
     amount = request.session.get('amount')
@@ -10506,6 +10536,7 @@ def handle_desktoptemplate_payment(request, transaction_id, unique_code):
 
     return None
 
+@login_required(login_url='signin')
 def handle_microsofttemplate_payment(request, transaction_id, unique_code):
     """Handle Microsoft template payment."""
     amount = request.session.get('amount')
@@ -10543,7 +10574,7 @@ def handle_microsofttemplate_payment(request, transaction_id, unique_code):
 
     return None
 
-
+@login_required(login_url='signin')
 def handle_adobetemplate_payment(request, transaction_id, unique_code):
     """Handle Adobe template payment."""
     amount = request.session.get('amount')
@@ -10583,6 +10614,7 @@ def handle_adobetemplate_payment(request, transaction_id, unique_code):
 
 
 #HANDLING PAYMENT FOR COURSES
+@login_required(login_url='signin')
 def handle_website_payment(request, transaction_id, unique_code):
     """Handle website template payment."""
     amount = request.session.get('amount')
@@ -10596,6 +10628,7 @@ def handle_website_payment(request, transaction_id, unique_code):
         return redirect(reverse('viewwebsite', args=[course_id]))
     return None
 
+@login_required(login_url='signin')
 def handle_mobile_payment(request, transaction_id, unique_code):
     """Handle website template payment."""
     amount = request.session.get('amount')
@@ -10609,7 +10642,7 @@ def handle_mobile_payment(request, transaction_id, unique_code):
         return redirect(reverse('viewmobile', args=[course_id]))
     return None
 
-
+@login_required(login_url='signin')
 def handle_desktop_payment(request, transaction_id, unique_code):
     """Handle website template payment."""
     amount = request.session.get('amount')
@@ -10623,6 +10656,7 @@ def handle_desktop_payment(request, transaction_id, unique_code):
         return redirect(reverse('viewdesktop', args=[course_id]))
     return None
 
+@login_required(login_url='signin')
 def handle_embeded_payment(request, transaction_id, unique_code):
     """Handle website template payment."""
     amount = request.session.get('amount')
@@ -10636,6 +10670,7 @@ def handle_embeded_payment(request, transaction_id, unique_code):
         return redirect(reverse('viewembeded', args=[course_id]))
     return None
 
+@login_required(login_url='signin')
 def handle_graphics_payment(request, transaction_id, unique_code):
     """Handle website template payment."""
     amount = request.session.get('amount')
@@ -10650,6 +10685,7 @@ def handle_graphics_payment(request, transaction_id, unique_code):
     return None
 
 # HANDLE PAYMENT FOR PROJECT
+@login_required(login_url='signin')
 def handle_project_payment(request, transaction_id, unique_code):
     """Handle project payment."""
     amount = request.session.get('amount')
@@ -10688,6 +10724,7 @@ def handle_project_payment(request, transaction_id, unique_code):
 
 
 # HANDLE PAYMENT FOR DIGITAL PRODUCT
+@login_required(login_url='signin')
 def handle_book_payment(request, transaction_id, unique_code):
     """Handle book payment."""
     amount = request.session.get('amount')
@@ -10725,7 +10762,7 @@ def handle_book_payment(request, transaction_id, unique_code):
 
     return None
 
-
+@login_required(login_url='signin')
 def handle_printable_payment(request, transaction_id, unique_code):
     """Handle printable payment."""
     amount = request.session.get('amount')
@@ -10763,7 +10800,7 @@ def handle_printable_payment(request, transaction_id, unique_code):
 
     return None
 
-
+@login_required(login_url='signin')
 def handle_music_payment(request, transaction_id, unique_code):
     """Handle music template payment."""
     amount = request.session.get('amount')
@@ -10797,7 +10834,7 @@ def handle_music_payment(request, transaction_id, unique_code):
 
     return None
 
-
+@login_required(login_url='signin')
 def handle_multimedia_payment(request, transaction_id, unique_code):
     """Handle multimedia template payment."""
     amount = request.session.get('amount')
@@ -10831,7 +10868,7 @@ def handle_multimedia_payment(request, transaction_id, unique_code):
 
     return None
 
-
+@login_required(login_url='signin')
 def handle_digitalArt_payment(request, transaction_id, unique_code):
     """Handle digital art payment."""
     amount = request.session.get('amount')
@@ -10865,7 +10902,7 @@ def handle_digitalArt_payment(request, transaction_id, unique_code):
 
     return None
 
-
+@login_required(login_url='signin')
 def handle_CAD_payment(request, transaction_id, unique_code):
     """Handle CAD payment."""
     amount = request.session.get('amount')
@@ -10899,7 +10936,7 @@ def handle_CAD_payment(request, transaction_id, unique_code):
 
     return None
 
-
+@login_required(login_url='signin')
 def handle_software_payment(request, transaction_id, unique_code):
     """Handle software payment."""
     amount = request.session.get('amount')
@@ -10933,7 +10970,7 @@ def handle_software_payment(request, transaction_id, unique_code):
 
     return None
 
-
+@login_required(login_url='signin')
 def handle_business_payment(request, transaction_id, unique_code):
     """Handle business payment."""
     amount = request.session.get('amount')
@@ -10969,6 +11006,7 @@ def handle_business_payment(request, transaction_id, unique_code):
 
 
 # HANDLE PAYMENT FOR IMAGE
+@login_required(login_url='signin')
 def handle_image_payment(request, transaction_id, unique_code):
     """Handle image payment."""
     amount = request.session.get('amount')
@@ -11005,6 +11043,7 @@ def handle_image_payment(request, transaction_id, unique_code):
 
 # PAYMENT COMPLETION
 @disable_browser_cache
+@login_required(login_url='signin')
 def payment_completed(request):
     transaction_id = request.GET.get('pesapal_transaction_tracking_id')
     unique_code = request.session.get('unique_code')
@@ -11071,7 +11110,7 @@ def payment_completed(request):
     return response if response else redirect('websitetemplate')
 
     
-class PurchasedView(ListView):
+class PurchasedView(LoginRequiredMixin, ListView):
     template_name = 'web/purchased_templates.html'
 
     def get(self, request, *args, **kwargs):
@@ -11206,8 +11245,8 @@ class PurchasedView(ListView):
         }
 
         return render(request, self.template_name, context)
- 
-class SoldView(ListView):
+
+class SoldView(LoginRequiredMixin, ListView):
     template_name = 'web/sold_templates.html'
 
     def get(self, request, *args, **kwargs):
@@ -11341,6 +11380,7 @@ class SoldView(ListView):
 
 @disable_browser_cache
 @transaction.atomic
+@login_required(login_url='signin')
 def process_websitetemplate_purchase(request, template_id):
     user = request.user  # The user making the purchase (buyer)
     template = Websitetemplate.objects.get(id=template_id)
@@ -11398,6 +11438,7 @@ def process_websitetemplate_purchase(request, template_id):
     return redirect(reverse('viewwebsitetemplate', args=[template_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_mobiletemplate_purchase(request, mobiletemplate_id):
     user = request.user  # The user making the purchase (buyer)
     template = Mobiletemplate.objects.get(id=mobiletemplate_id)
@@ -11458,6 +11499,7 @@ def process_mobiletemplate_purchase(request, mobiletemplate_id):
 
 @never_cache
 @transaction.atomic
+@login_required(login_url='signin')
 def process_desktoptemplate_purchase(request, desktoptemplate_id):
     user = request.user  # The user making the purchase (buyer)
     template = Desktoptemplate.objects.get(id=desktoptemplate_id)
@@ -11517,6 +11559,7 @@ def process_desktoptemplate_purchase(request, desktoptemplate_id):
     return redirect(reverse('viewdesktoptemplate', args=[desktoptemplate_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_microsofttemplate_purchase(request, microsofttemplate_id):
     user = request.user  # The user making the purchase (buyer)
     template = Microsofttemplate.objects.get(id=microsofttemplate_id)
@@ -11576,6 +11619,7 @@ def process_microsofttemplate_purchase(request, microsofttemplate_id):
     return redirect(reverse('viewmicrosofttemplate', args=[microsofttemplate_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_adobetemplate_purchase(request, adobetemplate_id):
     user = request.user  # The user making the purchase (buyer)
     template = Adobetemplate.objects.get(id=adobetemplate_id)
@@ -11635,6 +11679,7 @@ def process_adobetemplate_purchase(request, adobetemplate_id):
     return redirect(reverse('viewadobetemplate', args=[adobetemplate_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_website_purchase(request, course_id):
     user = request.user  # The user making the purchase (buyer)
     template = Website.objects.get(id=course_id)
@@ -11693,6 +11738,7 @@ def process_website_purchase(request, course_id):
     request.session.pop('amount', None)
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_mobile_purchase(request, course_id):
     user = request.user  # The user making the purchase (buyer)
     template = Mobile.objects.get(id=course_id)
@@ -11750,6 +11796,7 @@ def process_mobile_purchase(request, course_id):
     request.session.pop('amount', None)
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_desktop_purchase(request, course_id):
     user = request.user  # The user making the purchase (buyer)
     template = Desktop.objects.get(id=course_id)
@@ -11807,6 +11854,7 @@ def process_desktop_purchase(request, course_id):
     request.session.pop('amount', None)
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_embeded_purchase(request, course_id):
     user = request.user  # The user making the purchase (buyer)
     template = Embeded.objects.get(id=course_id)
@@ -11864,6 +11912,7 @@ def process_embeded_purchase(request, course_id):
     request.session.pop('amount', None)
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_graphics_purchase(request, course_id):
     user = request.user  # The user making the purchase (buyer)
     template = Graphics.objects.get(id=course_id)
@@ -11921,6 +11970,7 @@ def process_graphics_purchase(request, course_id):
     request.session.pop('amount', None)
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_project_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = Project.objects.get(id=product_id)
@@ -11981,6 +12031,7 @@ def process_project_purchase(request, product_id):
 
 # PROCESS DIGITAL PRODUCT PURCHASE
 @transaction.atomic
+@login_required(login_url='signin')
 def process_book_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = Book.objects.get(id=product_id)
@@ -12040,6 +12091,7 @@ def process_book_purchase(request, product_id):
     return redirect(reverse('viewbook', args=[product_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_printable_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = Printable.objects.get(id=product_id)
@@ -12099,6 +12151,7 @@ def process_printable_purchase(request, product_id):
     return redirect(reverse('viewprintable', args=[product_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_music_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = Music.objects.get(id=product_id)
@@ -12158,6 +12211,7 @@ def process_music_purchase(request, product_id):
     return redirect(reverse('viewmusic', args=[product_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_multimedia_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = Multimedia.objects.get(id=product_id)
@@ -12217,6 +12271,7 @@ def process_multimedia_purchase(request, product_id):
     return redirect(reverse('viewmultimedia', args=[product_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_digitalArt_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = DigitalArt.objects.get(id=product_id)
@@ -12277,6 +12332,7 @@ def process_digitalArt_purchase(request, product_id):
     
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_CAD_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = CAD.objects.get(id=product_id)
@@ -12336,6 +12392,7 @@ def process_CAD_purchase(request, product_id):
     return redirect(reverse('viewCAD', args=[product_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_software_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = Software.objects.get(id=product_id)
@@ -12395,6 +12452,7 @@ def process_software_purchase(request, product_id):
     return redirect(reverse('viewsoftware', args=[product_id]))
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_business_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = Business.objects.get(id=product_id)
@@ -12455,6 +12513,7 @@ def process_business_purchase(request, product_id):
     
     
 @transaction.atomic
+@login_required(login_url='signin')
 def process_image_purchase(request, product_id):
     user = request.user  # The user making the purchase (buyer)
     template = Image.objects.get(id=product_id)
@@ -12618,7 +12677,7 @@ def withdraw(request):
     
     return render(request, 'web/withdraw.html', context)
 
-
+@login_required(login_url='signin')
 def mycard(request):
     staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
@@ -12914,7 +12973,7 @@ def update_status(request, id, status):
 
 #     return redirect('viewmypayment', id=id)  # Redirect back to the payment view
 
-
+@login_required(login_url='signin')
 def view_notifications(request, id):
     
     staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
@@ -13027,6 +13086,7 @@ def viewmasterpayment(request, id):
         }
     return render(request, 'web/viewmasterpayment.html', context)
 
+@login_required(login_url='signin')
 def completed_transaction(request):
     payment = Payment.objects.all()
     paymentmobiletemplate = PaymentMobiletemplate.objects.all()
@@ -13090,6 +13150,7 @@ def completed_transaction(request):
     }
     return render(request, 'web/completed_transaction.html', context)
 
+@login_required(login_url='signin')
 def pending_transaction(request):
     payment = Payment.objects.all()
     paymentmobiletemplate = PaymentMobiletemplate.objects.all()
@@ -13152,6 +13213,7 @@ def pending_transaction(request):
     }
     return render(request, 'web/pending_transaction.html', context)
 
+@login_required(login_url='signin')
 def failed_transaction(request):
     payment = Payment.objects.all()
     paymentmobiletemplate = PaymentMobiletemplate.objects.all()
@@ -13398,42 +13460,43 @@ def useramount(request):
 
 def help(request):
     
-    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    # staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
-    # Order the notifications by the most recent ones first
-    notification = Notification.objects.filter(user=request.user).order_by('-id')
-    notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
+    # # Order the notifications by the most recent ones first
+    # notification = Notification.objects.filter(user=request.user).order_by('-id')
+    # notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
     
-    context = {
-        "notification":notification,
-        "notificationcount":notificationcount,
+    # context = {
+    #     "notification":notification,
+    #     "notificationcount":notificationcount,
         
-        "staff_role": staff.staff_role,
-        "first_name": staff.first_name,
-        "last_name": staff.last_name,
-        "profile_picture": staff.profile_picture,
-        }
+    #     "staff_role": staff.staff_role,
+    #     "first_name": staff.first_name,
+    #     "last_name": staff.last_name,
+    #     "profile_picture": staff.profile_picture,
+    #     }
     
-    return render(request, 'web/help.html', context)
+    return render(request, 'web/help.html')
+
 def terms_conditions(request):
     
-    staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
+    # staff = get_object_or_404(Staff, email=request.user.email, username=request.user.username)
     
     # Order the notifications by the most recent ones first
-    notification = Notification.objects.filter(user=request.user).order_by('-id')
-    notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
+    # notification = Notification.objects.filter(user=request.user).order_by('-id')
+    # notificationcount = Notification.objects.filter(user=request.user, viewed=False).count()
     
-    context = {
-        "notification":notification,
-        "notificationcount":notificationcount,
+    # context = {
+    #     "notification":notification,
+    #     "notificationcount":notificationcount,
         
-        "staff_role": staff.staff_role,
-        "first_name": staff.first_name,
-        "last_name": staff.last_name,
-        "profile_picture": staff.profile_picture,
-        }
+    #     "staff_role": staff.staff_role,
+    #     "first_name": staff.first_name,
+    #     "last_name": staff.last_name,
+    #     "profile_picture": staff.profile_picture,
+    #     }
     
-    return render(request, 'web/terms_conditions.html', context)
+    return render(request, 'web/terms_conditions.html')
 
 
 
@@ -13609,9 +13672,13 @@ def successsubscription(request):
     return render(request, 'web/successsubscription.html')
 def pricing(request):
     return render(request, 'web/pricing.html')
+
+@login_required(login_url='signin')
 def livechat(request):
     return render(request, 'web/livechat.html')
 
+
+@login_required(login_url='signin')
 def send_email_view(request):
     if request.method == "POST":
         subject = request.POST.get("subject")
@@ -13700,4 +13767,4 @@ def send_email_view(request):
 #     return render(request, "web/contact_form.html")
 
 
-# mycard
+# mybought
