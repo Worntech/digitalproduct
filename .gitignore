@@ -2,8 +2,8 @@
 *.pyc
 
 # Ignore SQLite database files (if applicable)
-*.sqlite3
-*.db
+# *.sqlite3
+# *.db
 
 # Ignore files in the media/home directory
 media/home/
